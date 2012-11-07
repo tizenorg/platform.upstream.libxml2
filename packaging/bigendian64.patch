@@ -1,0 +1,18 @@
+--- xzlib.c.xx	2012-03-01 17:23:54.000000000 +0000
++++ xzlib.c	2012-03-01 17:24:48.000000000 +0000
+@@ -228,9 +228,14 @@
+     if (state->err != LZMA_OK)
+         return -1;
+     if (state->eof == 0) {
++        /* avail_in is size_t, which is not necessary sizeof(unsigned) */
++        unsigned tmp = strm->avail_in;
+         if (xz_load(state, state->in, state->size,
+-                    (unsigned *) &(strm->avail_in)) == -1)
++                    &tmp) == -1) {
++            strm->avail_in = tmp;
+             return -1;
++        }
++        strm->avail_in = tmp;
+         strm->next_in = state->in;
+     }
+     return 0;

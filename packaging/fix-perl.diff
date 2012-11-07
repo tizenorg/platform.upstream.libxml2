@@ -1,0 +1,149 @@
+commit 77b77b1301e052d90e6a0967534a698506afcd86
+Author: Daniel Veillard <veillard@redhat.com>
+Date:   Thu Jan 26 19:11:02 2012 +0800
+
+    Fix SAX2 builder in case of undefined element namespaces
+    
+    Work as in XML-1.0 before namespaces, and use prefix:localname
+    as the new element name (and no namespace of course)
+    Also fix 3 cases in the regression tests where the prefix: was
+    erroneously dropped in such case
+
+diff --git a/SAX2.c b/SAX2.c
+index c0482c0..0c48d65 100644
+--- a/SAX2.c
++++ b/SAX2.c
+@@ -2163,6 +2163,7 @@ xmlSAX2StartElementNs(void *ctx,
+     xmlNodePtr parent;
+     xmlNsPtr last = NULL, ns;
+     const xmlChar *uri, *pref;
++    xmlChar *lname = NULL;
+     int i, j;
+ 
+     if (ctx == NULL) return;
+@@ -2182,6 +2183,20 @@ xmlSAX2StartElementNs(void *ctx,
+     }
+ 
+     /*
++     * Take care of the rare case of an undefined namespace prefix
++     */
++    if ((prefix != NULL) && (URI == NULL)) {
++        if (ctxt->dictNames) {
++	    const xmlChar *fullname;
++
++	    fullname = xmlDictQLookup(ctxt->dict, prefix, localname);
++	    if (fullname != NULL)
++	        localname = fullname;
++	} else {
++	    lname = xmlBuildQName(localname, prefix, NULL, 0);
++	}
++    }
++    /*
+      * allocate the node
+      */
+     if (ctxt->freeElems != NULL) {
+@@ -2194,7 +2209,10 @@ xmlSAX2StartElementNs(void *ctx,
+ 	if (ctxt->dictNames)
+ 	    ret->name = localname;
+ 	else {
+-	    ret->name = xmlStrdup(localname);
++	    if (lname == NULL)
++		ret->name = xmlStrdup(localname);
++	    else
++	        ret->name = lname;
+ 	    if (ret->name == NULL) {
+ 	        xmlSAX2ErrMemory(ctxt, "xmlSAX2StartElementNs");
+ 		return;
+@@ -2206,8 +2224,11 @@ xmlSAX2StartElementNs(void *ctx,
+ 	if (ctxt->dictNames)
+ 	    ret = xmlNewDocNodeEatName(ctxt->myDoc, NULL, 
+ 	                               (xmlChar *) localname, NULL);
+-	else
++	else if (lname == NULL)
+ 	    ret = xmlNewDocNode(ctxt->myDoc, NULL, localname, NULL);
++	else
++	    ret = xmlNewDocNodeEatName(ctxt->myDoc, NULL, 
++	                               (xmlChar *) lname, NULL);
+ 	if (ret == NULL) {
+ 	    xmlSAX2ErrMemory(ctxt, "xmlSAX2StartElementNs");
+ 	    return;
+diff --git a/result/namespaces/err_7.xml b/result/namespaces/err_7.xml
+index f4e5164..4b4c662 100644
+--- a/result/namespaces/err_7.xml
++++ b/result/namespaces/err_7.xml
+@@ -1,2 +1,2 @@
+ <?xml version="1.0"?>
+-<foo/>
++<f:foo/>
+diff --git a/result/xmlid/id_tst2.xml b/result/xmlid/id_tst2.xml
+index 33ee896..856a320 100644
+--- a/result/xmlid/id_tst2.xml
++++ b/result/xmlid/id_tst2.xml
+@@ -1,6 +1,6 @@
+ Object is a Node Set :
+ Set contains 1 nodes:
+-1  ELEMENT foo
++1  ELEMENT n:foo
+     ATTRIBUTE id
+       TEXT
+         content=bar
+diff --git a/result/xmlid/id_tst3.xml b/result/xmlid/id_tst3.xml
+index e2f8228..6d8865c 100644
+--- a/result/xmlid/id_tst3.xml
++++ b/result/xmlid/id_tst3.xml
+@@ -1,6 +1,6 @@
+ Object is a Node Set :
+ Set contains 1 nodes:
+-1  ELEMENT o:o
++1  ELEMENT f:o:o
+     ATTRIBUTE id
+       TEXT
+         content=bar
+commit 1c989278d9650daafc79e55750bec5a5a224a553
+Author: Daniel Veillard <veillard@redhat.com>
+Date:   Thu Jan 26 19:43:06 2012 +0800
+
+    Fix SAX2 builder in case of undefined attributes namespace
+    
+    To follow the early XML-1.0 REC, the new localname is "prefix:localname"
+    and there is obviously now namespace.
+
+diff --git a/SAX2.c b/SAX2.c
+index 0c48d65..e230cea 100644
+--- a/SAX2.c
++++ b/SAX2.c
+@@ -2335,8 +2335,33 @@ xmlSAX2StartElementNs(void *ctx,
+      */
+     if (nb_attributes > 0) {
+         for (j = 0,i = 0;i < nb_attributes;i++,j+=5) {
++	    /*
++	     * Handle the rare case of an undefined atribute prefix
++	     */
++	    if ((attributes[j+1] != NULL) && (attributes[j+2] == NULL)) {
++		if (ctxt->dictNames) {
++		    const xmlChar *fullname;
++
++		    fullname = xmlDictQLookup(ctxt->dict, attributes[j+1],
++		                              attributes[j]);
++		    if (fullname != NULL) {
++			xmlSAX2AttributeNs(ctxt, fullname, NULL,
++			                   attributes[j+3], attributes[j+4]);
++		        continue;
++		    }
++		} else {
++		    lname = xmlBuildQName(attributes[j], attributes[j+1],
++		                          NULL, 0);
++		    if (lname != NULL) {
++			xmlSAX2AttributeNs(ctxt, lname, NULL,
++			                   attributes[j+3], attributes[j+4]);
++			xmlFree(lname);
++		        continue;
++		    }
++		}
++	    }
+ 	    xmlSAX2AttributeNs(ctxt, attributes[j], attributes[j+1],
+-	                       attributes[j+3], attributes[j+4]);
++			       attributes[j+3], attributes[j+4]);
+ 	}
+     }
+ 
