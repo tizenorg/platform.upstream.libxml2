@@ -10,7 +10,7 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-build
 BuildRequires:  libxml2-devel
 BuildRequires:  python-devel
 BuildRequires:  python-xml
-Requires:       libxml2-2 = %{version}
+Requires:       libxml2 = %{version}
 Obsoletes:      libxml2-python < %{version}
 Provides:       libxml2-python = %{version}
 
