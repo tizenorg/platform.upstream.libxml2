@@ -3,7 +3,7 @@ Version:        2.8.0
 Release:        0
 Summary:        Python Bindings for libxml2
 License:        MIT
-Group:          Development/Libraries/Python
+Group:          Platform Development/Python
 Url:            http://xmlsoft.org
 Source:         ftp://xmlsoft.org/libxml2/libxml2-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
@@ -58,7 +58,6 @@ rm -f %{buildroot}%{py_sitedir}/*.{la,a}
 
 %files
 %defattr(-, root, root)
-%doc python/TODO
 %doc python/libxml2class.txt
 %doc python/tests
 %{py_sitedir}/*
