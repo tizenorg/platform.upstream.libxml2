@@ -8,6 +8,7 @@ Url:            http://xmlsoft.org
 # Source ftp://xmlsoft.org/libxml2/libxml2-git-snapshot.tar.gz changes every day
 Source:         ftp://xmlsoft.org/libxml2/%{name}-%{version}.tar.gz
 Source2:        baselibs.conf
+Source1001: 	libxml2.manifest
 BuildRequires:  pkg-config
 BuildRequires:  readline-devel
 BuildRequires:  xz-devel
@@ -53,6 +54,7 @@ to develop applications that require these.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 %configure --disable-static \
@@ -87,16 +89,19 @@ ln -s libxml2/libxml %{buildroot}%{_includedir}/libxml
 %postun -p /sbin/ldconfig
 
 %files 
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %license COPYING*
 %{_libdir}/lib*.so.*
 
 %files tools
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %{_bindir}/xmllint
 %{_bindir}/xmlcatalog
 
 %files devel
+%manifest %{name}.manifest
 %defattr(-, root, root)
 %{_bindir}/xml2-config
 %dir %{_datadir}/aclocal
