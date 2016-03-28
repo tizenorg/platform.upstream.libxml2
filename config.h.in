@@ -1,4 +1,7 @@
-/* config.h.in.  Generated from configure.in by autoheader.  */
+/* config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* Type cast for the gethostbyname() argument */
+#undef GETHOSTBYNAME_ARG_CAST
 
 /* Define to 1 if you have the <ansidecl.h> header file. */
 #undef HAVE_ANSIDECL_H
@@ -69,6 +72,9 @@
 /* Define to 1 if you have the <inttypes.h> header file. */
 #undef HAVE_INTTYPES_H
 
+/* Define to 1 if you have the `isascii' function. */
+#undef HAVE_ISASCII
+
 /* Define if isinf is there */
 #undef HAVE_ISINF
 
@@ -111,6 +117,17 @@
 /* Define to 1 if you have the <memory.h> header file. */
 #undef HAVE_MEMORY_H
 
+/* Define to 1 if you have the `mmap' function. */
+#undef HAVE_MMAP
+
+/* Define to 1 if you have the `munmap' function. */
+#undef HAVE_MUNMAP
+
+/* mmap() is no good without munmap() */
+#if defined(HAVE_MMAP) && !defined(HAVE_MUNMAP)
+#  undef /**/ HAVE_MMAP
+#endif
+
 /* Define to 1 if you have the <nan.h> header file. */
 #undef HAVE_NAN_H
 
@@ -131,6 +148,9 @@
 
 /* Define if <pthread.h> is there */
 #undef HAVE_PTHREAD_H
+
+/* Define to 1 if you have the `putenv' function. */
+#undef HAVE_PUTENV
 
 /* Define to 1 if you have the `rand' function. */
 #undef HAVE_RAND
@@ -279,11 +299,17 @@
 /* Define to the version of this package. */
 #undef PACKAGE_VERSION
 
+/* Type cast for the send() function 2nd arg */
+#undef SEND_ARG2_CAST
+
 /* Define to 1 if you have the ANSI C header files. */
 #undef STDC_HEADERS
 
 /* Support for IPv6 */
 #undef SUPPORT_IP6
+
+/* Define if va_list is an array type */
+#undef VA_LIST_IS_ARRAY
 
 /* Version number of package */
 #undef VERSION
@@ -291,8 +317,17 @@
 /* Determine what socket length (socklen_t) data type is */
 #undef XML_SOCKLEN_T
 
+/* Define for Solaris 2.5.1 so the uint32_t typedef from <sys/synch.h>,
+   <pthread.h>, or <semaphore.h> is not used. If the typedef were allowed, the
+   #define below would cause a syntax error. */
+#undef _UINT32_T
+
 /* Using the Win32 Socket implementation */
 #undef _WINSOCKAPI_
 
 /* ss_family is not defined here, use __ss_family instead */
 #undef ss_family
+
+/* Define to the type of an unsigned integer type of width exactly 32 bits if
+   such a type exists and the standard includes do not define it. */
+#undef uint32_t

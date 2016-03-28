@@ -1,13 +1,14 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_PREREQ(2.59)
-AC_INIT(entities.c)
-AM_CONFIG_HEADER(config.h)
+AC_PREREQ([2.63])
+AC_INIT
+AC_CONFIG_SRCDIR([entities.c])
+AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CANONICAL_HOST
 
 LIBXML_MAJOR_VERSION=2
-LIBXML_MINOR_VERSION=8
-LIBXML_MICRO_VERSION=0
+LIBXML_MINOR_VERSION=9
+LIBXML_MICRO_VERSION=2
 LIBXML_MICRO_VERSION_SUFFIX=
 LIBXML_VERSION=$LIBXML_MAJOR_VERSION.$LIBXML_MINOR_VERSION.$LIBXML_MICRO_VERSION$LIBXML_MICRO_VERSION_SUFFIX
 LIBXML_VERSION_INFO=`expr $LIBXML_MAJOR_VERSION + $LIBXML_MINOR_VERSION`:$LIBXML_MICRO_VERSION:$LIBXML_MINOR_VERSION
@@ -58,18 +59,18 @@ m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
 dnl Checks for programs.
 AC_PROG_CC
 AC_PROG_INSTALL
+AC_PROG_LN_S
 AC_PROG_MKDIR_P
 AC_PROG_CPP
-AC_PATH_PROG(RM, rm, /bin/rm)
 AC_PATH_PROG(MV, mv, /bin/mv)
 AC_PATH_PROG(TAR, tar, /bin/tar)
 AC_PATH_PROG(PERL, perl, /usr/bin/perl)
 AC_PATH_PROG(WGET, wget, /usr/bin/wget)
 AC_PATH_PROG(XMLLINT, xmllint, /usr/bin/xmllint)
 AC_PATH_PROG(XSLTPROC, xsltproc, /usr/bin/xsltproc)
+PKG_PROG_PKG_CONFIG
 
-AC_LIBTOOL_WIN32_DLL
-AM_PROG_LIBTOOL
+LT_INIT
 
 dnl
 dnl if the system support linker version scripts for symbol versioning
@@ -97,7 +98,7 @@ dnl
 dnl zlib option might change flags, so we save them initially
 dnl
 _cppflags="${CPPFLAGS}"
-_ldflags="${LDFLAGS}"
+_libs="${LIBS}"
 
 AC_ARG_WITH(c14n,
 [  --with-c14n             add the Canonicalization support (on)])
@@ -116,11 +117,11 @@ AC_ARG_WITH(history,
 AC_ARG_WITH(html,
 [  --with-html             add the HTML support (on)])
 dnl Specific dir for HTML output ?
-AC_ARG_WITH(html-dir, AC_HELP_STRING([--with-html-dir=path],
+AC_ARG_WITH(html-dir, AS_HELP_STRING([--with-html-dir=path],
             [path to base html directory, default $datadir/doc/html]),
             [HTML_DIR=$withval], [HTML_DIR='$(datadir)/doc'])
 
-AC_ARG_WITH(html-subdir, AC_HELP_STRING([--with-html-subdir=path],
+AC_ARG_WITH(html-subdir, AS_HELP_STRING([--with-html-subdir=path],
             [directory used under html-dir, default $PACKAGE-$VERSION/html]),
             [test "x$withval" != "x" && HTML_DIR="$HTML_DIR/$withval"],
             [HTML_DIR="$HTML_DIR/\$(PACKAGE)-\$(VERSION)/html"])
@@ -147,6 +148,9 @@ AC_ARG_WITH(push,
 [  --with-push             add the PUSH parser interfaces (on)])
 AC_ARG_WITH(python,
 [  --with-python[[=DIR]]     build Python bindings if found])
+AC_ARG_WITH(python_install_dir,
+[  --with-python-install-dir=DIR
+                          install Python bindings in DIR])
 AC_ARG_WITH(reader,
 [  --with-reader           add the xmlReader parsing interface (on)])
 AC_ARG_WITH(readline,
@@ -154,7 +158,7 @@ AC_ARG_WITH(readline,
   if test "$withval" != "no" -a "$withval" != "yes"; then
     RDL_DIR=$withval
     CPPFLAGS="${CPPFLAGS} -I$withval/include"
-    LDFLAGS="${LDFLAGS} -L$withval/lib"
+    LIBS="${LIBS} -L$withval/lib"
   fi
 ])
 AC_ARG_WITH(regexps,
@@ -190,7 +194,7 @@ AC_ARG_WITH(zlib,
   if test "$withval" != "no" -a "$withval" != "yes"; then
     Z_DIR=$withval
     CPPFLAGS="${CPPFLAGS} -I$withval/include"
-    LDFLAGS="${LDFLAGS} -L$withval/lib"
+    LIBS="${LIBS} -L$withval/lib"
   fi
 ])
 AC_ARG_WITH(lzma,
@@ -198,15 +202,18 @@ AC_ARG_WITH(lzma,
   if test "$withval" != "no" -a "$withval" != "yes"; then
     LZMA_DIR=$withval
     CPPFLAGS="${CPPFLAGS} -I$withval/include"
-    LDFLAGS="${LDFLAGS} -L$withval/lib"
+    LIBS="${LIBS} -L$withval/lib"
   fi
 ])
 AC_ARG_WITH(coverage,
 [  --with-coverage         build for code coverage with GCC (off)])
 
 AC_ARG_ENABLE(rebuild-docs,
-[  --enable-rebuild-docs[[=yes/no]]  rebuild some generated docs [[default=yes]]])
-AM_CONDITIONAL([REBUILD_DOCS], [test "$enable_rebuild_docs" = "no"])
+[  --enable-rebuild-docs[[=yes/no]]  rebuild some generated docs [[default=no]]])
+if test "$enable_rebuild_docs" = "yes" -a "$srcdir" != "."; then
+  AC_MSG_ERROR([cannot rebuild docs when builddir != srcdir])
+fi
+AM_CONDITIONAL([REBUILD_DOCS], [test "$enable_rebuild_docs" = "yes" -o "$USER" = "veillard"])
 
 dnl
 dnl hard dependancies on options
@@ -219,6 +226,7 @@ fi
 if test "$with_schematron" = "yes"
 then
     with_pattern=yes
+    with_tree=yes
     with_xpath=yes
 fi
 if test "$with_reader" = "yes"
@@ -383,6 +391,8 @@ if test "$with_zlib" = "no"; then
     echo "Disabling compression support"
 else
     AC_CHECK_HEADERS(zlib.h,
+        [SAVE_LDFLAGS="${LDFLAGS}"
+	 LDFLAGS="-L${Z_DIR}/lib"
 	AC_CHECK_LIB(z, gzread,[
 	    AC_DEFINE([HAVE_LIBZ], [1], [Have compression library])
 	    WITH_ZLIB=1
@@ -396,7 +406,8 @@ else
 		esac]
 	    else
 		Z_LIBS="-lz"
-	    fi]))
+	    fi])
+	 LDFLAGS="${SAVE_LDFLAGS}"])
 fi
 
 AC_SUBST(Z_CFLAGS)
@@ -411,16 +422,36 @@ WITH_LZMA=0
 if test "$with_lzma" = "no"; then
     echo "Disabling compression support"
 else
-    AC_CHECK_HEADERS(lzma.h,
-	AC_CHECK_LIB(lzma, lzma_code,[
-	    AC_DEFINE([HAVE_LIBLZMA], [1], [Have compression library])
-	    WITH_LZMA=1
-	    if test "x${LZMA_DIR}" != "x"; then
-		LZMA_CFLAGS="-I${LZMA_DIR}/include"
-		LZMA_LIBS="-L${LZMA_DIR}/lib -llzma"
-	    else
-		LZMA_LIBS="-llzma"
-	    fi]))
+    # Try pkg-config first so that static linking works.
+    # If this succeeeds, we ignore the WITH_LZMA directory.
+    PKG_CHECK_MODULES([LZMA],[liblzma],
+        [have_liblzma=yes],
+        [have_liblzma=no])
+
+     # If pkg-config failed, fall back to AC_CHECK_LIB. This
+     # will not pick up the necessary LIBS flags for liblzma's
+     # private dependencies, though, so static linking may fail.
+     if test "x$have_liblzma" = "xno"; then
+         AC_CHECK_HEADERS(lzma.h,
+	    [SAVE_LDFLAGS="${LDFLAGS}"
+	     LDFLAGS="-L${LZMA_DIR}/lib"
+            AC_CHECK_LIB(lzma, lzma_code,[
+                have_liblzma=yes
+                if test "x${LZMA_DIR}" != "x"; then
+                    LZMA_CFLAGS="-I${LZMA_DIR}/include"
+                    LZMA_LIBS="-L${LZMA_DIR}/lib -llzma"
+                else
+                    LZMA_LIBS="-llzma"
+                fi],
+                [have_liblzma=no])
+	     LDFLAGS="${SAVE_LDFLAGS}"])
+    fi
+
+    # Found the library via either method?
+    if test "x$have_liblzma" = "xyes"; then
+        AC_DEFINE([HAVE_LIBLZMA], [1], [Have compression library])
+        WITH_LZMA=1
+    fi
 fi
 
 AC_SUBST(LZMA_CFLAGS)
@@ -428,7 +459,7 @@ AC_SUBST(LZMA_LIBS)
 AC_SUBST(WITH_LZMA)
 
 CPPFLAGS=${_cppflags}
-LDFLAGS=${_ldflags}
+LIBS=${_libs}
 
 echo Checking headers
 
@@ -500,6 +531,11 @@ AC_CHECK_HEADERS([dl.h])
 AC_CHECK_HEADERS([dlfcn.h])
 
 
+echo Checking types
+
+AC_TYPE_UINT32_T
+
+
 echo Checking libraries
 
 dnl Checks for library functions.
@@ -509,11 +545,17 @@ AC_CHECK_FUNCS(finite isnand fp_class class fpclass)
 AC_CHECK_FUNCS(strftime localtime gettimeofday ftime)
 AC_CHECK_FUNCS(stat _stat signal)
 AC_CHECK_FUNCS(rand rand_r srand time)
+AC_CHECK_FUNCS(isascii mmap munmap putenv)
+
+AH_VERBATIM([HAVE_MUNMAP_AFTER],[/* mmap() is no good without munmap() */
+#if defined(HAVE_MMAP) && !defined(HAVE_MUNMAP)
+#  undef /**/ HAVE_MMAP
+#endif])
 
 dnl Checking for va_copy availability
 AC_MSG_CHECKING([for va_copy])
-AC_TRY_LINK([#include <stdarg.h>
-va_list ap1,ap2;], [va_copy(ap1,ap2);],
+AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <stdarg.h>
+va_list ap1,ap2;]], [[va_copy(ap1,ap2);]])],
 have_va_copy=yes,
 have_va_copy=no)
 AC_MSG_RESULT($have_va_copy)
@@ -521,8 +563,8 @@ if test x"$have_va_copy" = x"yes"; then
     AC_DEFINE(HAVE_VA_COPY,1,[Whether va_copy() is available])
 else
     AC_MSG_CHECKING([for __va_copy])
-    AC_TRY_LINK([#include <stdarg.h>
-    va_list ap1,ap2;], [__va_copy(ap1,ap2);],
+    AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <stdarg.h>
+    va_list ap1,ap2;]], [[__va_copy(ap1,ap2);]])],
     have___va_copy=yes,
     have___va_copy=no)
     AC_MSG_RESULT($have___va_copy)
@@ -530,6 +572,16 @@ else
         AC_DEFINE(HAVE___VA_COPY,1,[Whether __va_copy() is available])
     fi
 fi
+
+dnl Checking whether va_list is an array type
+AC_MSG_CHECKING([whether va_list is an array type])
+AC_TRY_COMPILE2([
+#include <stdarg.h>
+void a(va_list * ap) {}],[
+va_list ap1, ap2; a(&ap1); ap2 = (va_list) ap1],[
+  AC_MSG_RESULT(no)],[
+  AC_MSG_RESULT(yes)
+  AC_DEFINE([VA_LIST_IS_ARRAY], [1],[Define if va_list is an array type])])
 
 dnl Checks for inet libraries:
 AC_SEARCH_LIBS(gethostent, [nsl])
@@ -563,6 +615,37 @@ AC_TRY_COMPILE2([
       XML_SOCKLEN_T="int"])])])
 AC_DEFINE_UNQUOTED(XML_SOCKLEN_T, $XML_SOCKLEN_T, [Determine what socket length (socklen_t) data type is])
 
+dnl Checking if gethostbyname() argument is const.
+AC_MSG_CHECKING([for const gethostbyname() argument])
+AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <netdb.h>]],
+    [[(void)gethostbyname((const char *)"");]])],
+have_gethostbyname_const_arg=yes,
+have_gethostbyname_const_arg=no)
+AC_MSG_RESULT($have_gethostbyname_const_arg)
+if test x"$have_gethostbyname_const_arg" = x"yes"; then
+    AC_DEFINE([GETHOSTBYNAME_ARG_CAST], [],
+      [Type cast for the gethostbyname() argument])
+else
+    AC_DEFINE([GETHOSTBYNAME_ARG_CAST], [(char *)],
+      [Type cast for the gethostbyname() argument])
+fi
+
+dnl Checking if send() second argument is const.
+AC_MSG_CHECKING([for const send() second argument])
+AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <sys/types.h>
+#include <sys/socket.h>]],
+    [[(void)send(1,(const char *)"",1,1);]])],
+have_send_const_arg2=yes,
+have_send_const_arg2=no)
+AC_MSG_RESULT($have_send_const_arg2)
+if test x"$have_send_const_arg2" = x"yes"; then
+    AC_DEFINE([SEND_ARG2_CAST], [],
+      [Type cast for the send() function 2nd arg])
+else
+    AC_DEFINE([SEND_ARG2_CAST], [(char *)],
+      [Type cast for the send() function 2nd arg])
+fi
+
 dnl ***********************Checking for availability of IPv6*******************
 
 AC_MSG_CHECKING([whether to enable IPv6])
@@ -573,13 +656,13 @@ then
 fi
 if test $enable_ipv6 = yes; then
   have_ipv6=no
-  AC_TRY_COMPILE([
-    #include <sys/types.h>
-    #include <sys/socket.h>
-    ], [
+  AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
+#   include <sys/types.h>
+#   include <sys/socket.h>
+    ]], [[
     struct sockaddr_storage ss;
     socket(AF_INET6, SOCK_STREAM, 0)
-    ],
+    ]])],
     have_ipv6=yes,
     have_ipv6=no
   )
@@ -597,26 +680,26 @@ if test $enable_ipv6 = yes; then
     dnl present.
     dnl ********************************************************************
     AC_MSG_CHECKING([struct sockaddr::ss_family])
-    AC_TRY_COMPILE([
-      #include <sys/types.h>
-      #include <sys/socket.h>
-      ], [
+    AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
+#     include <sys/types.h>
+#     include <sys/socket.h>
+      ]], [[
       struct sockaddr_storage ss ;
       ss.ss_family = 0 ;
-      ],
+      ]])],
       have_ss_family=yes,
       have_ss_family=no
     )
     AC_MSG_RESULT($have_ss_family)
     if test x$have_ss_family = xno ; then
       AC_MSG_CHECKING([broken struct sockaddr::ss_family])
-      AC_TRY_COMPILE([
-        #include <sys/types.h>
-        #include <sys/socket.h>
-        ], [
+      AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
+#       include <sys/types.h>
+#       include <sys/socket.h>
+        ]], [[
         struct sockaddr_storage ss ;
         ss.__ss_family = 0 ;
-        ],
+        ]])],
         have_broken_ss_family=yes,
         have_broken_ss_family=no
       )
@@ -752,7 +835,7 @@ if test "$with_python" != "no" ; then
                 if test -x "$PYTHON"
                 then
                     echo Found python in environment PYTHON=$PYTHON
-                    with_python=`$PYTHON -c "import sys; print sys.exec_prefix"`
+                    with_python=`$PYTHON -c "import sys; print(sys.exec_prefix)"`
                 else
                     AC_PATH_PROG(PYTHON, python python2.6 python2.5 python2.4 python2.3 python2.2 python2.1 python2.0 python1.6 python1.5)
 		fi
@@ -761,50 +844,57 @@ if test "$with_python" != "no" ; then
     fi
     if test "$PYTHON" != ""
     then
-        PYTHON_VERSION=`$PYTHON -c "import sys; print sys.version[[0:3]]"`
+        PYTHON_VERSION=`$PYTHON -c "from distutils import sysconfig; print(sysconfig.get_python_version())"`
+	PYTHON_INCLUDES=`$PYTHON -c "from distutils import sysconfig; print(sysconfig.get_python_inc())"`
+# does not work as it produce a /usr/lib/python path instead of/usr/lib64/python
+#
+#	PYTHON_SITE_PACKAGES=`$PYTHON -c "from distutils import sysconfig; print(sysconfig.get_python_lib())"`
 	echo Found Python version $PYTHON_VERSION
     fi
-    if test "$PYTHON_VERSION" != ""
+    if test "$PYTHON_VERSION" != "" -a "$PYTHON_INCLUDES" = ""
     then
-	if test -r $with_python/include/python$PYTHON_VERSION/Python.h -a \
-	   -d $with_python/lib/python$PYTHON_VERSION/site-packages
+	if test -r $with_python/include/python$PYTHON_VERSION/Python.h
 	then
 	    PYTHON_INCLUDES=$with_python/include/python$PYTHON_VERSION
-	    PYTHON_SITE_PACKAGES=$libdir/python$PYTHON_VERSION/site-packages
 	else
 	    if test -r $prefix/include/python$PYTHON_VERSION/Python.h
 	    then
 	        PYTHON_INCLUDES=$prefix/include/python$PYTHON_VERSION
-	        PYTHON_SITE_PACKAGES=$libdir/python$PYTHON_VERSION/site-packages
 	    else
 		if test -r /usr/include/python$PYTHON_VERSION/Python.h
 		then
 		    PYTHON_INCLUDES=/usr/include/python$PYTHON_VERSION
-	            PYTHON_SITE_PACKAGES=$libdir/python$PYTHON_VERSION/site-packages
 		else
-	            if test -r $with_python/include/Python.h -a \
-	               -d $with_python/lib/site-packages
+	            if test -r $with_python/include/Python.h
 	            then
 	                PYTHON_INCLUDES=$with_python/include
-	                PYTHON_SITE_PACKAGES=$with_python/lib/site-packages
 	            else
 		        echo could not find python$PYTHON_VERSION/Python.h or $with_python/include/Python.h
 		    fi
 		fi
 	    fi
-	    if test ! -d "$PYTHON_SITE_PACKAGES"
+	fi
+    fi
+    if test "$with_python_install_dir" != ""
+    then
+	PYTHON_SITE_PACKAGES="$with_python_install_dir"
+    fi
+    if test "$PYTHON_VERSION" != "" -a "$PYTHON_SITE_PACKAGES" = ""
+    then
+	if test -d $libdir/python$PYTHON_VERSION/site-packages
+	then
+	    PYTHON_SITE_PACKAGES=$libdir/python$PYTHON_VERSION/site-packages
+	else
+	    if test -d $with_python/lib/site-packages
 	    then
-		    PYTHON_SITE_PACKAGES=`$PYTHON -c "from distutils import sysconfig; print sysconfig.get_python_lib()"`
+		PYTHON_SITE_PACKAGES=$with_python/lib/site-packages
+	    else
+		PYTHON_SITE_PACKAGES=`$PYTHON -c "from distutils import sysconfig; print(sysconfig.get_python_lib())"`
 	    fi
 	fi
-	PYTHON_LIBS=`python$PYTHON_VERSION-config --ldflags`
     fi
-    if test "$with_python" != ""
-    then
-        pythondir='$(PYTHON_SITE_PACKAGES)'
-    else
-        pythondir='$(libdir)/python$(PYTHON_VERSION)/site-packages'
-    fi
+    pythondir='$(PYTHON_SITE_PACKAGES)'
+    PYTHON_LIBS=`python$PYTHON_VERSION-config --ldflags`
 else
     PYTHON=
 fi
@@ -939,6 +1029,7 @@ WITH_THREADS=0
 THREAD_CFLAGS=""
 TEST_THREADS=""
 THREADS_W32=""
+WITH_THREAD_ALLOC=0
 
 if test "$with_threads" = "no" ; then
     echo Disabling multithreaded support
@@ -949,7 +1040,7 @@ else
     case $host_os in
        *mingw32*) if test "$with_threads" != "pthread" && test "$with_threads" != "no"; then
                WITH_THREADS="1"
-               THREADS_W32="Win32"
+               THREADS_W32="1"
                THREAD_CFLAGS="$THREAD_CFLAGS -DHAVE_WIN32_THREADS"
            fi
        ;;
@@ -1002,7 +1093,7 @@ else
     fi
 fi
 if test "$with_thread_alloc" = "yes" -a "$WITH_THREADS" = "1" ; then
-    THREAD_CFLAGS="$THREAD_CFLAGS -DLIBXML_THREAD_ALLOC_ENABLED"
+    WITH_THREAD_ALLOC=1
 fi
 
 AC_SUBST(THREAD_LIBS)
@@ -1010,7 +1101,8 @@ AC_SUBST(BASE_THREAD_LIBS)
 AC_SUBST(WITH_THREADS)
 AC_SUBST(THREAD_CFLAGS)
 AC_SUBST(TEST_THREADS)
-AC_SUBST(THREADS_W32)
+AC_SUBST(WITH_THREAD_ALLOC)
+AM_CONDITIONAL([THREADS_W32],[test -n "$THREADS_W32"])
 
 dnl
 dnl xmllint shell history
@@ -1134,6 +1226,7 @@ else
     TEST_SAX=SAXtests
 fi
 AC_SUBST(WITH_SAX1)
+AM_CONDITIONAL(WITH_SAX1_SOURCES, test "${WITH_TRIO}" = "1")
 AC_SUBST(TEST_SAX)
 
 if test "$with_push" = "no" ; then
@@ -1262,6 +1355,29 @@ AC_SUBST(WITH_XINCLUDE)
 AC_SUBST(XINCLUDE_OBJ)
 AC_SUBST(TEST_XINCLUDE)
 
+if test "$with_xptr" = "" -a "$with_xpath" = "no" ; then
+    with_xptr=no
+fi
+
+if test "$with_schematron" = "" -a "$with_xpath" = "no" ; then
+    with_schematron=no
+fi
+
+if test "$with_schematron" = "no" ; then
+    echo "Disabling Schematron support"
+    WITH_SCHEMATRON=0
+    TEST_SCHEMATRON=
+else 
+    echo "Enabled Schematron support"
+    WITH_SCHEMATRON=1
+    TEST_SCHEMATRON="Schematrontests"
+    with_xpath=yes
+    with_pattern=yes
+    with_schematron=yes
+fi
+AC_SUBST(WITH_SCHEMATRON)
+AC_SUBST(TEST_SCHEMATRON)
+
 if test "$with_xpath" = "no" ; then
     echo Disabling XPATH support
     WITH_XPATH=0
@@ -1300,10 +1416,10 @@ else
 
     AC_CHECK_HEADER(iconv.h,
 	AC_MSG_CHECKING(for iconv)
-	AC_TRY_LINK([#include <stdlib.h>
-#include <iconv.h>],[
+	AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <stdlib.h>
+#include <iconv.h>]],[[
 iconv_t cd = iconv_open ("","");
-iconv (cd, NULL, NULL, NULL, NULL);],[
+iconv (cd, NULL, NULL, NULL, NULL);]])],[
 	    AC_MSG_RESULT(yes)
 	    WITH_ICONV=1],[
 	    AC_MSG_RESULT(no)
@@ -1314,10 +1430,10 @@ iconv (cd, NULL, NULL, NULL, NULL);],[
 	    LDFLAGS="${LDFLAGS} ${ICONV_LIBS}"
 	    LIBS="${LIBS} -liconv"
 
-	    AC_TRY_LINK([#include <stdlib.h>
-#include <iconv.h>],[
+	    AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <stdlib.h>
+#include <iconv.h>]],[[
 iconv_t cd = iconv_open ("","");
-iconv (cd, NULL, NULL, NULL, NULL);],[
+iconv (cd, NULL, NULL, NULL, NULL);]])],[
 		AC_MSG_RESULT(yes)
 		WITH_ICONV=1
 		ICONV_LIBS="${ICONV_LIBS} -liconv"
@@ -1330,7 +1446,7 @@ iconv (cd, NULL, NULL, NULL, NULL);],[
 	if test "$WITH_ICONV" = "1" ; then
 		AC_MSG_CHECKING([for iconv declaration])
 		AC_CACHE_VAL(xml_cv_iconv_arg2, [
-			AC_TRY_COMPILE([#include <stdlib.h>
+			AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[#include <stdlib.h>
 #include <iconv.h>
 extern
 #ifdef __cplusplus
@@ -1341,7 +1457,7 @@ size_t iconv (iconv_t cd, char * *inbuf, size_t *inbytesleft, char * *outbuf, si
 #else
 size_t iconv();
 #endif
-], [], xml_cv_iconv_arg2="", xml_cv_iconv_arg2="const")])
+]], [])], xml_cv_iconv_arg2="", xml_cv_iconv_arg2="const")])
 
 		xml_cv_iconv_decl="extern size_t iconv (iconv_t cd, $xml_cv_iconv_arg2 char * *inbuf, size_t *inbytesleft, char * *outbuf, size_t *outbytesleft);"
 		AC_MSG_RESULT([${xml_xxx:-
@@ -1365,14 +1481,14 @@ XML_LIBTOOLLIBS="libxml2.la"
 AC_SUBST(WITH_ICONV)
 
 WITH_ICU=0
+ICU_LIBS=""
 if test "$with_icu" != "yes" ; then
     echo Disabling ICU support
 else
     ICU_CONFIG=icu-config
     if ${ICU_CONFIG} --cflags >/dev/null 2>&1
     then
-        ICU_LIBS=`icu-config --ldflags`
-        LDFLAGS="$LDFLAGS $ICU_LIBS"
+        ICU_LIBS=`${ICU_CONFIG} --ldflags`
         WITH_ICU=1
         echo Enabling ICU support
     else
@@ -1380,6 +1496,7 @@ else
     fi
 fi
 AC_SUBST(WITH_ICU)
+AC_SUBST(ICU_LIBS)
 
 WITH_ISO8859X=1
 if test "$WITH_ICONV" != "1" ; then
@@ -1389,20 +1506,6 @@ if test "$with_iso8859x" = "no" ; then
 fi
 fi
 AC_SUBST(WITH_ISO8859X)
-
-if test "$with_schematron" = "no" ; then
-    echo "Disabling Schematron support"
-    WITH_SCHEMATRON=0
-    TEST_SCHEMATRON=
-else    
-    echo "Enabled Schematron support"
-    WITH_SCHEMATRON=1
-    TEST_SCHEMATRON="Schematrontests"
-    with_xpath=yes
-    with_pattern=yes
-fi
-AC_SUBST(WITH_SCHEMATRON)
-AC_SUBST(TEST_SCHEMATRON)
 
 if test "$with_schemas" = "no" ; then
     echo "Disabling Schemas/Relax-NG support"
@@ -1550,10 +1653,12 @@ AC_SUBST(RELDATE)
 AC_SUBST(PYTHON_TESTS)
 
 rm -f COPYING.LIB COPYING
-ln -s Copyright COPYING
+ln -s $srcdir/Copyright COPYING
 
 # keep on one line for cygwin c.f. #130896
-AC_OUTPUT(libxml2.spec:libxml.spec.in Makefile include/Makefile include/libxml/Makefile doc/Makefile doc/examples/Makefile doc/devhelp/Makefile example/Makefile python/Makefile python/tests/Makefile xstc/Makefile include/libxml/xmlversion.h xml2-config libxml-2.0.pc libxml-2.0-uninstalled.pc python/setup.py)
+AC_CONFIG_FILES([libxml2.spec:libxml.spec.in Makefile include/Makefile include/libxml/Makefile doc/Makefile doc/examples/Makefile doc/devhelp/Makefile example/Makefile python/Makefile python/tests/Makefile xstc/Makefile include/libxml/xmlversion.h libxml-2.0.pc libxml-2.0-uninstalled.pc libxml2-config.cmake])
+AC_CONFIG_FILES([python/setup.py], [chmod +x python/setup.py])
+AC_CONFIG_FILES([xml2-config], [chmod +x xml2-config])
+AC_OUTPUT
 
-chmod +x xml2-config python/setup.py
 echo Done configuring
