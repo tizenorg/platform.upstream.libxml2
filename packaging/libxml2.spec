@@ -57,6 +57,9 @@ to develop applications that require these.
 cp %{SOURCE1001} .
 
 %build
+export CFLAGS+=" -fvisibility=hidden"
+  export CXXFLAGS+=" -fvisibility=hidden"
+  
 %configure --disable-static \
     --docdir=%_docdir/%name \
     --with-html-dir=%_docdir/%name/html \

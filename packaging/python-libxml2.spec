@@ -28,6 +28,9 @@ either at parse time or later once the document has been modified.
 %setup -q -n libxml2-%{version}
 
 %build
+export CFLAGS+=" -fvisibility=hidden"
+  export CXXFLAGS+=" -fvisibility=hidden"
+  
 export CFLAGS="%{optflags} -fno-strict-aliasing"
 %configure \
     --with-fexceptions \
