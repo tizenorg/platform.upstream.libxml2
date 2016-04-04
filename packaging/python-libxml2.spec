@@ -32,6 +32,8 @@ export CFLAGS+=" -fvisibility=hidden"
   export CXXFLAGS+=" -fvisibility=hidden"
   
 export CFLAGS="%{optflags} -fno-strict-aliasing"
+export CFLAGS+=" -fvisibility=hidden"
+  export CXXFLAGS+=" -fvisibility=hidden"
 %configure \
     --with-fexceptions \
     --with-history \
