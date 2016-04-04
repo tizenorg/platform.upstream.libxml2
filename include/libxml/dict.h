@@ -32,9 +32,9 @@ XMLPUBFUN int XMLCALL  xmlInitializeDict(void);
 /*
  * Constructor and destructor.
  */
-XMLPUBFUN xmlDictPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDictPtr XMLCALL
 			xmlDictCreate	(void);
-XMLPUBFUN xmlDictPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDictPtr XMLCALL
 			xmlDictCreateSub(xmlDictPtr sub);
 XMLPUBFUN int XMLCALL
 			xmlDictReference(xmlDictPtr dict);

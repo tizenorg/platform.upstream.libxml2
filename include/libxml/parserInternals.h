@@ -288,15 +288,15 @@ XMLPUBFUN int XMLCALL                   xmlIsLetter     (int c);
 /**
  * Parser context.
  */
-XMLPUBFUN xmlParserCtxtPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserCtxtPtr XMLCALL	
 			xmlCreateFileParserCtxt	(const char *filename);
-XMLPUBFUN xmlParserCtxtPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserCtxtPtr XMLCALL	
 			xmlCreateURLParserCtxt	(const char *filename,
 						 int options);
-XMLPUBFUN xmlParserCtxtPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserCtxtPtr XMLCALL	
 			xmlCreateMemoryParserCtxt(const char *buffer,
 						 int size);
-XMLPUBFUN xmlParserCtxtPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserCtxtPtr XMLCALL	
 			xmlCreateEntityParserCtxt(const xmlChar *URL,
 						 const xmlChar *ID,
 						 const xmlChar *base);
@@ -324,29 +324,29 @@ XMLPUBFUN void XMLCALL
 /**
  * Input Streams.
  */
-XMLPUBFUN xmlParserInputPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputPtr XMLCALL	
 			xmlNewStringInputStream	(xmlParserCtxtPtr ctxt,
 						 const xmlChar *buffer);
-XMLPUBFUN xmlParserInputPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputPtr XMLCALL	
 			xmlNewEntityInputStream	(xmlParserCtxtPtr ctxt,
 						 xmlEntityPtr entity);
 XMLPUBFUN int XMLCALL			
 			xmlPushInput		(xmlParserCtxtPtr ctxt,
 						 xmlParserInputPtr input);
-XMLPUBFUN xmlChar XMLCALL			
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar XMLCALL			
 			xmlPopInput		(xmlParserCtxtPtr ctxt);
 XMLPUBFUN void XMLCALL			
 			xmlFreeInputStream	(xmlParserInputPtr input);
-XMLPUBFUN xmlParserInputPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputPtr XMLCALL	
 			xmlNewInputFromFile	(xmlParserCtxtPtr ctxt,
 						 const char *filename);
-XMLPUBFUN xmlParserInputPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputPtr XMLCALL	
 			xmlNewInputStream	(xmlParserCtxtPtr ctxt);
 
 /**
  * Namespaces.
  */
-XMLPUBFUN xmlChar * XMLCALL		
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL		
 			xmlSplitQName		(xmlParserCtxtPtr ctxt,
 						 const xmlChar *name,
 						 xmlChar **prefix);
@@ -356,21 +356,21 @@ XMLPUBFUN xmlChar * XMLCALL
  */
 XMLPUBFUN const xmlChar * XMLCALL		
 			xmlParseName		(xmlParserCtxtPtr ctxt);
-XMLPUBFUN xmlChar * XMLCALL		
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL		
 			xmlParseNmtoken		(xmlParserCtxtPtr ctxt);
-XMLPUBFUN xmlChar * XMLCALL		
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL		
 			xmlParseEntityValue	(xmlParserCtxtPtr ctxt,
 						 xmlChar **orig);
-XMLPUBFUN xmlChar * XMLCALL		
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL		
 			xmlParseAttValue	(xmlParserCtxtPtr ctxt);
-XMLPUBFUN xmlChar * XMLCALL		
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL		
 			xmlParseSystemLiteral	(xmlParserCtxtPtr ctxt);
-XMLPUBFUN xmlChar * XMLCALL		
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL		
 			xmlParsePubidLiteral	(xmlParserCtxtPtr ctxt);
 XMLPUBFUN void XMLCALL			
 			xmlParseCharData	(xmlParserCtxtPtr ctxt,
 						 int cdata);
-XMLPUBFUN xmlChar * XMLCALL		
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL		
 			xmlParseExternalID	(xmlParserCtxtPtr ctxt,
 						 xmlChar **publicID,
 						 int strict);
@@ -387,9 +387,9 @@ XMLPUBFUN void XMLCALL
 XMLPUBFUN int XMLCALL			
 			xmlParseDefaultDecl	(xmlParserCtxtPtr ctxt,
 						 xmlChar **value);
-XMLPUBFUN xmlEnumerationPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlEnumerationPtr XMLCALL	
 			xmlParseNotationType	(xmlParserCtxtPtr ctxt);
-XMLPUBFUN xmlEnumerationPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlEnumerationPtr XMLCALL	
 			xmlParseEnumerationType	(xmlParserCtxtPtr ctxt);
 XMLPUBFUN int XMLCALL			
 			xmlParseEnumeratedType	(xmlParserCtxtPtr ctxt,
@@ -399,11 +399,11 @@ XMLPUBFUN int XMLCALL
 						 xmlEnumerationPtr *tree);
 XMLPUBFUN void XMLCALL			
 			xmlParseAttributeListDecl(xmlParserCtxtPtr ctxt);
-XMLPUBFUN xmlElementContentPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlElementContentPtr XMLCALL	
 			xmlParseElementMixedContentDecl
 						(xmlParserCtxtPtr ctxt,
 						 int inputchk);
-XMLPUBFUN xmlElementContentPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlElementContentPtr XMLCALL	
 			xmlParseElementChildrenContentDecl
 						(xmlParserCtxtPtr ctxt,
 						 int inputchk);
@@ -417,7 +417,7 @@ XMLPUBFUN void XMLCALL
 			xmlParseMarkupDecl	(xmlParserCtxtPtr ctxt);
 XMLPUBFUN int XMLCALL			
 			xmlParseCharRef		(xmlParserCtxtPtr ctxt);
-XMLPUBFUN xmlEntityPtr XMLCALL		
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlEntityPtr XMLCALL		
 			xmlParseEntityRef	(xmlParserCtxtPtr ctxt);
 XMLPUBFUN void XMLCALL			
 			xmlParseReference	(xmlParserCtxtPtr ctxt);
@@ -440,11 +440,11 @@ XMLPUBFUN void XMLCALL
 			xmlParseContent		(xmlParserCtxtPtr ctxt);
 XMLPUBFUN void XMLCALL			
 			xmlParseElement		(xmlParserCtxtPtr ctxt);
-XMLPUBFUN xmlChar * XMLCALL		
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL		
 			xmlParseVersionNum	(xmlParserCtxtPtr ctxt);
-XMLPUBFUN xmlChar * XMLCALL		
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL		
 			xmlParseVersionInfo	(xmlParserCtxtPtr ctxt);
-XMLPUBFUN xmlChar * XMLCALL		
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL		
 			xmlParseEncName		(xmlParserCtxtPtr ctxt);
 XMLPUBFUN const xmlChar * XMLCALL		
 			xmlParseEncodingDecl	(xmlParserCtxtPtr ctxt);
@@ -485,14 +485,14 @@ XMLPUBFUN void XMLCALL
  */
 #define XML_SUBSTITUTE_BOTH 	3
 
-XMLPUBFUN xmlChar * XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL
 		xmlStringDecodeEntities		(xmlParserCtxtPtr ctxt,
 						 const xmlChar *str,
 						 int what,
 						 xmlChar end,
 						 xmlChar  end2,
 						 xmlChar end3);
-XMLPUBFUN xmlChar * XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL
 		xmlStringLenDecodeEntities	(xmlParserCtxtPtr ctxt,
 						 const xmlChar *str,
 						 int len,
@@ -506,10 +506,10 @@ XMLPUBFUN xmlChar * XMLCALL
  */
 XMLPUBFUN int XMLCALL			nodePush		(xmlParserCtxtPtr ctxt,
 						 xmlNodePtr value);
-XMLPUBFUN xmlNodePtr XMLCALL		nodePop			(xmlParserCtxtPtr ctxt);
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL		nodePop			(xmlParserCtxtPtr ctxt);
 XMLPUBFUN int XMLCALL			inputPush		(xmlParserCtxtPtr ctxt,
 						 xmlParserInputPtr value);
-XMLPUBFUN xmlParserInputPtr XMLCALL	inputPop		(xmlParserCtxtPtr ctxt);
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputPtr XMLCALL	inputPop		(xmlParserCtxtPtr ctxt);
 XMLPUBFUN const xmlChar * XMLCALL	namePop			(xmlParserCtxtPtr ctxt);
 XMLPUBFUN int XMLCALL			namePush		(xmlParserCtxtPtr ctxt,
 						 const xmlChar *value);

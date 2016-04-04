@@ -895,11 +895,11 @@ XMLPUBFUN void XMLCALL
 /*
  * Extended error information routines
  */
-XMLPUBFUN xmlErrorPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlErrorPtr __attribute__ ((visibility ("default"))) XMLCALL
     xmlGetLastError		(void);
 XMLPUBFUN void XMLCALL
     xmlResetLastError		(void);
-XMLPUBFUN xmlErrorPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlErrorPtr __attribute__ ((visibility ("default"))) XMLCALL
     xmlCtxtGetLastError		(void *ctx);
 XMLPUBFUN void XMLCALL
     xmlCtxtResetLastError	(void *ctx);

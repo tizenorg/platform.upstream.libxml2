@@ -36,7 +36,7 @@ typedef xmlRMutex *xmlRMutexPtr;
 #ifdef __cplusplus
 extern "C" {
 #endif
-XMLPUBFUN xmlMutexPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlMutexPtr XMLCALL
 			xmlNewMutex	(void);
 XMLPUBFUN void XMLCALL
 			xmlMutexLock	(xmlMutexPtr tok);
@@ -45,7 +45,7 @@ XMLPUBFUN void XMLCALL
 XMLPUBFUN void XMLCALL
 			xmlFreeMutex	(xmlMutexPtr tok);
 
-XMLPUBFUN xmlRMutexPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlRMutexPtr XMLCALL
 			xmlNewRMutex	(void);
 XMLPUBFUN void XMLCALL
 			xmlRMutexLock	(xmlRMutexPtr tok);
@@ -69,7 +69,7 @@ XMLPUBFUN int XMLCALL
 			xmlIsMainThread	(void);
 XMLPUBFUN void XMLCALL
 			xmlCleanupThreads(void);
-XMLPUBFUN xmlGlobalStatePtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlGlobalStatePtr XMLCALL
 			xmlGetGlobalState(void);
 
 #if defined(HAVE_WIN32_THREADS) && !defined(HAVE_COMPILER_TLS) && defined(LIBXML_STATIC_FOR_DLL)

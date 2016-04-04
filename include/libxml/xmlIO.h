@@ -163,25 +163,25 @@ XMLPUBFUN int XMLCALL
 
 XMLPUBFUN void XMLCALL	
 	xmlRegisterDefaultInputCallbacks	(void);
-XMLPUBFUN xmlParserInputBufferPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputBufferPtr __attribute__ ((visibility ("default"))) XMLCALL
 	xmlAllocParserInputBuffer		(xmlCharEncoding enc);
 
-XMLPUBFUN xmlParserInputBufferPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputBufferPtr __attribute__ ((visibility ("default"))) XMLCALL
 	xmlParserInputBufferCreateFilename	(const char *URI,
                                                  xmlCharEncoding enc);
-XMLPUBFUN xmlParserInputBufferPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputBufferPtr __attribute__ ((visibility ("default"))) XMLCALL
 	xmlParserInputBufferCreateFile		(FILE *file,
                                                  xmlCharEncoding enc);
-XMLPUBFUN xmlParserInputBufferPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputBufferPtr __attribute__ ((visibility ("default"))) XMLCALL
 	xmlParserInputBufferCreateFd		(int fd,
 	                                         xmlCharEncoding enc);
-XMLPUBFUN xmlParserInputBufferPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputBufferPtr __attribute__ ((visibility ("default"))) XMLCALL
 	xmlParserInputBufferCreateMem		(const char *mem, int size,
 	                                         xmlCharEncoding enc);
-XMLPUBFUN xmlParserInputBufferPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputBufferPtr __attribute__ ((visibility ("default"))) XMLCALL
 	xmlParserInputBufferCreateStatic	(const char *mem, int size,
 	                                         xmlCharEncoding enc);
-XMLPUBFUN xmlParserInputBufferPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputBufferPtr __attribute__ ((visibility ("default"))) XMLCALL
 	xmlParserInputBufferCreateIO		(xmlInputReadCallback   ioread,
 						 xmlInputCloseCallback  ioclose,
 						 void *ioctx,
@@ -207,7 +207,7 @@ XMLPUBFUN int XMLCALL
 						 xmlInputReadCallback readFunc,
 						 xmlInputCloseCallback closeFunc);
 
-xmlParserInputBufferPtr
+__attribute__ ((visibility ("default"))) xmlParserInputBufferPtr
 	__xmlParserInputBufferCreateFilename(const char *URI,
 										xmlCharEncoding enc);
 
@@ -281,14 +281,14 @@ XMLPUBFUN void XMLCALL
 	
 #endif /* LIBXML_OUTPUT_ENABLED */
 
-XMLPUBFUN xmlParserInputPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputPtr __attribute__ ((visibility ("default"))) XMLCALL
 	xmlCheckHTTPInput		(xmlParserCtxtPtr ctxt,
 					 xmlParserInputPtr ret);
 
 /*
  * A predefined entity loader disabling network accesses
  */
-XMLPUBFUN xmlParserInputPtr XMLCALL 
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputPtr __attribute__ ((visibility ("default"))) XMLCALL 
 	xmlNoNetExternalEntityLoader	(const char *URL,
 					 const char *ID,
 					 xmlParserCtxtPtr ctxt);
@@ -297,7 +297,7 @@ XMLPUBFUN xmlParserInputPtr XMLCALL
  * xmlNormalizeWindowsPath is obsolete, don't use it. 
  * Check xmlCanonicPath in uri.h for a better alternative.
  */
-XMLPUBFUN xmlChar * XMLCALL 
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL 
 	xmlNormalizeWindowsPath		(const xmlChar *path);
 
 XMLPUBFUN int XMLCALL	

@@ -169,11 +169,11 @@ XMLPUBFUN void XMLCALL
 	xmlCleanupCharEncodingHandlers	(void);
 XMLPUBFUN void XMLCALL	
 	xmlRegisterCharEncodingHandler	(xmlCharEncodingHandlerPtr handler);
-XMLPUBFUN xmlCharEncodingHandlerPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlCharEncodingHandlerPtr XMLCALL
 	xmlGetCharEncodingHandler	(xmlCharEncoding enc);
-XMLPUBFUN xmlCharEncodingHandlerPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlCharEncodingHandlerPtr XMLCALL
 	xmlFindCharEncodingHandler	(const char *name);
-XMLPUBFUN xmlCharEncodingHandlerPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlCharEncodingHandlerPtr XMLCALL
 	xmlNewCharEncodingHandler	(const char *name, 
                           		 xmlCharEncodingInputFunc input,
                           		 xmlCharEncodingOutputFunc output);
@@ -190,7 +190,7 @@ XMLPUBFUN const char * XMLCALL
 	xmlGetEncodingAlias		(const char *alias);
 XMLPUBFUN void XMLCALL	
 	xmlCleanupEncodingAliases	(void);
-XMLPUBFUN xmlCharEncoding XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlCharEncoding XMLCALL
 	xmlParseCharEncoding		(const char *name);
 XMLPUBFUN const char * XMLCALL
 	xmlGetCharEncodingName		(xmlCharEncoding enc);
@@ -198,7 +198,7 @@ XMLPUBFUN const char * XMLCALL
 /*
  * Interfaces directly used by the parsers.
  */
-XMLPUBFUN xmlCharEncoding XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlCharEncoding XMLCALL
 	xmlDetectCharEncoding		(const unsigned char *in,
 					 int len);
 

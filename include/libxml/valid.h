@@ -150,7 +150,7 @@ typedef struct _xmlHashTable xmlRefTable;
 typedef xmlRefTable *xmlRefTablePtr;
 
 /* Notation */
-XMLPUBFUN xmlNotationPtr XMLCALL	    
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNotationPtr XMLCALL	    
 		xmlAddNotationDecl	(xmlValidCtxtPtr ctxt,
 					 xmlDtdPtr dtd,
 					 const xmlChar *name,
@@ -173,19 +173,19 @@ XMLPUBFUN void XMLCALL
 
 /* Element Content */
 /* the non Doc version are being deprecated */
-XMLPUBFUN xmlElementContentPtr XMLCALL 
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlElementContentPtr XMLCALL 
 		xmlNewElementContent	(const xmlChar *name,
 					 xmlElementContentType type);
-XMLPUBFUN xmlElementContentPtr XMLCALL 
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlElementContentPtr XMLCALL 
 		xmlCopyElementContent	(xmlElementContentPtr content);
 XMLPUBFUN void XMLCALL		     
 		xmlFreeElementContent	(xmlElementContentPtr cur);
 /* the new versions with doc argument */
-XMLPUBFUN xmlElementContentPtr XMLCALL 
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlElementContentPtr XMLCALL 
 		xmlNewDocElementContent	(xmlDocPtr doc,
 					 const xmlChar *name,
 					 xmlElementContentType type);
-XMLPUBFUN xmlElementContentPtr XMLCALL 
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlElementContentPtr XMLCALL 
 		xmlCopyDocElementContent(xmlDocPtr doc,
 					 xmlElementContentPtr content);
 XMLPUBFUN void XMLCALL		     
@@ -206,7 +206,7 @@ XMLPUBFUN void XMLCALL
 /* DEPRECATED */
 
 /* Element */
-XMLPUBFUN xmlElementPtr XMLCALL	   
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlElementPtr XMLCALL	   
 		xmlAddElementDecl	(xmlValidCtxtPtr ctxt,
 					 xmlDtdPtr dtd,
 					 const xmlChar *name,
@@ -228,7 +228,7 @@ XMLPUBFUN void XMLCALL
 #endif /* LIBXML_OUTPUT_ENABLED */
 
 /* Enumeration */
-XMLPUBFUN xmlEnumerationPtr XMLCALL 
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlEnumerationPtr XMLCALL 
 		xmlCreateEnumeration	(const xmlChar *name);
 XMLPUBFUN void XMLCALL		   
 		xmlFreeEnumeration	(xmlEnumerationPtr cur);
@@ -238,7 +238,7 @@ XMLPUBFUN xmlEnumerationPtr XMLCALL
 #endif /* LIBXML_TREE_ENABLED */
 
 /* Attribute */
-XMLPUBFUN xmlAttributePtr XMLCALL	    
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlAttributePtr XMLCALL	    
 		xmlAddAttributeDecl	(xmlValidCtxtPtr ctxt,
 					 xmlDtdPtr dtd,
 					 const xmlChar *elem,
@@ -264,14 +264,14 @@ XMLPUBFUN void XMLCALL
 #endif /* LIBXML_OUTPUT_ENABLED */
 
 /* IDs */
-XMLPUBFUN xmlIDPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlIDPtr XMLCALL	
 		xmlAddID	       (xmlValidCtxtPtr ctxt,
 					xmlDocPtr doc,
 					const xmlChar *value,
 					xmlAttrPtr attr);
 XMLPUBFUN void XMLCALL		
 		xmlFreeIDTable	       (xmlIDTablePtr table);
-XMLPUBFUN xmlAttrPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlAttrPtr XMLCALL	
 		xmlGetID	       (xmlDocPtr doc,
 					const xmlChar *ID);
 XMLPUBFUN int XMLCALL		
@@ -283,7 +283,7 @@ XMLPUBFUN int XMLCALL
 					xmlAttrPtr attr);
 
 /* IDREFs */
-XMLPUBFUN xmlRefPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlRefPtr XMLCALL	
 		xmlAddRef	       (xmlValidCtxtPtr ctxt,
 					xmlDocPtr doc,
 					const xmlChar *value,
@@ -297,7 +297,7 @@ XMLPUBFUN int XMLCALL
 XMLPUBFUN int XMLCALL		
 		xmlRemoveRef	       (xmlDocPtr doc, 
 					xmlAttrPtr attr);
-XMLPUBFUN xmlListPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlListPtr XMLCALL	
 		xmlGetRefs	       (xmlDocPtr doc,
 					const xmlChar *ID);
 
@@ -386,23 +386,23 @@ XMLPUBFUN int XMLCALL
 XMLPUBFUN int XMLCALL		
 		xmlIsMixedElement	(xmlDocPtr doc,
 					 const xmlChar *name);
-XMLPUBFUN xmlAttributePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlAttributePtr XMLCALL	
 		xmlGetDtdAttrDesc	(xmlDtdPtr dtd,
 					 const xmlChar *elem,
 					 const xmlChar *name);
-XMLPUBFUN xmlAttributePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlAttributePtr XMLCALL	
 		xmlGetDtdQAttrDesc	(xmlDtdPtr dtd,
 					 const xmlChar *elem,
 					 const xmlChar *name,
 					 const xmlChar *prefix);
-XMLPUBFUN xmlNotationPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNotationPtr XMLCALL	
 		xmlGetDtdNotationDesc	(xmlDtdPtr dtd,
 					 const xmlChar *name);
-XMLPUBFUN xmlElementPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlElementPtr XMLCALL	
 		xmlGetDtdQElementDesc	(xmlDtdPtr dtd,
 					 const xmlChar *name,
 					 const xmlChar *prefix);
-XMLPUBFUN xmlElementPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlElementPtr XMLCALL	
 		xmlGetDtdElementDesc	(xmlDtdPtr dtd,
 					 const xmlChar *name);
 

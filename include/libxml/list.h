@@ -52,7 +52,7 @@ typedef int  (*xmlListDataCompare) (const void *data0, const void *data1);
 typedef int (*xmlListWalker) (const void *data, const void *user);
 
 /* Creation/Deletion */
-XMLPUBFUN xmlListPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlListPtr XMLCALL
 		xmlListCreate		(xmlListDeallocator deallocator,
 	                                 xmlListDataCompare compare);
 XMLPUBFUN void XMLCALL		
@@ -84,9 +84,9 @@ XMLPUBFUN void XMLCALL
 		xmlListClear		(xmlListPtr l);
 XMLPUBFUN int XMLCALL		
 		xmlListEmpty		(xmlListPtr l);
-XMLPUBFUN xmlLinkPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlLinkPtr XMLCALL	
 		xmlListFront		(xmlListPtr l);
-XMLPUBFUN xmlLinkPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlLinkPtr XMLCALL	
 		xmlListEnd		(xmlListPtr l);
 XMLPUBFUN int XMLCALL		
 		xmlListSize		(xmlListPtr l);
@@ -118,7 +118,7 @@ XMLPUBFUN void XMLCALL
 XMLPUBFUN void XMLCALL		
 		xmlListMerge		(xmlListPtr l1,
 					 xmlListPtr l2);
-XMLPUBFUN xmlListPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlListPtr XMLCALL	
 		xmlListDup		(const xmlListPtr old);
 XMLPUBFUN int XMLCALL		
 		xmlListCopy		(xmlListPtr cur,

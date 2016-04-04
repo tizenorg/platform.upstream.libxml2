@@ -939,7 +939,7 @@ XMLPUBFUN int XMLCALL
 					 const xmlChar *string,
 					 xmlNodePtr *lst);
 #endif /* LIBXML_SAX1_ENABLED */
-XMLPUBFUN xmlParserErrors XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserErrors XMLCALL
 		xmlParseInNodeContext	(xmlNodePtr node,
 					 const char *data,
 					 int datalen,
@@ -972,7 +972,7 @@ XMLPUBFUN int XMLCALL
 /*
  * Parser contexts handling.
  */
-XMLPUBFUN xmlParserCtxtPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserCtxtPtr XMLCALL	
 		xmlNewParserCtxt	(void);
 XMLPUBFUN int XMLCALL		
 		xmlInitParserCtxt	(xmlParserCtxtPtr ctxt);
@@ -986,7 +986,7 @@ XMLPUBFUN void XMLCALL
 					 const xmlChar* buffer,
 					 const char *filename);
 #endif /* LIBXML_SAX1_ENABLED */
-XMLPUBFUN xmlParserCtxtPtr XMLCALL 
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserCtxtPtr XMLCALL 
 		xmlCreateDocParserCtxt	(const xmlChar *cur);
 
 #ifdef LIBXML_LEGACY_ENABLED
@@ -1027,7 +1027,7 @@ XMLPUBFUN int XMLCALL
  * Special I/O mode.
  */
 
-XMLPUBFUN xmlParserCtxtPtr XMLCALL 
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserCtxtPtr XMLCALL 
 		xmlCreateIOParserCtxt	(xmlSAXHandlerPtr sax,
 					 void *user_data,
 					 xmlInputReadCallback   ioread,
@@ -1035,7 +1035,7 @@ XMLPUBFUN xmlParserCtxtPtr XMLCALL
 					 void *ioctx,
 					 xmlCharEncoding enc);
 
-XMLPUBFUN xmlParserInputPtr XMLCALL 
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputPtr XMLCALL 
 		xmlNewIOInputStream	(xmlParserCtxtPtr ctxt,
 					 xmlParserInputBufferPtr input,
 					 xmlCharEncoding enc);
@@ -1063,9 +1063,9 @@ XMLPUBFUN void XMLCALL
 
 XMLPUBFUN void XMLCALL		
 		xmlSetExternalEntityLoader(xmlExternalEntityLoader f);
-XMLPUBFUN xmlExternalEntityLoader XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlExternalEntityLoader XMLCALL
 		xmlGetExternalEntityLoader(void);
-XMLPUBFUN xmlParserInputPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputPtr XMLCALL
 		xmlLoadExternalEntity	(const char *URL,
 					 const char *ID,
 					 xmlParserCtxtPtr ctxt);
@@ -1123,58 +1123,58 @@ XMLPUBFUN int XMLCALL
 XMLPUBFUN int XMLCALL
 		xmlCtxtUseOptions	(xmlParserCtxtPtr ctxt,
 					 int options);
-XMLPUBFUN xmlDocPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDocPtr XMLCALL
 		xmlReadDoc		(const xmlChar *cur,
 					 const char *URL,
 					 const char *encoding,
 					 int options);
-XMLPUBFUN xmlDocPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDocPtr XMLCALL
 		xmlReadFile		(const char *URL,
 					 const char *encoding,
 					 int options);
-XMLPUBFUN xmlDocPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDocPtr XMLCALL
 		xmlReadMemory		(const char *buffer,
 					 int size,
 					 const char *URL,
 					 const char *encoding,
 					 int options);
-XMLPUBFUN xmlDocPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDocPtr XMLCALL
 		xmlReadFd		(int fd,
 					 const char *URL,
 					 const char *encoding,
 					 int options);
-XMLPUBFUN xmlDocPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDocPtr XMLCALL
 		xmlReadIO		(xmlInputReadCallback ioread,
 					 xmlInputCloseCallback ioclose,
 					 void *ioctx,
 					 const char *URL,
 					 const char *encoding,
 					 int options);
-XMLPUBFUN xmlDocPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDocPtr XMLCALL
 		xmlCtxtReadDoc		(xmlParserCtxtPtr ctxt,
 					 const xmlChar *cur,
 					 const char *URL,
 					 const char *encoding,
 					 int options);
-XMLPUBFUN xmlDocPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDocPtr XMLCALL
 		xmlCtxtReadFile		(xmlParserCtxtPtr ctxt,
 					 const char *filename,
 					 const char *encoding,
 					 int options);
-XMLPUBFUN xmlDocPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDocPtr XMLCALL
 		xmlCtxtReadMemory		(xmlParserCtxtPtr ctxt,
 					 const char *buffer,
 					 int size,
 					 const char *URL,
 					 const char *encoding,
 					 int options);
-XMLPUBFUN xmlDocPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDocPtr XMLCALL
 		xmlCtxtReadFd		(xmlParserCtxtPtr ctxt,
 					 int fd,
 					 const char *URL,
 					 const char *encoding,
 					 int options);
-XMLPUBFUN xmlDocPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDocPtr XMLCALL
 		xmlCtxtReadIO		(xmlParserCtxtPtr ctxt,
 					 xmlInputReadCallback ioread,
 					 xmlInputCloseCallback ioclose,

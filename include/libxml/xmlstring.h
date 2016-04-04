@@ -37,17 +37,17 @@ typedef unsigned char xmlChar;
 /*
  * xmlChar handling
  */
-XMLPUBFUN xmlChar * XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL
                 xmlStrdup                (const xmlChar *cur);
-XMLPUBFUN xmlChar * XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL
                 xmlStrndup               (const xmlChar *cur,
                                          int len);
-XMLPUBFUN xmlChar * XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL
                 xmlCharStrndup           (const char *cur,
                                          int len);
-XMLPUBFUN xmlChar * XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL
                 xmlCharStrdup            (const char *cur);
-XMLPUBFUN xmlChar * XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL
                 xmlStrsub                (const xmlChar *str,
                                          int start,
                                          int len);
@@ -83,14 +83,14 @@ XMLPUBFUN int XMLCALL
                                          const xmlChar *str);
 XMLPUBFUN int XMLCALL
                 xmlStrlen                (const xmlChar *str);
-XMLPUBFUN xmlChar * XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL
                 xmlStrcat                (xmlChar *cur,
                                          const xmlChar *add);
-XMLPUBFUN xmlChar * XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL
                 xmlStrncat               (xmlChar *cur,
                                          const xmlChar *add,
                                          int len);
-XMLPUBFUN xmlChar * XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL
                 xmlStrncatNew            (const xmlChar *str1,
                                          const xmlChar *str2,
                                          int len);
@@ -113,7 +113,7 @@ XMLPUBFUN int XMLCALL
 XMLPUBFUN int XMLCALL
         xmlUTF8Strsize                   (const xmlChar *utf,
                                          int len);
-XMLPUBFUN xmlChar * XMLCALL 
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL 
         xmlUTF8Strndup                   (const xmlChar *utf,
                                          int len);
 XMLPUBFUN const xmlChar * XMLCALL 
@@ -122,7 +122,7 @@ XMLPUBFUN const xmlChar * XMLCALL
 XMLPUBFUN int XMLCALL
         xmlUTF8Strloc                    (const xmlChar *utf,
                                          const xmlChar *utfchar);
-XMLPUBFUN xmlChar * XMLCALL 
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL 
         xmlUTF8Strsub                    (const xmlChar *utf,
                                          int start,
                                          int len);

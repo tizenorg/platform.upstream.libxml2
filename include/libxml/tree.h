@@ -635,12 +635,12 @@ XMLPUBFUN int XMLCALL
 					 int space);
 #endif
 
-XMLPUBFUN xmlChar * XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL	
 		xmlBuildQName		(const xmlChar *ncname,
 					 const xmlChar *prefix,
 					 xmlChar *memory,
 					 int len);
-XMLPUBFUN xmlChar * XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL	
 		xmlSplitQName2		(const xmlChar *name,
 					 xmlChar **prefix);
 XMLPUBFUN const xmlChar * XMLCALL	
@@ -653,14 +653,14 @@ XMLPUBFUN const xmlChar * XMLCALL
 
 XMLPUBFUN void XMLCALL		
 		xmlSetBufferAllocationScheme(xmlBufferAllocationScheme scheme);
-XMLPUBFUN xmlBufferAllocationScheme XMLCALL	 
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlBufferAllocationScheme XMLCALL	 
 		xmlGetBufferAllocationScheme(void);
 
-XMLPUBFUN xmlBufferPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlBufferPtr XMLCALL	
 		xmlBufferCreate		(void);
-XMLPUBFUN xmlBufferPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlBufferPtr XMLCALL	
 		xmlBufferCreateSize	(size_t size);
-XMLPUBFUN xmlBufferPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlBufferPtr XMLCALL	
 		xmlBufferCreateStatic	(void *mem,
 					 size_t size);
 XMLPUBFUN int XMLCALL		
@@ -695,7 +695,7 @@ XMLPUBFUN void XMLCALL
 		xmlBufferEmpty		(xmlBufferPtr buf);
 XMLPUBFUN const xmlChar* XMLCALL	
 		xmlBufferContent	(const xmlBufferPtr buf);
-XMLPUBFUN xmlChar* XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar* XMLCALL
 		xmlBufferDetach         (const xmlBufferPtr buf);
 XMLPUBFUN void XMLCALL		
 		xmlBufferSetAllocationScheme(xmlBufferPtr buf,
@@ -706,17 +706,17 @@ XMLPUBFUN int XMLCALL
 /*
  * Creating/freeing new structures.
  */
-XMLPUBFUN xmlDtdPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDtdPtr XMLCALL	
 		xmlCreateIntSubset	(xmlDocPtr doc,
 					 const xmlChar *name,
 					 const xmlChar *ExternalID,
 					 const xmlChar *SystemID);
-XMLPUBFUN xmlDtdPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDtdPtr XMLCALL	
 		xmlNewDtd		(xmlDocPtr doc,
 					 const xmlChar *name,
 					 const xmlChar *ExternalID,
 					 const xmlChar *SystemID);
-XMLPUBFUN xmlDtdPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDtdPtr XMLCALL	
 		xmlGetIntSubset		(xmlDocPtr doc);
 XMLPUBFUN void XMLCALL		
 		xmlFreeDtd		(xmlDtdPtr cur);
@@ -726,7 +726,7 @@ XMLPUBFUN xmlNsPtr XMLCALL
 					 const xmlChar *href,
 					 const xmlChar *prefix);
 #endif /* LIBXML_LEGACY_ENABLED */
-XMLPUBFUN xmlNsPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNsPtr XMLCALL	
 		xmlNewNs		(xmlNodePtr node,
 					 const xmlChar *href,
 					 const xmlChar *prefix);
@@ -734,11 +734,11 @@ XMLPUBFUN void XMLCALL
 		xmlFreeNs		(xmlNsPtr cur);
 XMLPUBFUN void XMLCALL		
 		xmlFreeNsList		(xmlNsPtr cur);
-XMLPUBFUN xmlDocPtr XMLCALL 	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDocPtr XMLCALL 	
 		xmlNewDoc		(const xmlChar *version);
 XMLPUBFUN void XMLCALL		
 		xmlFreeDoc		(xmlDocPtr cur);
-XMLPUBFUN xmlAttrPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlAttrPtr XMLCALL	
 		xmlNewDocProp		(xmlDocPtr doc,
 					 const xmlChar *name,
 					 const xmlChar *value);
@@ -749,12 +749,12 @@ XMLPUBFUN xmlAttrPtr XMLCALL
 					 const xmlChar *name,
 					 const xmlChar *value);
 #endif
-XMLPUBFUN xmlAttrPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlAttrPtr XMLCALL	
 		xmlNewNsProp		(xmlNodePtr node,
 					 xmlNsPtr ns,
 					 const xmlChar *name,
 					 const xmlChar *value);
-XMLPUBFUN xmlAttrPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlAttrPtr XMLCALL	
 		xmlNewNsPropEatName	(xmlNodePtr node,
 					 xmlNsPtr ns,
 					 xmlChar *name,
@@ -763,10 +763,10 @@ XMLPUBFUN void XMLCALL
 		xmlFreePropList		(xmlAttrPtr cur);
 XMLPUBFUN void XMLCALL		
 		xmlFreeProp		(xmlAttrPtr cur);
-XMLPUBFUN xmlAttrPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlAttrPtr XMLCALL	
 		xmlCopyProp		(xmlNodePtr target,
 					 xmlAttrPtr cur);
-XMLPUBFUN xmlAttrPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlAttrPtr XMLCALL	
 		xmlCopyPropList		(xmlNodePtr target,
 					 xmlAttrPtr cur);
 #ifdef LIBXML_TREE_ENABLED
@@ -781,20 +781,20 @@ XMLPUBFUN xmlDocPtr XMLCALL
 /*
  * Creating new nodes.
  */
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlNewDocNode		(xmlDocPtr doc,
 					 xmlNsPtr ns,
 					 const xmlChar *name,
 					 const xmlChar *content);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlNewDocNodeEatName	(xmlDocPtr doc,
 					 xmlNsPtr ns,
 					 xmlChar *name,
 					 const xmlChar *content);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlNewNode		(xmlNsPtr ns,
 					 const xmlChar *name);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlNewNodeEatName	(xmlNsPtr ns,
 					 xmlChar *name);
 #if defined(LIBXML_TREE_ENABLED) || defined(LIBXML_SCHEMAS_ENABLED)
@@ -804,51 +804,51 @@ XMLPUBFUN xmlNodePtr XMLCALL
 					 const xmlChar *name,
 					 const xmlChar *content);
 #endif
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlNewDocText		(xmlDocPtr doc,
 					 const xmlChar *content);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlNewText		(const xmlChar *content);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlNewDocPI		(xmlDocPtr doc,
 					 const xmlChar *name,
 					 const xmlChar *content);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlNewPI		(const xmlChar *name,
 					 const xmlChar *content);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlNewDocTextLen	(xmlDocPtr doc,
 					 const xmlChar *content,
 					 int len);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlNewTextLen		(const xmlChar *content,
 					 int len);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlNewDocComment	(xmlDocPtr doc,
 					 const xmlChar *content);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlNewComment		(const xmlChar *content);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlNewCDataBlock	(xmlDocPtr doc,
 					 const xmlChar *content,
 					 int len);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlNewCharRef		(xmlDocPtr doc,
 					 const xmlChar *name);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlNewReference		(xmlDocPtr doc,
 					 const xmlChar *name);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlCopyNode		(const xmlNodePtr node,
 					 int recursive);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlDocCopyNode		(const xmlNodePtr node,
 					 xmlDocPtr doc,
 					 int recursive);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlDocCopyNodeList	(xmlDocPtr doc,
 					 const xmlNodePtr node);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlCopyNodeList		(const xmlNodePtr node);
 #ifdef LIBXML_TREE_ENABLED
 XMLPUBFUN xmlNodePtr XMLCALL	
@@ -874,9 +874,9 @@ XMLPUBFUN long XMLCALL
 XMLPUBFUN xmlChar * XMLCALL	
 		xmlGetNodePath		(xmlNodePtr node);
 #endif /* defined(LIBXML_TREE_ENABLED) || defined(LIBXML_DEBUG_ENABLED) */
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlDocGetRootElement	(xmlDocPtr doc);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlGetLastChild		(xmlNodePtr parent);
 XMLPUBFUN int XMLCALL		
 		xmlNodeIsText		(xmlNodePtr node);
@@ -896,10 +896,10 @@ XMLPUBFUN void XMLCALL
 		xmlNodeSetName		(xmlNodePtr cur,
 					 const xmlChar *name);
 #endif /* LIBXML_TREE_ENABLED */
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlAddChild		(xmlNodePtr parent,
 					 xmlNodePtr cur);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlAddChildList		(xmlNodePtr parent,
 					 xmlNodePtr cur);
 #if defined(LIBXML_TREE_ENABLED) || defined(LIBXML_WRITER_ENABLED)
@@ -913,15 +913,15 @@ XMLPUBFUN xmlNodePtr XMLCALL
 		xmlAddPrevSibling	(xmlNodePtr cur,
 					 xmlNodePtr elem);
 #endif /* LIBXML_TREE_ENABLED || LIBXML_HTML_ENABLED || LIBXML_SCHEMAS_ENABLED */
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlAddSibling		(xmlNodePtr cur,
 					 xmlNodePtr elem);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlAddNextSibling	(xmlNodePtr cur,
 					 xmlNodePtr elem);
 XMLPUBFUN void XMLCALL		
 		xmlUnlinkNode		(xmlNodePtr cur);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlTextMerge		(xmlNodePtr first,
 					 xmlNodePtr second);
 XMLPUBFUN int XMLCALL		
@@ -941,11 +941,11 @@ XMLPUBFUN void XMLCALL
 /*
  * Namespaces.
  */
-XMLPUBFUN xmlNsPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNsPtr XMLCALL	
 		xmlSearchNs		(xmlDocPtr doc,
 					 xmlNodePtr node,
 					 const xmlChar *nameSpace);
-XMLPUBFUN xmlNsPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNsPtr XMLCALL	
 		xmlSearchNsByHref	(xmlDocPtr doc,
 					 xmlNodePtr node,
 					 const xmlChar *href);
@@ -958,9 +958,9 @@ XMLPUBFUN xmlNsPtr * XMLCALL
 XMLPUBFUN void XMLCALL		
 		xmlSetNs		(xmlNodePtr node,
 					 xmlNsPtr ns);
-XMLPUBFUN xmlNsPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNsPtr XMLCALL	
 		xmlCopyNamespace	(xmlNsPtr cur);
-XMLPUBFUN xmlNsPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNsPtr XMLCALL	
 		xmlCopyNamespaceList	(xmlNsPtr cur);
 
 /*
@@ -977,31 +977,31 @@ XMLPUBFUN xmlAttrPtr XMLCALL
 					 const xmlChar *name,
 					 const xmlChar *value);
 #endif /* defined(LIBXML_TREE_ENABLED) || defined(LIBXML_XINCLUDE_ENABLED) || defined(LIBXML_SCHEMAS_ENABLED) || defined(LIBXML_HTML_ENABLED) */
-XMLPUBFUN xmlChar * XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL	
 		xmlGetNoNsProp		(xmlNodePtr node,
 					 const xmlChar *name);
-XMLPUBFUN xmlChar * XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL	
 		xmlGetProp		(xmlNodePtr node,
 					 const xmlChar *name);
-XMLPUBFUN xmlAttrPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlAttrPtr XMLCALL	
 		xmlHasProp		(xmlNodePtr node,
 					 const xmlChar *name);
-XMLPUBFUN xmlAttrPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlAttrPtr XMLCALL	
 		xmlHasNsProp		(xmlNodePtr node,
 					 const xmlChar *name,
 					 const xmlChar *nameSpace);
-XMLPUBFUN xmlChar * XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL	
 		xmlGetNsProp		(xmlNodePtr node,
 					 const xmlChar *name,
 					 const xmlChar *nameSpace);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlStringGetNodeList	(xmlDocPtr doc,
 					 const xmlChar *value);
-XMLPUBFUN xmlNodePtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlNodePtr XMLCALL	
 		xmlStringLenGetNodeList	(xmlDocPtr doc,
 					 const xmlChar *value,
 					 int len);
-XMLPUBFUN xmlChar * XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL	
 		xmlNodeListGetString	(xmlDocPtr doc,
 					 xmlNodePtr list,
 					 int inLine);
@@ -1027,12 +1027,12 @@ XMLPUBFUN void XMLCALL
 		xmlNodeAddContentLen	(xmlNodePtr cur,
 					 const xmlChar *content,
 					 int len);
-XMLPUBFUN xmlChar * XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL	
 		xmlNodeGetContent	(xmlNodePtr cur);
 XMLPUBFUN int XMLCALL
 		xmlNodeBufGetContent	(xmlBufferPtr buffer,
 					 xmlNodePtr cur);
-XMLPUBFUN xmlChar * XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL	
 		xmlNodeGetLang		(xmlNodePtr cur);
 XMLPUBFUN int XMLCALL		
 		xmlNodeGetSpacePreserve	(xmlNodePtr cur);
@@ -1044,7 +1044,7 @@ XMLPUBFUN void XMLCALL
 		xmlNodeSetSpacePreserve (xmlNodePtr cur,
 					 int val);
 #endif /* LIBXML_TREE_ENABLED */
-XMLPUBFUN xmlChar * XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlChar * XMLCALL	
 		xmlNodeGetBase		(xmlDocPtr doc,
 					 xmlNodePtr cur);
 #if defined(LIBXML_TREE_ENABLED) || defined(LIBXML_XINCLUDE_ENABLED)
@@ -1198,7 +1198,7 @@ XMLPUBFUN void XMLCALL
 /*
 * DOM-wrapper helper functions.
 */
-XMLPUBFUN xmlDOMWrapCtxtPtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlDOMWrapCtxtPtr XMLCALL
 		xmlDOMWrapNewCtxt	(void);
 XMLPUBFUN void XMLCALL
 		xmlDOMWrapFreeCtxt	(xmlDOMWrapCtxtPtr ctxt);

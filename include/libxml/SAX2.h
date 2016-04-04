@@ -51,13 +51,13 @@ XMLPUBFUN void XMLCALL
 						 const xmlChar *name,
 						 const xmlChar *ExternalID,
 						 const xmlChar *SystemID);
-XMLPUBFUN xmlEntityPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlEntityPtr XMLCALL	
 		xmlSAX2GetEntity		(void *ctx,
 						 const xmlChar *name);
-XMLPUBFUN xmlEntityPtr XMLCALL	
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlEntityPtr XMLCALL	
 		xmlSAX2GetParameterEntity	(void *ctx,
 						 const xmlChar *name);
-XMLPUBFUN xmlParserInputPtr XMLCALL 
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlParserInputPtr XMLCALL 
 		xmlSAX2ResolveEntity		(void *ctx,
 						 const xmlChar *publicId,
 						 const xmlChar *systemId);

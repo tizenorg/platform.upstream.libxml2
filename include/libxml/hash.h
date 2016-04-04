@@ -103,9 +103,9 @@ typedef void (*xmlHashScannerFull)(void *payload, void *data,
 /*
  * Constructor and destructor.
  */
-XMLPUBFUN xmlHashTablePtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlHashTablePtr XMLCALL
 			xmlHashCreate	(int size);
-XMLPUBFUN xmlHashTablePtr XMLCALL
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlHashTablePtr XMLCALL
 			xmlHashCreateDict(int size,
 					 xmlDictPtr dict);
 XMLPUBFUN void XMLCALL			
@@ -200,7 +200,7 @@ XMLPUBFUN void * XMLCALL
 /*
  * Helpers.
  */
-XMLPUBFUN xmlHashTablePtr XMLCALL		
+__attribute__ ((visibility ("default"))) XMLPUBFUN xmlHashTablePtr XMLCALL		
 			xmlHashCopy	(xmlHashTablePtr table,
 					 xmlHashCopier f);
 XMLPUBFUN int XMLCALL			
