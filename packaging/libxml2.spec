@@ -1,5 +1,5 @@
 Name:           libxml2
-Version:        2.9.2
+Version:        2.9.4
 Release:        0
 Summary:        A Library to Manipulate XML Files
 License:        MIT
