@@ -13,8 +13,6 @@
 
       /if defined(LIBXML_HTTP_ENABLED)
 
-      /include "libxmlrpg/xmlTypesC"
-
      d xmlNanoHTTPInit...
      d                 pr                  extproc('xmlNanoHTTPInit')
 
@@ -26,8 +24,7 @@
      d  URL                            *   value options(*string)               const char *
 
      d xmlNanoHTTPFetch...
-     d                 pr                  extproc('xmlNanoHTTPFetch')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlNanoHTTPFetch')
      d  URL                            *   value options(*string)               const char *
      d  filename                       *   value options(*string)               const char *
 
@@ -38,7 +35,7 @@
      d  input                          *   value options(*string)               const char *
      d  contentType                    *   value                                char * *
      d  headers                        *   value options(*string)               const char *
-     d  ilen                               value like(xmlCint)
+     d  ilen                         10i 0 value
 
      d xmlNanoHTTPMethodRedir...
      d                 pr              *   extproc('xmlNanoHTTPMethodRedir')    void *
@@ -48,7 +45,7 @@
      d  contentType                    *   value                                char * *
      d  redir                          *   value                                char * *
      d  headers                        *   value options(*string)               const char *
-     d  ilen                               value like(xmlCint)
+     d  ilen                         10i 0 value
 
      d xmlNanoHTTPOpen...
      d                 pr              *   extproc('xmlNanoHTTPOpen')           void *
@@ -62,8 +59,7 @@
      d  redir                          *   value                                char * *
 
      d xmlNanoHTTPReturnCode...
-     d                 pr                  extproc('xmlNanoHTTPReturnCode')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlNanoHTTPReturnCode')
      d  ctx                            *   value                                void *
 
      d xmlNanoHTTPAuthHeader...
@@ -75,8 +71,7 @@
      d  ctx                            *   value                                void *
 
      d xmlNanoHTTPContentLength...
-     d                 pr                  extproc('xmlNanoHTTPContentLength')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlNanoHTTPContentLength')
      d  ctx                            *   value                                void *
 
      d xmlNanoHTTPEncoding...
@@ -88,16 +83,14 @@
      d  ctx                            *   value                                void *
 
      d xmlNanoHTTPRead...
-     d                 pr                  extproc('xmlNanoHTTPRead')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlNanoHTTPRead')
      d  ctx                            *   value                                void *
      d  dest                           *   value                                void *
-     d  len                                value like(xmlCint)
+     d  len                          10i 0 value
 
       /if defined(LIBXML_OUTPUT_ENABLED)
      d xmlNanoHTTPSave...
-     d                 pr                  extproc('xmlNanoHTTPSave')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlNanoHTTPSave')
      d  ctxt                           *   value                                void *
      d  filename                       *   value options(*string)               const char *
       /endif                                                                    LIBXML_OUTPUT_ENABLD

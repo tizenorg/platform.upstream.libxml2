@@ -507,7 +507,7 @@ xmlRngVErrMemory(xmlRelaxNGValidCtxtPtr ctxt, const char *extra)
  *
  * Handle a Relax NG Parsing error
  */
-static void LIBXML_ATTR_FORMAT(4,0)
+static void
 xmlRngPErr(xmlRelaxNGParserCtxtPtr ctxt, xmlNodePtr node, int error,
            const char *msg, const xmlChar * str1, const xmlChar * str2)
 {
@@ -541,7 +541,7 @@ xmlRngPErr(xmlRelaxNGParserCtxtPtr ctxt, xmlNodePtr node, int error,
  *
  * Handle a Relax NG Validation error
  */
-static void LIBXML_ATTR_FORMAT(4,0)
+static void
 xmlRngVErr(xmlRelaxNGValidCtxtPtr ctxt, xmlNodePtr node, int error,
            const char *msg, const xmlChar * str1, const xmlChar * str2)
 {
@@ -2215,8 +2215,7 @@ xmlRelaxNGGetErrorString(xmlRelaxNGValidErr err, const xmlChar * arg1,
         snprintf(msg, 1000, "Unknown error code %d\n", err);
     }
     msg[1000 - 1] = 0;
-    xmlChar *result = xmlCharStrdup(msg);
-    return (xmlEscapeFormatString(&result));
+    return (xmlStrdup((xmlChar *) msg));
 }
 
 /**
@@ -3820,11 +3819,7 @@ xmlRelaxNGCompareNameClasses(xmlRelaxNGDefinePtr def1,
             return (0);
         return (1);
     } else if (def1->type == XML_RELAXNG_EXCEPT) {
-        ret = xmlRelaxNGCompareNameClasses(def1->content, def2);
-	if (ret == 0)
-	    ret = 1;
-	else if (ret == 1)
-	    ret = 0;
+        TODO ret = 0;
     } else {
         TODO ret = 0;
     }
@@ -9864,7 +9859,7 @@ xmlRelaxNGValidateState(xmlRelaxNGValidCtxtPtr ctxt,
     ctxt->depth++;
     switch (define->type) {
         case XML_RELAXNG_EMPTY:
-            xmlRelaxNGSkipIgnored(ctxt, node);
+            node = xmlRelaxNGSkipIgnored(ctxt, node);
             ret = 0;
             break;
         case XML_RELAXNG_NOT_ALLOWED:

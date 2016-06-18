@@ -125,7 +125,7 @@ xmlXIncludeErrMemory(xmlXIncludeCtxtPtr ctxt, xmlNodePtr node,
  *
  * Handle an XInclude error
  */
-static void LIBXML_ATTR_FORMAT(4,0)
+static void
 xmlXIncludeErr(xmlXIncludeCtxtPtr ctxt, xmlNodePtr node, int error,
                const char *msg, const xmlChar *extra)
 {
@@ -147,7 +147,7 @@ xmlXIncludeErr(xmlXIncludeCtxtPtr ctxt, xmlNodePtr node, int error,
  *
  * Emit an XInclude warning.
  */
-static void LIBXML_ATTR_FORMAT(4,0)
+static void
 xmlXIncludeWarn(xmlXIncludeCtxtPtr ctxt, xmlNodePtr node, int error,
                const char *msg, const xmlChar *extra)
 {

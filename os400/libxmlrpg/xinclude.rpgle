@@ -12,7 +12,6 @@
       /define XML_XINCLUDE_H__
 
       /include "libxmlrpg/xmlversion"
-      /include "libxmlrpg/xmlTypesC"
       /include "libxmlrpg/tree"
 
       /if defined(LIBXML_XINCLUDE_ENABLED)
@@ -90,43 +89,37 @@
       * standalone processing
 
      d xmlXIncludeProcess...
-     d                 pr                  extproc('xmlXIncludeProcess')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlXIncludeProcess')
      d  doc                                value like(xmlDocPtr)
 
      d xmlXIncludeProcessFlags...
-     d                 pr                  extproc('xmlXIncludeProcessFlags')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlXIncludeProcessFlags')
      d  doc                                value like(xmlDocPtr)
-     d  flags                              value like(xmlCint)
+     d  flags                        10i 0 value
 
      d xmlXIncludeProcessFlagsData...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlXIncludeProcessFlagsData')
-     d                                     like(xmlCint)
      d  doc                                value like(xmlDocPtr)
-     d  flags                              value like(xmlCint)
+     d  flags                        10i 0 value
      d  data                           *   value                                void *
 
      d xmlXIncludeProcessTreeFlagsData...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlXIncludeProcessTreeFlagsData')
-     d                                     like(xmlCint)
      d  tree                               value like(xmlNodePtr)
-     d  flags                              value like(xmlCint)
+     d  flags                        10i 0 value
      d  data                           *   value                                void *
 
      d xmlXIncludeProcessTree...
-     d                 pr                  extproc('xmlXIncludeProcessTree')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlXIncludeProcessTree')
      d  tree                               value like(xmlNodePtr)
 
      d xmlXIncludeProcessTreeFlags...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlXIncludeProcessTreeFlags')
-     d                                     like(xmlCint)
      d  tree                               value like(xmlNodePtr)
-     d  flags                              value like(xmlCint)
+     d  flags                        10i 0 value
 
 
       * contextual processing
@@ -137,18 +130,16 @@
      d  doc                                value like(xmlDocPtr)
 
      d xmlXIncludeSetFlags...
-     d                 pr                  extproc('xmlXIncludeSetFlags')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlXIncludeSetFlags')
      d  ctxt                               value like(xmlXIncludeCtxtPtr)
-     d  flags                              value like(xmlCint)
+     d  flags                        10i 0 value
 
      d xmlXIncludeFreeContext...
      d                 pr                  extproc('xmlXIncludeFreeContext')
      d  ctxt                               value like(xmlXIncludeCtxtPtr)
 
      d xmlXIncludeProcessNode...
-     d                 pr                  extproc('xmlXIncludeProcessNode')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlXIncludeProcessNode')
      d  ctxt                               value like(xmlXIncludeCtxtPtr)
      d  tree                               value like(xmlNodePtr)
 

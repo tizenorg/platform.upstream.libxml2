@@ -85,7 +85,7 @@ xmlXPtrErrMemory(const char *extra)
  *
  * Handle a redefinition of attribute error
  */
-static void LIBXML_ATTR_FORMAT(3,0)
+static void
 xmlXPtrErr(xmlXPathParserContextPtr ctxt, int error,
            const char * msg, const xmlChar *extra)
 {

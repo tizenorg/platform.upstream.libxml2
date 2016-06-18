@@ -10,11 +10,10 @@
       /define DEBUG_XML__
 
       /include "libxmlrpg/xmlversion"
+      /include "libxmlrpg/tree"
 
       /if defined(LIBXML_DEBUG_ENABLED)
 
-      /include "libxmlrpg/xmlTypesC"
-      /include "libxmlrpg/tree"
       /include "libxmlrpg/xpath"
 
       * The standard Dump routines.
@@ -28,31 +27,31 @@
      d                 pr                  extproc('xmlDebugDumpAttr')
      d  output                         *   value                                FILE *
      d  attr                               value like(xmlAttrPtr)
-     d  depth                              value like(xmlCint)
+     d  depth                        10i 0 value
 
      d xmlDebugDumpAttrList...
      d                 pr                  extproc('xmlDebugDumpAttrList')
      d  output                         *   value                                FILE *
      d  attr                               value like(xmlAttrPtr)
-     d  depth                              value like(xmlCint)
+     d  depth                        10i 0 value
 
      d xmlDebugDumpOneNode...
      d                 pr                  extproc('xmlDebugDumpOneNode')
      d  output                         *   value                                FILE *
      d  node                               value like(xmlNodePtr)
-     d  depth                              value like(xmlCint)
+     d  depth                        10i 0 value
 
      d xmlDebugDumpNode...
      d                 pr                  extproc('xmlDebugDumpNode')
      d  output                         *   value                                FILE *
      d  node                               value like(xmlNodePtr)
-     d  depth                              value like(xmlCint)
+     d  depth                        10i 0 value
 
      d xmlDebugDumpNodeList...
      d                 pr                  extproc('xmlDebugDumpNodeList')
      d  output                         *   value                                FILE *
      d  node                               value like(xmlNodePtr)
-     d  depth                              value like(xmlCint)
+     d  depth                        10i 0 value
 
      d xmlDebugDumpDocumentHead...
      d                 pr                  extproc('xmlDebugDumpDocumentHead')
@@ -81,8 +80,7 @@
       ****************************************************************
 
      d xmlDebugCheckDocument...
-     d                 pr                  extproc('xmlDebugCheckDocument')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlDebugCheckDocument')
      d  output                         *   value                                FILE *
      d  doc                                value like(xmlDocPtr)
 
@@ -96,12 +94,11 @@
      d  output                         *   value                                FILE *
      d  node                               value like(xmlNodePtr)
 
-     d xmlLsCountNode  pr                  extproc('xmlLsCountNode')
-     d                                     like(xmlCint)
+     d xmlLsCountNode  pr            10i 0 extproc('xmlLsCountNode')
      d  node                               value like(xmlNodePtr)
 
      d xmlBoolToText   pr              *   extproc('xmlBoolToText')             const char *
-     d  boolval                            value like(xmlCint)
+     d  boolval                      10i 0 value
 
       ****************************************************************
       *                                                              *
@@ -136,7 +133,7 @@
      d  doc                                like(xmlDocPtr)
      d  node                               like(xmlNodePtr)
      d  pctxt                              like(xmlXPathContextPtr)
-     d  loaded                             like(xmlCint)
+     d  loaded                       10i 0
      d  output                         *                                        FILE *
      d  input                              like(xmlShellReadlineFunc)
 
@@ -155,36 +152,32 @@
 
      d xmlShellPrintXPathError...
      d                 pr                  extproc('xmlShellPrintXPathError')
-     d  errorType                          value like(xmlCint)
+     d  errorType                    10i 0 value
      d  arg                            *   value options(*string)               const char *
 
      d xmlShellPrintXPathResult...
      d                 pr                  extproc('xmlShellPrintXPathResult')
      d  list                               value like(xmlXPathObjectPtr)
 
-     d xmlShellList    pr                  extproc('xmlShellList')
-     d                                     like(xmlCint)
+     d xmlShellList    pr            10i 0 extproc('xmlShellList')
      d  ctxt                               value like(xmlShellCtxtPtr)
      d  arg                            *   value options(*string)               char *
      d  node                               value like(xmlNodePtr)
      d  node2                              value like(xmlNodePtr)
 
-     d xmlShellBase    pr                  extproc('xmlShellBase')
-     d                                     like(xmlCint)
+     d xmlShellBase    pr            10i 0 extproc('xmlShellBase')
      d  ctxt                               value like(xmlShellCtxtPtr)
      d  arg                            *   value options(*string)               char *
      d  node                               value like(xmlNodePtr)
      d  node2                              value like(xmlNodePtr)
 
-     d xmlShellDir     pr                  extproc('xmlShellDir')
-     d                                     like(xmlCint)
+     d xmlShellDir     pr            10i 0 extproc('xmlShellDir')
      d  ctxt                               value like(xmlShellCtxtPtr)
      d  arg                            *   value options(*string)               char *
      d  node                               value like(xmlNodePtr)
      d  node2                              value like(xmlNodePtr)
 
-     d xmlShellLoad    pr                  extproc('xmlShellLoad')
-     d                                     like(xmlCint)
+     d xmlShellLoad    pr            10i 0 extproc('xmlShellLoad')
      d  ctxt                               value like(xmlShellCtxtPtr)
      d  filename                       *   value options(*string)               char *
      d  node                               value like(xmlNodePtr)
@@ -195,22 +188,19 @@
      d                 pr                  extproc('xmlShellPrintNode')
      d  node                               value like(xmlNodePtr)
 
-     d xmlShellCat     pr                  extproc('xmlShellCat')
-     d                                     like(xmlCint)
+     d xmlShellCat     pr            10i 0 extproc('xmlShellCat')
      d  ctxt                               value like(xmlShellCtxtPtr)
      d  arg                            *   value options(*string)               char *
      d  node                               value like(xmlNodePtr)
      d  node2                              value like(xmlNodePtr)
 
-     d xmlShellWrite   pr                  extproc('xmlShellWrite')
-     d                                     like(xmlCint)
+     d xmlShellWrite   pr            10i 0 extproc('xmlShellWrite')
      d  ctxt                               value like(xmlShellCtxtPtr)
      d  filename                       *   value options(*string)               char *
      d  node                               value like(xmlNodePtr)
      d  node2                              value like(xmlNodePtr)
 
-     d xmlShellSave    pr                  extproc('xmlShellSave')
-     d                                     like(xmlCint)
+     d xmlShellSave    pr            10i 0 extproc('xmlShellSave')
      d  ctxt                               value like(xmlShellCtxtPtr)
      d  filename                       *   value options(*string)               char *
      d  node                               value like(xmlNodePtr)
@@ -219,23 +209,20 @@
 
       /if defined(LIBXML_VALID_ENABLED)
      d xmlShellValidate...
-     d                 pr                  extproc('xmlShellValidate')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlShellValidate')
      d  ctxt                               value like(xmlShellCtxtPtr)
      d  dtd                            *   value options(*string)               char *
      d  node                               value like(xmlNodePtr)
      d  node2                              value like(xmlNodePtr)
       /endif                                                                    LIBXML_VALID_ENABLED
 
-     d xmlShellDu      pr                  extproc('xmlShellDu')
-     d                                     like(xmlCint)
+     d xmlShellDu      pr            10i 0 extproc('xmlShellDu')
      d  ctxt                               value like(xmlShellCtxtPtr)
      d  arg                            *   value options(*string)               char *
      d  tree                               value like(xmlNodePtr)
      d  node2                              value like(xmlNodePtr)
 
-     d xmlShellPwd     pr                  extproc('xmlShellPwd')
-     d                                     like(xmlCint)
+     d xmlShellPwd     pr            10i 0 extproc('xmlShellPwd')
      d  ctxt                               value like(xmlShellCtxtPtr)
      d  buffer                         *   value options(*string)               char *
      d  node                               value like(xmlNodePtr)

@@ -10,7 +10,6 @@
       /define XML_URI_H__
 
       /include "libxmlrpg/xmlversion"
-      /include "libxmlrpg/xmlTypesC"
       /include "libxmlrpg/tree"
 
       * xmlURI:
@@ -31,11 +30,11 @@
      d  authority                      *                                        char *
      d  server                         *                                        char *
      d  user                           *                                        char *
-     d  port                               like(xmlCint)
+     d  port                         10i 0
      d  path                           *                                        char *
      d  query                          *                                        char *
      d  fragment                       *                                        char *
-     d  cleanup                            like(xmlCint)
+     d  cleanup                      10i 0
      d  query_raw                      *                                        char *
 
      d xmlCreateURI    pr                  extproc('xmlCreateURI')
@@ -57,11 +56,10 @@
      d xmlParseURIRaw  pr                  extproc('xmlParseURIRaw')
      d                                     like(xmlURIPtr)
      d  str                            *   value options(*string)               const char *
-     d  raw                                value like(xmlCint)
+     d  raw                          10i 0 value
 
      d xmlParseURIReference...
-     d                 pr                  extproc('xmlParseURIReference')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlParseURIReference')
      d  uri                                value like(xmlURIPtr)
      d  str                            *   value options(*string)               const char *
 
@@ -80,12 +78,11 @@
      d xmlURIUnescapeString...
      d                 pr              *   extproc('xmlURIUnescapeString')      char *
      d  str                            *   value options(*string)               const char *
-     d  len                                value like(xmlCint)
+     d  len                          10i 0 value
      d  target                         *   value options(*string)               char *
 
      d xmlNormalizeURIPath...
-     d                 pr                  extproc('xmlNormalizeURIPath')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlNormalizeURIPath')
      d  path                           *   value options(*string)               char *
 
      d xmlURIEscape    pr              *   extproc('xmlURIEscape')              xmlChar *

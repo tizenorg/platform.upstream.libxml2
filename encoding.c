@@ -93,7 +93,7 @@ xmlEncodingErrMemory(const char *extra)
  *
  * n encoding error
  */
-static void LIBXML_ATTR_FORMAT(2,0)
+static void
 xmlEncodingErr(xmlParserErrors error, const char *msg, const char *val)
 {
     __xmlRaiseError(NULL, NULL, NULL, NULL, NULL,

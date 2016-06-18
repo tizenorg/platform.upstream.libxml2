@@ -12,824 +12,656 @@
 
       /if defined(LIBXML_UNICODE_ENABLED)
 
-      /include "libxmlrpg/xmlTypesC"
-
      d xmlUCSIsAegeanNumbers...
-     d                 pr                  extproc('xmlUCSIsAegeanNumbers')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsAegeanNumbers')
+     d  code                         10i 0 value
 
      d xmlUCSIsAlphabeticPresentationForms...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsAlphabeticPresentationForms'
      d                                     )
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
-     d xmlUCSIsArabic  pr                  extproc('xmlUCSIsArabic')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsArabic  pr            10i 0 extproc('xmlUCSIsArabic')
+     d  code                         10i 0 value
 
      d xmlUCSIsArabicPresentationFormsA...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsArabicPresentationFormsA')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsArabicPresentationFormsB...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsArabicPresentationFormsB')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsArmenian...
-     d                 pr                  extproc('xmlUCSIsArmenian')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsArmenian')
+     d  code                         10i 0 value
 
-     d xmlUCSIsArrows  pr                  extproc('xmlUCSIsArrows')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsArrows  pr            10i 0 extproc('xmlUCSIsArrows')
+     d  code                         10i 0 value
 
      d xmlUCSIsBasicLatin...
-     d                 pr                  extproc('xmlUCSIsBasicLatin')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsBasicLatin')
+     d  code                         10i 0 value
 
      d xmlUCSIsBengali...
-     d                 pr                  extproc('xmlUCSIsBengali')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsBengali')
+     d  code                         10i 0 value
 
      d xmlUCSIsBlockElements...
-     d                 pr                  extproc('xmlUCSIsBlockElements')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsBlockElements')
+     d  code                         10i 0 value
 
      d xmlUCSIsBopomofo...
-     d                 pr                  extproc('xmlUCSIsBopomofo')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsBopomofo')
+     d  code                         10i 0 value
 
      d xmlUCSIsBopomofoExtended...
-     d                 pr                  extproc('xmlUCSIsBopomofoExtended')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsBopomofoExtended')
+     d  code                         10i 0 value
 
      d xmlUCSIsBoxDrawing...
-     d                 pr                  extproc('xmlUCSIsBoxDrawing')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsBoxDrawing')
+     d  code                         10i 0 value
 
      d xmlUCSIsBraillePatterns...
-     d                 pr                  extproc('xmlUCSIsBraillePatterns')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsBraillePatterns')
+     d  code                         10i 0 value
 
-     d xmlUCSIsBuhid   pr                  extproc('xmlUCSIsBuhid')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsBuhid   pr            10i 0 extproc('xmlUCSIsBuhid')
+     d  code                         10i 0 value
 
      d xmlUCSIsByzantineMusicalSymbols...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsByzantineMusicalSymbols')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsCJKCompatibility...
-     d                 pr                  extproc('xmlUCSIsCJKCompatibility')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsCJKCompatibility')
+     d  code                         10i 0 value
 
      d xmlUCSIsCJKCompatibilityForms...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsCJKCompatibilityForms')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsCJKCompatibilityIdeographs...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsCJKCompatibilityIdeographs')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsCJKCompatibilityIdeographsSupplement...
-     d                 pr                  extproc('xmlUCSIsCJKCompatibilityIde-
+     d                 pr            10i 0 extproc('xmlUCSIsCJKCompatibilityIde-
      d                                     ographsSupplement')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsCJKRadicalsSupplement...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsCJKRadicalsSupplement')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsCJKSymbolsandPunctuation...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsCJKSymbolsandPunctuation')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsCJKUnifiedIdeographs...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsCJKUnifiedIdeographs')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsCJKUnifiedIdeographsExtensionA...
-     d                 pr                  extproc('xmlUCSIsCJKUnifiedIdeograph-
+     d                 pr            10i 0 extproc('xmlUCSIsCJKUnifiedIdeograph-
      d                                     sExtensionA')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsCJKUnifiedIdeographsExtensionB...
-     d                 pr                  extproc('xmlUCSIsCJKUnifiedIdeograph-
+     d                 pr            10i 0 extproc('xmlUCSIsCJKUnifiedIdeograph-
      d                                     sExtensionB')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsCherokee...
-     d                 pr                  extproc('xmlUCSIsCherokee')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsCherokee')
+     d  code                         10i 0 value
 
      d xmlUCSIsCombiningDiacriticalMarks...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsCombiningDiacriticalMarks')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsCombiningDiacriticalMarksforSymbols...
-     d                 pr                  extproc('xmlUCSIsCombiningDiacritica-
+     d                 pr            10i 0 extproc('xmlUCSIsCombiningDiacritica-
      d                                     lMarksforSymbols')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsCombiningHalfMarks...
-     d                 pr                  extproc('xmlUCSIsCombiningHalfMarks')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsCombiningHalfMarks')
+     d  code                         10i 0 value
 
      d xmlUCSIsCombiningMarksforSymbols...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsCombiningMarksforSymbols')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsControlPictures...
-     d                 pr                  extproc('xmlUCSIsControlPictures')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsControlPictures')
+     d  code                         10i 0 value
 
      d xmlUCSIsCurrencySymbols...
-     d                 pr                  extproc('xmlUCSIsCurrencySymbols')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsCurrencySymbols')
+     d  code                         10i 0 value
 
      d xmlUCSIsCypriotSyllabary...
-     d                 pr                  extproc('xmlUCSIsCypriotSyllabary')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsCypriotSyllabary')
+     d  code                         10i 0 value
 
      d xmlUCSIsCyrillic...
-     d                 pr                  extproc('xmlUCSIsCyrillic')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsCyrillic')
+     d  code                         10i 0 value
 
      d xmlUCSIsCyrillicSupplement...
-     d                 pr                  extproc('xmlUCSIsCyrillicSupplement')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsCyrillicSupplement')
+     d  code                         10i 0 value
 
      d xmlUCSIsDeseret...
-     d                 pr                  extproc('xmlUCSIsDeseret')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsDeseret')
+     d  code                         10i 0 value
 
      d xmlUCSIsDevanagari...
-     d                 pr                  extproc('xmlUCSIsDevanagari')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsDevanagari')
+     d  code                         10i 0 value
 
      d xmlUCSIsDingbats...
-     d                 pr                  extproc('xmlUCSIsDingbats')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsDingbats')
+     d  code                         10i 0 value
 
      d xmlUCSIsEnclosedAlphanumerics...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsEnclosedAlphanumerics')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsEnclosedCJKLettersandMonths...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsEnclosedCJKLettersandMonths'
      d                                     )
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsEthiopic...
-     d                 pr                  extproc('xmlUCSIsEthiopic')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsEthiopic')
+     d  code                         10i 0 value
 
      d xmlUCSIsGeneralPunctuation...
-     d                 pr                  extproc('xmlUCSIsGeneralPunctuation')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsGeneralPunctuation')
+     d  code                         10i 0 value
 
      d xmlUCSIsGeometricShapes...
-     d                 pr                  extproc('xmlUCSIsGeometricShapes')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsGeometricShapes')
+     d  code                         10i 0 value
 
      d xmlUCSIsGeorgian...
-     d                 pr                  extproc('xmlUCSIsGeorgian')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsGeorgian')
+     d  code                         10i 0 value
 
-     d xmlUCSIsGothic  pr                  extproc('xmlUCSIsGothic')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsGothic  pr            10i 0 extproc('xmlUCSIsGothic')
+     d  code                         10i 0 value
 
-     d xmlUCSIsGreek   pr                  extproc('xmlUCSIsGreek')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsGreek   pr            10i 0 extproc('xmlUCSIsGreek')
+     d  code                         10i 0 value
 
      d xmlUCSIsGreekExtended...
-     d                 pr                  extproc('xmlUCSIsGreekExtended')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsGreekExtended')
+     d  code                         10i 0 value
 
      d xmlUCSIsGreekandCoptic...
-     d                 pr                  extproc('xmlUCSIsGreekandCoptic')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsGreekandCoptic')
+     d  code                         10i 0 value
 
      d xmlUCSIsGujarati...
-     d                 pr                  extproc('xmlUCSIsGujarati')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsGujarati')
+     d  code                         10i 0 value
 
      d xmlUCSIsGurmukhi...
-     d                 pr                  extproc('xmlUCSIsGurmukhi')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsGurmukhi')
+     d  code                         10i 0 value
 
      d xmlUCSIsHalfwidthandFullwidthForms...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsHalfwidthandFullwidthForms')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsHangulCompatibilityJamo...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsHangulCompatibilityJamo')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsHangulJamo...
-     d                 pr                  extproc('xmlUCSIsHangulJamo')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsHangulJamo')
+     d  code                         10i 0 value
 
      d xmlUCSIsHangulSyllables...
-     d                 pr                  extproc('xmlUCSIsHangulSyllables')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsHangulSyllables')
+     d  code                         10i 0 value
 
      d xmlUCSIsHanunoo...
-     d                 pr                  extproc('xmlUCSIsHanunoo')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsHanunoo')
+     d  code                         10i 0 value
 
-     d xmlUCSIsHebrew  pr                  extproc('xmlUCSIsHebrew')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsHebrew  pr            10i 0 extproc('xmlUCSIsHebrew')
+     d  code                         10i 0 value
 
      d xmlUCSIsHighPrivateUseSurrogates...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsHighPrivateUseSurrogates')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsHighSurrogates...
-     d                 pr                  extproc('xmlUCSIsHighSurrogates')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsHighSurrogates')
+     d  code                         10i 0 value
 
      d xmlUCSIsHiragana...
-     d                 pr                  extproc('xmlUCSIsHiragana')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsHiragana')
+     d  code                         10i 0 value
 
      d xmlUCSIsIPAExtensions...
-     d                 pr                  extproc('xmlUCSIsIPAExtensions')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsIPAExtensions')
+     d  code                         10i 0 value
 
      d xmlUCSIsIdeographicDescriptionCharacters...
-     d                 pr                  extproc('xmlUCSIsIdeographicDescript-
+     d                 pr            10i 0 extproc('xmlUCSIsIdeographicDescript-
      d                                     ionCharacters')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
-     d xmlUCSIsKanbun  pr                  extproc('xmlUCSIsKanbun')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsKanbun  pr            10i 0 extproc('xmlUCSIsKanbun')
+     d  code                         10i 0 value
 
      d xmlUCSIsKangxiRadicals...
-     d                 pr                  extproc('xmlUCSIsKangxiRadicals')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsKangxiRadicals')
+     d  code                         10i 0 value
 
      d xmlUCSIsKannada...
-     d                 pr                  extproc('xmlUCSIsKannada')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsKannada')
+     d  code                         10i 0 value
 
      d xmlUCSIsKatakana...
-     d                 pr                  extproc('xmlUCSIsKatakana')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsKatakana')
+     d  code                         10i 0 value
 
      d xmlUCSIsKatakanaPhoneticExtensions...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsKatakanaPhoneticExtensions')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
-     d xmlUCSIsKhmer   pr                  extproc('xmlUCSIsKhmer')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsKhmer   pr            10i 0 extproc('xmlUCSIsKhmer')
+     d  code                         10i 0 value
 
      d xmlUCSIsKhmerSymbols...
-     d                 pr                  extproc('xmlUCSIsKhmerSymbols')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsKhmerSymbols')
+     d  code                         10i 0 value
 
-     d xmlUCSIsLao     pr                  extproc('xmlUCSIsLao')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsLao     pr            10i 0 extproc('xmlUCSIsLao')
+     d  code                         10i 0 value
 
      d xmlUCSIsLatin1Supplement...
-     d                 pr                  extproc('xmlUCSIsLatin1Supplement')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsLatin1Supplement')
+     d  code                         10i 0 value
 
      d xmlUCSIsLatinExtendedA...
-     d                 pr                  extproc('xmlUCSIsLatinExtendedA')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsLatinExtendedA')
+     d  code                         10i 0 value
 
      d xmlUCSIsLatinExtendedB...
-     d                 pr                  extproc('xmlUCSIsLatinExtendedB')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsLatinExtendedB')
+     d  code                         10i 0 value
 
      d xmlUCSIsLatinExtendedAdditional...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsLatinExtendedAdditional')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsLetterlikeSymbols...
-     d                 pr                  extproc('xmlUCSIsLetterlikeSymbols')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsLetterlikeSymbols')
+     d  code                         10i 0 value
 
-     d xmlUCSIsLimbu   pr                  extproc('xmlUCSIsLimbu')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsLimbu   pr            10i 0 extproc('xmlUCSIsLimbu')
+     d  code                         10i 0 value
 
      d xmlUCSIsLinearBIdeograms...
-     d                 pr                  extproc('xmlUCSIsLinearBIdeograms')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsLinearBIdeograms')
+     d  code                         10i 0 value
 
      d xmlUCSIsLinearBSyllabary...
-     d                 pr                  extproc('xmlUCSIsLinearBSyllabary')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsLinearBSyllabary')
+     d  code                         10i 0 value
 
      d xmlUCSIsLowSurrogates...
-     d                 pr                  extproc('xmlUCSIsLowSurrogates')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsLowSurrogates')
+     d  code                         10i 0 value
 
      d xmlUCSIsMalayalam...
-     d                 pr                  extproc('xmlUCSIsMalayalam')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsMalayalam')
+     d  code                         10i 0 value
 
      d xmlUCSIsMathematicalAlphanumericSymbols...
-     d                 pr                  extproc('xmlUCSIsMathematicalAlphanu-
+     d                 pr            10i 0 extproc('xmlUCSIsMathematicalAlphanu-
      d                                     mericSymbols')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsMathematicalOperators...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsMathematicalOperators')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsMiscellaneousMathematicalSymbolsA...
-     d                 pr                  extproc('xmlUCSIsMiscellaneousMathem-
+     d                 pr            10i 0 extproc('xmlUCSIsMiscellaneousMathem-
      d                                     aticalSymbolsA')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsMiscellaneousMathematicalSymbolsB...
-     d                 pr                  extproc('xmlUCSIsMiscellaneousMathem-
+     d                 pr            10i 0 extproc('xmlUCSIsMiscellaneousMathem-
      d                                     aticalSymbolsB')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsMiscellaneousSymbols...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsMiscellaneousSymbols')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsMiscellaneousSymbolsandArrows...
-     d                 pr                  extproc('xmlUCSIsMiscellaneousSymbol-
+     d                 pr            10i 0 extproc('xmlUCSIsMiscellaneousSymbol-
      d                                     sandArrows')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsMiscellaneousTechnical...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsMiscellaneousTechnical')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsMongolian...
-     d                 pr                  extproc('xmlUCSIsMongolian')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsMongolian')
+     d  code                         10i 0 value
 
      d xmlUCSIsMusicalSymbols...
-     d                 pr                  extproc('xmlUCSIsMusicalSymbols')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsMusicalSymbols')
+     d  code                         10i 0 value
 
      d xmlUCSIsMyanmar...
-     d                 pr                  extproc('xmlUCSIsMyanmar')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsMyanmar')
+     d  code                         10i 0 value
 
      d xmlUCSIsNumberForms...
-     d                 pr                  extproc('xmlUCSIsNumberForms')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsNumberForms')
+     d  code                         10i 0 value
 
-     d xmlUCSIsOgham   pr                  extproc('xmlUCSIsOgham')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsOgham   pr            10i 0 extproc('xmlUCSIsOgham')
+     d  code                         10i 0 value
 
      d xmlUCSIsOldItalic...
-     d                 pr                  extproc('xmlUCSIsOldItalic')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsOldItalic')
+     d  code                         10i 0 value
 
      d xmlUCSIsOpticalCharacterRecognition...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsOpticalCharacterRecognition'
      d                                     )
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
-     d xmlUCSIsOriya   pr                  extproc('xmlUCSIsOriya')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsOriya   pr            10i 0 extproc('xmlUCSIsOriya')
+     d  code                         10i 0 value
 
      d xmlUCSIsOsmanya...
-     d                 pr                  extproc('xmlUCSIsOsmanya')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsOsmanya')
+     d  code                         10i 0 value
 
      d xmlUCSIsPhoneticExtensions...
-     d                 pr                  extproc('xmlUCSIsPhoneticExtensions')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsPhoneticExtensions')
+     d  code                         10i 0 value
 
      d xmlUCSIsPrivateUse...
-     d                 pr                  extproc('xmlUCSIsPrivateUse')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsPrivateUse')
+     d  code                         10i 0 value
 
      d xmlUCSIsPrivateUseArea...
-     d                 pr                  extproc('xmlUCSIsPrivateUseArea')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsPrivateUseArea')
+     d  code                         10i 0 value
 
-     d xmlUCSIsRunic   pr                  extproc('xmlUCSIsRunic')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsRunic   pr            10i 0 extproc('xmlUCSIsRunic')
+     d  code                         10i 0 value
 
      d xmlUCSIsShavian...
-     d                 pr                  extproc('xmlUCSIsShavian')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsShavian')
+     d  code                         10i 0 value
 
      d xmlUCSIsSinhala...
-     d                 pr                  extproc('xmlUCSIsSinhala')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsSinhala')
+     d  code                         10i 0 value
 
      d xmlUCSIsSmallFormVariants...
-     d                 pr                  extproc('xmlUCSIsSmallFormVariants')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsSmallFormVariants')
+     d  code                         10i 0 value
 
      d xmlUCSIsSpacingModifierLetters...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsSpacingModifierLetters')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsSpecials...
-     d                 pr                  extproc('xmlUCSIsSpecials')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsSpecials')
+     d  code                         10i 0 value
 
      d xmlUCSIsSuperscriptsandSubscripts...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsSuperscriptsandSubscripts')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsSupplementalArrowsA...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsSupplementalArrowsA')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsSupplementalArrowsB...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsSupplementalArrowsB')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsSupplementalMathematicalOperators...
-     d                 pr                  extproc('xmlUCSIsSupplementalMathema-
+     d                 pr            10i 0 extproc('xmlUCSIsSupplementalMathema-
      d                                     ticalOperators')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsSupplementaryPrivateUseAreaA...
-     d                 pr                  extproc('xmlUCSIsSupplementaryPrivat-
+     d                 pr            10i 0 extproc('xmlUCSIsSupplementaryPrivat-
      d                                     eUseAreaA')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsSupplementaryPrivateUseAreaB...
-     d                 pr                  extproc('xmlUCSIsSupplementaryPrivat-
+     d                 pr            10i 0 extproc('xmlUCSIsSupplementaryPrivat-
      d                                     eUseAreaB')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
-     d xmlUCSIsSyriac  pr                  extproc('xmlUCSIsSyriac')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsSyriac  pr            10i 0 extproc('xmlUCSIsSyriac')
+     d  code                         10i 0 value
 
      d xmlUCSIsTagalog...
-     d                 pr                  extproc('xmlUCSIsTagalog')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsTagalog')
+     d  code                         10i 0 value
 
      d xmlUCSIsTagbanwa...
-     d                 pr                  extproc('xmlUCSIsTagbanwa')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsTagbanwa')
+     d  code                         10i 0 value
 
-     d xmlUCSIsTags    pr                  extproc('xmlUCSIsTags')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsTags    pr            10i 0 extproc('xmlUCSIsTags')
+     d  code                         10i 0 value
 
-     d xmlUCSIsTaiLe   pr                  extproc('xmlUCSIsTaiLe')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsTaiLe   pr            10i 0 extproc('xmlUCSIsTaiLe')
+     d  code                         10i 0 value
 
      d xmlUCSIsTaiXuanJingSymbols...
-     d                 pr                  extproc('xmlUCSIsTaiXuanJingSymbols')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsTaiXuanJingSymbols')
+     d  code                         10i 0 value
 
-     d xmlUCSIsTamil   pr                  extproc('xmlUCSIsTamil')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsTamil   pr            10i 0 extproc('xmlUCSIsTamil')
+     d  code                         10i 0 value
 
-     d xmlUCSIsTelugu  pr                  extproc('xmlUCSIsTelugu')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsTelugu  pr            10i 0 extproc('xmlUCSIsTelugu')
+     d  code                         10i 0 value
 
-     d xmlUCSIsThaana  pr                  extproc('xmlUCSIsThaana')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsThaana  pr            10i 0 extproc('xmlUCSIsThaana')
+     d  code                         10i 0 value
 
-     d xmlUCSIsThai    pr                  extproc('xmlUCSIsThai')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsThai    pr            10i 0 extproc('xmlUCSIsThai')
+     d  code                         10i 0 value
 
      d xmlUCSIsTibetan...
-     d                 pr                  extproc('xmlUCSIsTibetan')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsTibetan')
+     d  code                         10i 0 value
 
      d xmlUCSIsUgaritic...
-     d                 pr                  extproc('xmlUCSIsUgaritic')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsUgaritic')
+     d  code                         10i 0 value
 
      d xmlUCSIsUnifiedCanadianAboriginalSyllabics...
-     d                 pr                  extproc('xmlUCSIsUnifiedCanadianAbor-
+     d                 pr            10i 0 extproc('xmlUCSIsUnifiedCanadianAbor-
      d                                     iginalSyllabics')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsVariationSelectors...
-     d                 pr                  extproc('xmlUCSIsVariationSelectors')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsVariationSelectors')
+     d  code                         10i 0 value
 
      d xmlUCSIsVariationSelectorsSupplement...
-     d                 pr                  extproc('xmlUCSIsVariationSelectorsS-
+     d                 pr            10i 0 extproc('xmlUCSIsVariationSelectorsS-
      d                                     upplement')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
      d xmlUCSIsYiRadicals...
-     d                 pr                  extproc('xmlUCSIsYiRadicals')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsYiRadicals')
+     d  code                         10i 0 value
 
      d xmlUCSIsYiSyllables...
-     d                 pr                  extproc('xmlUCSIsYiSyllables')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlUCSIsYiSyllables')
+     d  code                         10i 0 value
 
      d xmlUCSIsYijingHexagramSymbols...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlUCSIsYijingHexagramSymbols')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d  code                         10i 0 value
 
-     d xmlUCSIsBlock   pr                  extproc('xmlUCSIsBlock')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsBlock   pr            10i 0 extproc('xmlUCSIsBlock')
+     d  code                         10i 0 value
      d  block                          *   value options(*string)               const char *
 
-     d xmlUCSIsCatC    pr                  extproc('xmlUCSIsCatC')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatC    pr            10i 0 extproc('xmlUCSIsCatC')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatCc   pr                  extproc('xmlUCSIsCatCc')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatCc   pr            10i 0 extproc('xmlUCSIsCatCc')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatCf   pr                  extproc('xmlUCSIsCatCf')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatCf   pr            10i 0 extproc('xmlUCSIsCatCf')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatCo   pr                  extproc('xmlUCSIsCatCo')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatCo   pr            10i 0 extproc('xmlUCSIsCatCo')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatCs   pr                  extproc('xmlUCSIsCatCs')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatCs   pr            10i 0 extproc('xmlUCSIsCatCs')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatL    pr                  extproc('xmlUCSIsCatL')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatL    pr            10i 0 extproc('xmlUCSIsCatL')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatLl   pr                  extproc('xmlUCSIsCatLl')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatLl   pr            10i 0 extproc('xmlUCSIsCatLl')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatLm   pr                  extproc('xmlUCSIsCatLm')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatLm   pr            10i 0 extproc('xmlUCSIsCatLm')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatLo   pr                  extproc('xmlUCSIsCatLo')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatLo   pr            10i 0 extproc('xmlUCSIsCatLo')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatLt   pr                  extproc('xmlUCSIsCatLt')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatLt   pr            10i 0 extproc('xmlUCSIsCatLt')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatLu   pr                  extproc('xmlUCSIsCatLu')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatLu   pr            10i 0 extproc('xmlUCSIsCatLu')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatM    pr                  extproc('xmlUCSIsCatM')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatM    pr            10i 0 extproc('xmlUCSIsCatM')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatMc   pr                  extproc('xmlUCSIsCatMc')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatMc   pr            10i 0 extproc('xmlUCSIsCatMc')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatMe   pr                  extproc('xmlUCSIsCatMe')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatMe   pr            10i 0 extproc('xmlUCSIsCatMe')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatMn   pr                  extproc('xmlUCSIsCatMn')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatMn   pr            10i 0 extproc('xmlUCSIsCatMn')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatN    pr                  extproc('xmlUCSIsCatN')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatN    pr            10i 0 extproc('xmlUCSIsCatN')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatNd   pr                  extproc('xmlUCSIsCatNd')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatNd   pr            10i 0 extproc('xmlUCSIsCatNd')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatNl   pr                  extproc('xmlUCSIsCatNl')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatNl   pr            10i 0 extproc('xmlUCSIsCatNl')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatNo   pr                  extproc('xmlUCSIsCatNo')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatNo   pr            10i 0 extproc('xmlUCSIsCatNo')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatP    pr                  extproc('xmlUCSIsCatP')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatP    pr            10i 0 extproc('xmlUCSIsCatP')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatPc   pr                  extproc('xmlUCSIsCatPc')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatPc   pr            10i 0 extproc('xmlUCSIsCatPc')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatPd   pr                  extproc('xmlUCSIsCatPd')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatPd   pr            10i 0 extproc('xmlUCSIsCatPd')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatPe   pr                  extproc('xmlUCSIsCatPe')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatPe   pr            10i 0 extproc('xmlUCSIsCatPe')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatPf   pr                  extproc('xmlUCSIsCatPf')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatPf   pr            10i 0 extproc('xmlUCSIsCatPf')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatPi   pr                  extproc('xmlUCSIsCatPi')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatPi   pr            10i 0 extproc('xmlUCSIsCatPi')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatPo   pr                  extproc('xmlUCSIsCatPo')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatPo   pr            10i 0 extproc('xmlUCSIsCatPo')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatPs   pr                  extproc('xmlUCSIsCatPs')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatPs   pr            10i 0 extproc('xmlUCSIsCatPs')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatS    pr                  extproc('xmlUCSIsCatS')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatS    pr            10i 0 extproc('xmlUCSIsCatS')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatSc   pr                  extproc('xmlUCSIsCatSc')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatSc   pr            10i 0 extproc('xmlUCSIsCatSc')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatSk   pr                  extproc('xmlUCSIsCatSk')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatSk   pr            10i 0 extproc('xmlUCSIsCatSk')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatSm   pr                  extproc('xmlUCSIsCatSm')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatSm   pr            10i 0 extproc('xmlUCSIsCatSm')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatSo   pr                  extproc('xmlUCSIsCatSo')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatSo   pr            10i 0 extproc('xmlUCSIsCatSo')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatZ    pr                  extproc('xmlUCSIsCatZ')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatZ    pr            10i 0 extproc('xmlUCSIsCatZ')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatZl   pr                  extproc('xmlUCSIsCatZl')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatZl   pr            10i 0 extproc('xmlUCSIsCatZl')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatZp   pr                  extproc('xmlUCSIsCatZp')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatZp   pr            10i 0 extproc('xmlUCSIsCatZp')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCatZs   pr                  extproc('xmlUCSIsCatZs')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCatZs   pr            10i 0 extproc('xmlUCSIsCatZs')
+     d  code                         10i 0 value
 
-     d xmlUCSIsCat     pr                  extproc('xmlUCSIsCat')
-     d                                     like(xmlCint)
-     d  code                               value like(xmlCint)
+     d xmlUCSIsCat     pr            10i 0 extproc('xmlUCSIsCat')
+     d  code                         10i 0 value
      d  cat                            *   value options(*string)               const char *
 
       /endif                                                                    LIBXML_UNICODE_ENBLD

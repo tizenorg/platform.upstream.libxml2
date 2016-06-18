@@ -10,7 +10,6 @@
       /define XML_LINK_INCLUDE__
 
       /include "libxmlrpg/xmlversion"
-      /include "libxmlrpg/xmlTypesC"
 
      d xmlLinkPtr      s               *   based(######typedef######)
 
@@ -69,39 +68,33 @@
      d  l                                  value like(xmlListPtr)
      d  data                           *   value                                void *
 
-     d xmlListInsert   pr                  extproc('xmlListInsert')
-     d                                     like(xmlCint)
+     d xmlListInsert   pr            10i 0 extproc('xmlListInsert')
      d  l                                  value like(xmlListPtr)
      d  data                           *   value                                void *
 
-     d xmlListAppend   pr                  extproc('xmlListAppend')
-     d                                     like(xmlCint)
+     d xmlListAppend   pr            10i 0 extproc('xmlListAppend')
      d  l                                  value like(xmlListPtr)
      d  data                           *   value                                void *
 
      d xmlListRemoveFirst...
-     d                 pr                  extproc('xmlListRemoveFirst')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlListRemoveFirst')
      d  l                                  value like(xmlListPtr)
      d  data                           *   value                                void *
 
      d xmlListRemoveLast...
-     d                 pr                  extproc('xmlListRemoveLast')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlListRemoveLast')
      d  l                                  value like(xmlListPtr)
      d  data                           *   value                                void *
 
      d xmlListRemoveAll...
-     d                 pr                  extproc('xmlListRemoveAll')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlListRemoveAll')
      d  l                                  value like(xmlListPtr)
      d  data                           *   value                                void *
 
      d xmlListClear    pr                  extproc('xmlListClear')
      d  l                                  value like(xmlListPtr)
 
-     d xmlListEmpty    pr                  extproc('xmlListEmpty')
-     d                                     like(xmlCint)
+     d xmlListEmpty    pr            10i 0 extproc('xmlListEmpty')
      d  l                                  value like(xmlListPtr)
 
      d xmlListFront    pr                  extproc('xmlListFront')
@@ -112,8 +105,7 @@
      d                                     like(xmlLinkPtr)
      d  l                                  value like(xmlListPtr)
 
-     d xmlListSize     pr                  extproc('xmlListSize')
-     d                                     like(xmlCint)
+     d xmlListSize     pr            10i 0 extproc('xmlListSize')
      d  l                                  value like(xmlListPtr)
 
      d xmlListPopFront...
@@ -125,14 +117,12 @@
      d  l                                  value like(xmlListPtr)
 
      d xmlListPushFront...
-     d                 pr                  extproc('xmlListPushFront')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlListPushFront')
      d  l                                  value like(xmlListPtr)
      d  data                           *   value                                void *
 
      d xmlListPushBack...
-     d                 pr                  extproc('xmlListPushBack')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlListPushBack')
      d  l                                  value like(xmlListPtr)
      d  data                           *   value                                void *
 
@@ -163,8 +153,7 @@
      d                                     like(xmlListPtr)
      d  old                                value like(xmlListPtr)
 
-     d xmlListCopy     pr                  extproc('xmlListCopy')
-     d                                     like(xmlCint)
+     d xmlListCopy     pr            10i 0 extproc('xmlListCopy')
      d  cur                                value like(xmlListPtr)
      d  old                                value like(xmlListPtr)               const
 

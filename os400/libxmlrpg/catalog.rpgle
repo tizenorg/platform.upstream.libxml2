@@ -16,12 +16,10 @@
       /define XML_CATALOG_H__
 
       /include "libxmlrpg/xmlversion"
-
-      /if defined(LIBXML_CATALOG_ENABLED)
-
-      /include "libxmlrpg/xmlTypesC"
       /include "libxmlrpg/xmlstring"
       /include "libxmlrpg/tree"
+
+      /if defined(LIBXML_CATALOG_ENABLED)
 
       * XML_CATALOGS_NAMESPACE:
       *
@@ -40,8 +38,7 @@
       * The API is voluntarily limited to general cataloging.
 
      d xmlCatalogPrefer...
-     d                 s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d                 s             10u 0 based(######typedef######)           enum type
      d XML_CATA_PREFER_NONE...
      d                 c                   0
      d XML_CATA_PREFER_PUBLIC...
@@ -50,8 +47,7 @@
      d                 c                   2
 
      d xmlCatalogAllow...
-     d                 s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d                 s             10u 0 based(######typedef######)           enum type
      d XML_CATA_ALLOW_NONE...
      d                 c                   0
      d XML_CATA_ALLOW_GLOBAL...
@@ -67,7 +63,7 @@
 
      d xmlNewCatalog   pr                  extproc('xmlNewCatalog')
      d                                     like(xmlCatalogPtr)
-     d  sgml                               value like(xmlCint)
+     d  sgml                         10i 0 value
 
      d xmlLoadACatalog...
      d                 pr                  extproc('xmlLoadACatalog')
@@ -80,20 +76,17 @@
      d  filename                       *   value options(*string)               const char *
 
      d xmlConvertSGMLCatalog...
-     d                 pr                  extproc('xmlConvertSGMLCatalog')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlConvertSGMLCatalog')
      d  catal                              value like(xmlCatalogPtr)
 
-     d xmlACatalogAdd  pr                  extproc('xmlACatalogAdd')
-     d                                     like(xmlCint)
+     d xmlACatalogAdd  pr            10i 0 extproc('xmlACatalogAdd')
      d  catal                              value like(xmlCatalogPtr)
      d  type                           *   value options(*string)               const xmlChar *
      d  orig                           *   value options(*string)               const xmlChar *
      d  replace                        *   value options(*string)               const xmlChar *
 
      d xmlACatalogRemove...
-     d                 pr                  extproc('xmlACatalogRemove')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlACatalogRemove')
      d  catal                              value like(xmlCatalogPtr)
      d  value                          *   value options(*string)               const xmlChar *
 
@@ -129,8 +122,7 @@
      d  catal                              value like(xmlCatalogPtr)
 
      d xmlCatalogIsEmpty...
-     d                 pr                  extproc('xmlCatalogIsEmpty')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlCatalogIsEmpty')
      d  catal                              value like(xmlCatalogPtr)
 
       * Global operations.
@@ -138,8 +130,7 @@
      d xmlInitializeCatalog...
      d                 pr                  extproc('xmlInitializeCatalog')
 
-     d xmlLoadCatalog  pr                  extproc('xmlLoadCatalog')
-     d                                     like(xmlCint)
+     d xmlLoadCatalog  pr            10i 0 extproc('xmlLoadCatalog')
      d  filename                       *   value options(*string)               const char *
 
      d xmlLoadCatalogs...
@@ -171,15 +162,13 @@
      d                 pr              *   extproc('xmlCatalogResolveURI')      xmlChar *
      d  URI                            *   value options(*string)               const xmlChar *
 
-     d xmlCatalogAdd   pr                  extproc('xmlCatalogAdd')
-     d                                     like(xmlCint)
+     d xmlCatalogAdd   pr            10i 0 extproc('xmlCatalogAdd')
      d  type                           *   value options(*string)               const xmlChar *
      d  orig                           *   value options(*string)               const xmlChar *
      d  replace                        *   value options(*string)               const xmlChar *
 
      d xmlCatalogRemove...
-     d                 pr                  extproc('xmlCatalogRemove')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlCatalogRemove')
      d  value                          *   value options(*string)               const xmlChar *
 
      d xmlParseCatalogFile...
@@ -188,8 +177,7 @@
      d  filename                       *   value options(*string)               const char *
 
      d xmlCatalogConvert...
-     d                 pr                  extproc('xmlCatalogConvert')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlCatalogConvert')
 
       * Strictly minimal interfaces for per-document catalogs used
       * by the parser.
@@ -217,9 +205,8 @@
       * Preference settings.
 
      d xmlCatalogSetDebug...
-     d                 pr                  extproc('xmlCatalogSetDebug')
-     d                                     like(xmlCint)
-     d  level                              value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlCatalogSetDebug')
+     d  level                        10i 0 value
 
      d xmlCatalogSetDefaultPrefer...
      d                 pr                  extproc('xmlCatalogSetDefaultPrefer')

@@ -12,12 +12,10 @@
 
       /if defined(LIBXML_SCHEMATRON_ENABLED)
 
-      /include "libxmlrpg/xmlTypesC"
       /include "libxmlrpg/tree"
 
      d xmlSchematronValidOptions...
-     d                 s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d                 s             10i 0 based(######typedef######)           enum
      d  XML_SCHEMATRON_OUT_QUIET...                                             Quiet no report
      d                 c                   X'0001'
      d  XML_SCHEMATRON_OUT_TEXT...                                              Build textual report
@@ -80,7 +78,7 @@
      d                                     'xmlSchematronNewMemParserCtxt')
      d                                     like(xmlSchematronParserCtxtPtr)
      d  buffer                         *   value options(*string)               const char *
-     d  size                               value like(xmlCint)
+     d  size                         10i 0 value
 
      d xmlSchematronNewDocParserCtxt...
      d                 pr                  extproc(
@@ -103,13 +101,12 @@
      d  err                                value
      d                                     like(xmlSchematronValidityErrorFunc)
      d  warn                               value like(
-     d                                       xmlSchematronValidityWarningFunc)
+     d                                     xmlSchematronValidityWarningFunc)
      d  ctx                            *   value                                void *
 
      d xmlSchematronGetParserErrors...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlSchematronGetParserErrors')
-     d                                     like(xmlCint)
      d  ctxt                               value
      d                                     like(xmlSchematronParserCtxtPtr)
      d  err                                like(xmlSchematronValidityErrorFunc)
@@ -118,8 +115,7 @@
      d  ctx                            *                                        void *(*)
 
      d xmlSchematronIsValid...
-     d                 pr                  extproc('xmlSchematronIsValid')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchematronIsValid')
      d  ctxt                               value like(xmlSchematronValidCtxtPtr)
       /endif
 
@@ -154,9 +150,8 @@
      d  ctx                            *   value                                void *
 
      d xmlSchematronGetValidErrors...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlSchematronGetValidErrors')
-     d                                     like(xmlCint)
      d  ctxt                               value like(xmlSchematronValidCtxtPtr)
      d  err                                like(xmlSchematronValidityErrorFunc)
      d  warn                               like(
@@ -164,22 +159,19 @@
      d  ctx                            *                                        void *(*)
 
      d xmlSchematronSetValidOptions...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlSchematronSetValidOptions')
-     d                                     like(xmlCint)
      d  ctxt                               value like(xmlSchematronValidCtxtPtr)
-     d  options                            value like(xmlCint)
+     d  options                      10i 0 value
 
      d xmlSchematronValidCtxtGetOptions...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlSchematronValidCtxtGetOptions')
-     d                                     like(xmlCint)
      d  ctxt                               value like(xmlSchematronValidCtxtPtr)
 
      d xmlSchematronValidateOneElement...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlSchematronValidateOneElement')
-     d                                     like(xmlCint)
      d  ctxt                               value like(xmlSchematronValidCtxtPtr)
      d  elem                               value like(xmlNodePtr)
       /endif
@@ -188,15 +180,14 @@
      d                 pr                  extproc('xmlSchematronNewValidCtxt')
      d                                     like(xmlSchematronValidCtxtPtr)
      d  schema                             value like(xmlSchematronPtr)
-     d  options                            value like(xmlCint)
+     d  options                      10i 0 value
 
      d xmlSchematronFreeValidCtxt...
      d                 pr                  extproc('xmlSchematronFreeValidCtxt')
      d  ctxt                               value like(xmlSchematronValidCtxtPtr)
 
      d xmlSchematronValidateDoc...
-     d                 pr                  extproc('xmlSchematronValidateDoc')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchematronValidateDoc')
      d  ctxt                               value like(xmlSchematronValidCtxtPtr)
      d  instance                           value like(xmlDocPtr)
 

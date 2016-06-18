@@ -10,12 +10,10 @@
       /define HTML_TREE_H__
 
       /include "libxmlrpg/xmlversion"
-
-      /if defined(LIBXML_HTML_ENABLED)
-
-      /include "libxmlrpg/xmlTypesC"
       /include "libxmlrpg/tree"
       /include "libxmlrpg/HTMLparser"
+
+      /if defined(LIBXML_HTML_ENABLED)
 
       * HTML_TEXT_NODE:
       *
@@ -71,8 +69,7 @@
      d  doc                                value like(htmlDocPtr)
 
      d htmlSetMetaEncoding...
-     d                 pr                  extproc('htmlSetMetaEncoding')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('htmlSetMetaEncoding')
      d  doc                                value like(htmlDocPtr)
      d  encoding                       *   value options(*string)               const xmlChar *
 
@@ -81,27 +78,24 @@
      d                 pr                  extproc('htmlDocDumpMemory')
      d  cur                                value like(xmlDocPtr)
      d  mem                            *   value                                xmlChar * *
-     d  size                               like(xmlCint)
+     d  size                         10i 0
 
      d htmlDocDumpMemoryFormat...
      d                 pr                  extproc('htmlDocDumpMemoryFormat')
      d  cur                                value like(xmlDocPtr)
      d  mem                            *   value                                xmlChar * *
-     d  size                               like(xmlCint)
-     d  format                             value like(xmlCint)
+     d  size                         10i 0
+     d  format                       10i 0 value
 
-     d htmlDocDump     pr                  extproc('htmlDocDump')
-     d                                     like(xmlCint)
+     d htmlDocDump     pr            10i 0 extproc('htmlDocDump')
      d  f                              *   value                                FILE *
      d  cur                                value like(xmlDocPtr)
 
-     d htmlSaveFile    pr                  extproc('htmlSaveFile')
-     d                                     like(xmlCint)
+     d htmlSaveFile    pr            10i 0 extproc('htmlSaveFile')
      d  filename                       *   value options(*string)               const char *
      d  cur                                value like(xmlDocPtr)
 
-     d htmlNodeDump    pr                  extproc('htmlNodeDump')
-     d                                     like(xmlCint)
+     d htmlNodeDump    pr            10i 0 extproc('htmlNodeDump')
      d  buf                                value like(xmlBufferPtr)
      d  doc                                value like(xmlDocPtr)
      d  cur                                value like(xmlNodePtr)
@@ -113,28 +107,25 @@
      d  cur                                value like(xmlNodePtr)
 
      d htmlNodeDumpFileFormat...
-     d                 pr                  extproc('htmlNodeDumpFileFormat')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('htmlNodeDumpFileFormat')
      d  out                            *   value                                FILE *
      d  doc                                value like(xmlDocPtr)
      d  cur                                value like(xmlNodePtr)
      d  encoding                       *   value options(*string)               const char *
-     d  format                             value like(xmlCint)
+     d  format                       10i 0 value
 
      d htmlSaveFileEnc...
-     d                 pr                  extproc('htmlSaveFileEnc')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('htmlSaveFileEnc')
      d  filename                       *   value options(*string)               const char *
      d  cur                                value like(xmlDocPtr)
      d  encoding                       *   value options(*string)               const char *
 
      d htmlSaveFileFormat...
-     d                 pr                  extproc('htmlSaveFileFormat')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('htmlSaveFileFormat')
      d  filename                       *   value options(*string)               const char *
      d  cur                                value like(xmlDocPtr)
      d  encoding                       *   value options(*string)               const char *
-     d  format                             value like(xmlCint)
+     d  format                       10i 0 value
 
      d htmlNodeDumpFormatOutput...
      d                 pr                  extproc('htmlNodeDumpFormatOutput')
@@ -142,7 +133,7 @@
      d  doc                                value like(xmlDocPtr)
      d  cur                                value like(xmlNodePtr)
      d  encoding                       *   value options(*string)               const char *
-     d  format                             value like(xmlCint)
+     d  format                       10i 0 value
 
      d htmlDocContentDumpOutput...
      d                 pr                  extproc('htmlDocContentDumpOutput')
@@ -156,7 +147,7 @@
      d  buf                                value like(xmlOutputBufferPtr)
      d  cur                                value like(xmlDocPtr)
      d  encoding                       *   value options(*string)               const char *
-     d  format                             value like(xmlCint)
+     d  format                       10i 0 value
 
      d htmlNodeDumpOutput...
      d                 pr                  extproc('htmlNodeDumpOutput')
@@ -168,8 +159,7 @@
       /endif                                                                    LIBXML_OUTPUT_ENABLD
 
      d htmlIsBooleanAttr...
-     d                 pr                  extproc('htmlIsBooleanAttr')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('htmlIsBooleanAttr')
      d  name                           *   value options(*string)               const xmlChar *
 
       /endif                                                                    LIBXML_HTML_ENABLED

@@ -12,7 +12,6 @@
 
       /if defined(LIBXML_WRITER_ENABLED)
 
-      /include "libxmlrpg/xmlTypesC"
       /include "libxmlrpg/xmlstdarg"
       /include "libxmlrpg/xmlIO"
       /include "libxmlrpg/list"
@@ -32,32 +31,32 @@
      d                 pr                  extproc('xmlNewTextWriterFilename')
      d                                     like(xmlTextWriterPtr)
      d  uri                            *   value options(*string)               const char *
-     d  compression                        value like(xmlCint)
+     d  compression                  10i 0 value
 
      d xmlNewTextWriterMemory...
      d                 pr                  extproc('xmlNewTextWriterMemory')
      d                                     like(xmlTextWriterPtr)
      d  buf                                value like(xmlBufferPtr)
-     d  compression                        value like(xmlCint)
+     d  compression                  10i 0 value
 
      d xmlNewTextWriterPushParser...
      d                 pr                  extproc('xmlNewTextWriterPushParser')
      d                                     like(xmlTextWriterPtr)
      d  ctxt                               value like(xmlParserCtxtPtr)
-     d  compression                        value like(xmlCint)
+     d  compression                  10i 0 value
 
      d xmlNewTextWriterDoc...
      d                 pr                  extproc('xmlNewTextWriterDoc')
      d                                     like(xmlTextWriterPtr)
      d  doc                                like(xmlDocPtr)
-     d  compression                        value like(xmlCint)
+     d  compression                  10i 0 value
 
      d xmlNewTextWriterTree...
      d                 pr                  extproc('xmlNewTextWriterTree')
      d                                     like(xmlTextWriterPtr)
      d  doc                                value like(xmlDocPtr)
      d  node                               value like(xmlNodePtr)
-     d  compression                        value like(xmlCint)
+     d  compression                  10i 0 value
 
      d xmlFreeTextWriter...
      d                 pr                  extproc('xmlFreeTextWriter')
@@ -68,34 +67,29 @@
       * Document
 
      d xmlTextWriterStartDocument...
-     d                 pr                  extproc('xmlTextWriterStartDocument')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterStartDocument')
      d  writer                             value like(xmlTextWriterPtr)
      d  version                        *   value options(*string)               const char *
      d  encoding                       *   value options(*string)               const char *
      d  standalone                     *   value options(*string)               const char *
 
      d xmlTextWriterEndDocument...
-     d                 pr                  extproc('xmlTextWriterEndDocument')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterEndDocument')
      d  writer                             value like(xmlTextWriterPtr)
 
       * Comments
 
      d xmlTextWriterStartComment...
-     d                 pr                  extproc('xmlTextWriterStartComment')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterStartComment')
      d  writer                             value like(xmlTextWriterPtr)
 
      d xmlTextWriterEndComment...
-     d                 pr                  extproc('xmlTextWriterEndComment')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterEndComment')
      d  writer                             value like(xmlTextWriterPtr)
 
      d xmlTextWriterWriteFormatComment...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteFormatComment')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  format                         *   value options(*string: *nopass)      const char *
      d  #vararg1                       *   value options(*string: *nopass)      void *
@@ -108,53 +102,46 @@
      d  #vararg8                       *   value options(*string: *nopass)      void *
 
      d xmlTextWriterWriteVFormatComment...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteVFormatComment')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  format                         *   value options(*string)               const char *
      d  argptr                             likeds(xmlVaList)
 
      d xmlTextWriterWriteComment...
-     d                 pr                  extproc('xmlTextWriterWriteComment')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterWriteComment')
      d  writer                             value like(xmlTextWriterPtr)
      d  content                        *   value options(*string)               const xmlChar *
 
       * Elements
 
      d xmlTextWriterStartElement...
-     d                 pr                  extproc('xmlTextWriterStartElement')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterStartElement')
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
 
      d xmlTextWriterStartElementNS...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterStartElementNS')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  prefix                         *   value options(*string)               const xmlChar *
      d  name                           *   value options(*string)               const xmlChar *
      d  namespaceURI                   *   value options(*string)               const xmlChar *
 
      d xmlTextWriterEndElement...
-     d                 pr                  extproc('xmlTextWriterEndElement')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterEndElement')
      d  writer                             value like(xmlTextWriterPtr)
 
      d xmlTextWriterFullEndElement...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterFullEndElement')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
 
       * Elements conveniency functions
 
      d xmlTextWriterWriteFormatElement...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteFormatElement')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  format                         *   value options(*string)               const char *
@@ -168,25 +155,22 @@
      d  #vararg8                       *   value options(*string: *nopass)      void *
 
      d xmlTextWriterWriteVFormatElement...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteVFormatElement')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  format                         *   value options(*string)               const char *
      d  argptr                             likeds(xmlVaList)
 
      d xmlTextWriterWriteElement...
-     d                 pr                  extproc('xmlTextWriterWriteElement')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterWriteElement')
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  content                        *   value options(*string)               const xmlChar *
 
      d xmlTextWriterWriteFormatElementNS...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteFormatElementNS')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  prefix                         *   value options(*string)               const xmlChar *
      d  name                           *   value options(*string)               const xmlChar *
@@ -202,9 +186,8 @@
      d  #vararg8                       *   value options(*string: *nopass)      void *
 
      d xmlTextWriterWriteVFormatElementNS...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteVFormatElementNS')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  prefix                         *   value options(*string)               const xmlChar *
      d  name                           *   value options(*string)               const xmlChar *
@@ -213,9 +196,8 @@
      d  argptr                             likeds(xmlVaList)
 
      d xmlTextWriterWriteElementNS...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteElementNS')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  prefix                         *   value options(*string)               const xmlChar *
      d  name                           *   value options(*string)               const xmlChar *
@@ -225,9 +207,8 @@
       * Text
 
      d xmlTextWriterWriteFormatRaw...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteFormatRaw')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  format                         *   value options(*string)               const char *
      d  #vararg1                       *   value options(*string: *nopass)      void *
@@ -240,30 +221,26 @@
      d  #vararg8                       *   value options(*string: *nopass)      void *
 
      d xmlTextWriterWriteVFormatRaw...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteVFormatRaw')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  format                         *   value options(*string)               const char *
      d  argptr                             likeds(xmlVaList)
 
      d xmlTextWriterWriteRawLen...
-     d                 pr                  extproc('xmlTextWriterWriteRawLen')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterWriteRawLen')
      d  writer                             value like(xmlTextWriterPtr)
      d  content                        *   value options(*string)               const xmlChar *
-     d  len                                value like(xmlCint)
+     d  len                          10i 0 value
 
      d xmlTextWriterWriteRaw...
-     d                 pr                  extproc('xmlTextWriterWriteRaw')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterWriteRaw')
      d  writer                             value like(xmlTextWriterPtr)
      d  content                        *   value options(*string)               const xmlChar *
 
      d xmlTextWriterWriteFormatString...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteFormatString')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  format                         *   value options(*string)               const char *
      d  #vararg1                       *   value options(*string: *nopass)      void *
@@ -276,64 +253,56 @@
      d  #vararg8                       *   value options(*string: *nopass)      void *
 
      d xmlTextWriterWriteVFormatString...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteVFormatString')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  format                         *   value options(*string)               const char *
      d  argptr                             likeds(xmlVaList)
 
      d xmlTextWriterWriteString...
-     d                 pr                  extproc('xmlTextWriterWriteString')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterWriteString')
      d  writer                             value like(xmlTextWriterPtr)
      d  content                        *   value options(*string)               const xmlChar *
 
      d xmlTextWriterWriteBase64...
-     d                 pr                  extproc('xmlTextWriterWriteBase64')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterWriteBase64')
      d  writer                             value like(xmlTextWriterPtr)
      d  data                           *   value options(*string)               const char *
-     d  start                              value like(xmlCint)
-     d  len                                value like(xmlCint)
+     d  start                        10i 0 value
+     d  len                          10i 0 value
 
      d xmlTextWriterWriteBinHex...
-     d                 pr                  extproc('xmlTextWriterWriteBinHex')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterWriteBinHex')
      d  writer                             value like(xmlTextWriterPtr)
      d  data                           *   value options(*string)               const char *
-     d  start                              value like(xmlCint)
-     d  len                                value like(xmlCint)
+     d  start                        10i 0 value
+     d  len                          10i 0 value
 
       * Attributes
 
      d xmlTextWriterStartAttribute...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterStartAttribute')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
 
      d xmlTextWriterStartAttributeNS...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterStartAttributeNS')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  prefix                         *   value options(*string)               const xmlChar *
      d  name                           *   value options(*string)               const xmlChar *
      d  namespaceURI                   *   value options(*string)               const xmlChar *
 
      d xmlTextWriterEndAttribute...
-     d                 pr                  extproc('xmlTextWriterEndAttribute')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterEndAttribute')
      d  writer                             value like(xmlTextWriterPtr)
 
       * Attributes conveniency functions
 
      d xmlTextWriterWriteFormatAttribute...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteFormatAttribute')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  format                         *   value options(*string)               const char *
@@ -347,27 +316,24 @@
      d  #vararg8                       *   value options(*string: *nopass)      void *
 
      d xmlTextWriterWriteVFormatAttribute...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteVFormatAttribute')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  format                         *   value options(*string)               const char *
      d  argptr                             likeds(xmlVaList)
 
      d xmlTextWriterWriteAttribute...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteAttribute')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  content                        *   value options(*string)               const xmlChar *
 
      d xmlTextWriterWriteFormatAttributeNS...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteFormatAttributeNS'
      d                                     )
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  prefix                         *   value options(*string)               const xmlChar *
      d  name                           *   value options(*string)               const xmlChar *
@@ -383,9 +349,8 @@
      d  #vararg8                       *   value options(*string: *nopass)      void *
 
      d xmlTextWriterWriteVFormatAttributeNS...
-     d                 pr                  extproc('xmlTextWriterWriteVFormatAt-
+     d                 pr            10i 0 extproc('xmlTextWriterWriteVFormatAt-
      d                                     tributeNS')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  prefix                         *   value options(*string)               const xmlChar *
      d  name                           *   value options(*string)               const xmlChar *
@@ -394,9 +359,8 @@
      d  argptr                             likeds(xmlVaList)
 
      d xmlTextWriterWriteAttributeNS...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteAttributeNS')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  prefix                         *   value options(*string)               const xmlChar *
      d  name                           *   value options(*string)               const xmlChar *
@@ -406,21 +370,18 @@
       * PI's
 
      d xmlTextWriterStartPI...
-     d                 pr                  extproc('xmlTextWriterStartPI')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterStartPI')
      d  writer                             value like(xmlTextWriterPtr)
      d  target                         *   value options(*string)               const xmlChar *
 
      d xmlTextWriterEndPI...
-     d                 pr                  extproc('xmlTextWriterEndPI')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterEndPI')
      d  writer                             value like(xmlTextWriterPtr)
 
       * PI conveniency functions
 
      d xmlTextWriterWriteFormatPI...
-     d                 pr                  extproc('xmlTextWriterWriteFormatPI')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterWriteFormatPI')
      d  writer                             value like(xmlTextWriterPtr)
      d  target                         *   value options(*string)               const xmlChar *
      d  format                         *   value options(*string)               const char *
@@ -434,17 +395,15 @@
      d  #vararg8                       *   value options(*string: *nopass)      void *
 
      d xmlTextWriterWriteVFormatPI...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteVFormatPI')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  target                         *   value options(*string)               const xmlChar *
      d  format                         *   value options(*string)               const char *
      d  argptr                             likeds(xmlVaList)
 
      d xmlTextWriterWritePI...
-     d                 pr                  extproc('xmlTextWriterWritePI')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterWritePI')
      d  writer                             value like(xmlTextWriterPtr)
      d  target                         *   value options(*string)               const xmlChar *
      d  content                        *   value options(*string)               const xmlChar *
@@ -454,8 +413,7 @@
       * This macro maps to xmlTextWriterWritePI
 
      d xmlTextWriterWriteProcessingInstruction...
-     d                 pr                  extproc('xmlTextWriterWritePI')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterWritePI')
      d  writer                             value like(xmlTextWriterPtr)
      d  target                         *   value options(*string)               const xmlChar *
      d  content                        *   value options(*string)               const xmlChar *
@@ -463,21 +421,18 @@
       * CDATA
 
      d xmlTextWriterStartCDATA...
-     d                 pr                  extproc('xmlTextWriterStartCDATA')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterStartCDATA')
      d  writer                             value like(xmlTextWriterPtr)
 
      d xmlTextWriterEndCDATA...
-     d                 pr                  extproc('xmlTextWriterEndCDATA')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterEndCDATA')
      d  writer                             value like(xmlTextWriterPtr)
 
       * CDATA conveniency functions
 
      d xmlTextWriterWriteFormatCDATA...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteFormatCDATA')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  format                         *   value options(*string)               const char *
      d  #vararg1                       *   value options(*string: *nopass)      void *
@@ -490,40 +445,35 @@
      d  #vararg8                       *   value options(*string: *nopass)      void *
 
      d xmlTextWriterWriteVFormatCDATA...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteVFormatCDATA')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  format                         *   value options(*string)               const char *
      d  argptr                             likeds(xmlVaList)
 
      d xmlTextWriterWriteCDATA...
-     d                 pr                  extproc('xmlTextWriterWriteCDATA')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterWriteCDATA')
      d  writer                             value like(xmlTextWriterPtr)
      d  content                        *   value options(*string)               const xmlChar *
 
       * DTD
 
      d xmlTextWriterStartDTD...
-     d                 pr                  extproc('xmlTextWriterStartDTD')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterStartDTD')
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  pubid                          *   value options(*string)               const xmlChar *
      d  sysid                          *   value options(*string)               const xmlChar *
 
      d xmlTextWriterEndDTD...
-     d                 pr                  extproc('xmlTextWriterEndDTD')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterEndDTD')
      d  writer                             value like(xmlTextWriterPtr)
 
       * DTD conveniency functions
 
      d xmlTextWriterWriteFormatDTD...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteFormatDTD')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  pubid                          *   value options(*string)               const xmlChar *
@@ -539,9 +489,8 @@
      d  #vararg8                       *   value options(*string: *nopass)      void *
 
      d xmlTextWriterWriteVFormatDTD...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteVFormatDTD')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  pubid                          *   value options(*string)               const xmlChar *
@@ -550,8 +499,7 @@
      d  argptr                             likeds(xmlVaList)
 
      d xmlTextWriterWriteDTD...
-     d                 pr                  extproc('xmlTextWriterWriteDTD')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterWriteDTD')
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  pubid                          *   value options(*string)               const xmlChar *
@@ -563,8 +511,7 @@
       * this macro maps to xmlTextWriterWriteDTD
 
      d xmlTextWriterWriteDocType...
-     d                 pr                  extproc('xmlTextWriterWriteDTD')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterWriteDTD')
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  pubid                          *   value options(*string)               const xmlChar *
@@ -574,23 +521,20 @@
       * DTD element definition
 
      d xmlTextWriterStartDTDElement...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterStartDTDElement')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
 
      d xmlTextWriterEndDTDElement...
-     d                 pr                  extproc('xmlTextWriterEndDTDElement')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterEndDTDElement')
      d  writer                             value like(xmlTextWriterPtr)
 
       * DTD element definition conveniency functions
 
      d xmlTextWriterWriteFormatDTDElement...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteFormatDTDElement')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  format                         *   value options(*string)               const char *
@@ -604,19 +548,17 @@
      d  #vararg8                       *   value options(*string: *nopass)      void *
 
      d xmlTextWriterWriteVFormatDTDElement...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteVFormatDTDElement'
      d                                     )
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  format                         *   value options(*string)               const char *
      d  argptr                             likeds(xmlVaList)
 
      d xmlTextWriterWriteDTDElement...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteDTDElement')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  content                        *   value options(*string)               const xmlChar *
@@ -624,23 +566,20 @@
       * DTD attribute list definition
 
      d xmlTextWriterStartDTDAttlist...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterStartDTDAttlist')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
 
      d xmlTextWriterEndDTDAttlist...
-     d                 pr                  extproc('xmlTextWriterEndDTDAttlist')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterEndDTDAttlist')
      d  writer                             value like(xmlTextWriterPtr)
 
       * DTD attribute list definition conveniency functions
 
      d xmlTextWriterWriteFormatDTDAttlist...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteFormatDTDAttlist')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  format                         *   value options(*string)               const char *
@@ -654,19 +593,17 @@
      d  #vararg8                       *   value options(*string: *nopass)      void *
 
      d xmlTextWriterWriteVFormatDTDAttlist...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteVFormatDTDAttlist'
      d                                     )
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  format                         *   value options(*string)               const char *
      d  argptr                             likeds(xmlVaList)
 
      d xmlTextWriterWriteDTDAttlist...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteDTDAttlist')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  content                        *   value options(*string)               const xmlChar *
@@ -674,26 +611,23 @@
       * DTD entity definition
 
      d xmlTextWriterStartDTDEntity...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterStartDTDEntity')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
-     d  pe                                 value like(xmlCint)
+     d  pe                           10i 0 value
      d  name                           *   value options(*string)               const xmlChar *
 
      d xmlTextWriterEndDTDEntity...
-     d                 pr                  extproc('xmlTextWriterEndDTDEntity')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterEndDTDEntity')
      d  writer                             value like(xmlTextWriterPtr)
 
       * DTD entity definition conveniency functions
 
      d xmlTextWriterWriteFormatDTDInternalEntity...
-     d                 pr                  extproc('xmlTextWriterWriteFormatDTD-
+     d                 pr            10i 0 extproc('xmlTextWriterWriteFormatDTD-
      d                                     InternalEntity')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
-     d  pe                                 value like(xmlCint)
+     d  pe                           10i 0 value
      d  name                           *   value options(*string)               const xmlChar *
      d  format                         *   value options(*string)               const char *
      d  #vararg1                       *   value options(*string: *nopass)      void *
@@ -706,52 +640,47 @@
      d  #vararg8                       *   value options(*string: *nopass)      void *
 
      d xmlTextWriterWriteVFormatDTDInternalEntity...
-     d                 pr                  extproc('xmlTextWriterWriteVFormatDT-
+     d                 pr            10i 0 extproc('xmlTextWriterWriteVFormatDT-
      d                                     DInternalEntity')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
-     d  pe                                 value like(xmlCint)
+     d  pe                           10i 0 value
      d  name                           *   value options(*string)               const xmlChar *
      d  format                         *   value options(*string)               const char *
      d  argptr                             likeds(xmlVaList)
 
      d xmlTextWriterWriteDTDInternalEntity...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteDTDInternalEntity'
      d                                     )
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
-     d  pe                                 value like(xmlCint)
+     d  pe                           10i 0 value
      d  name                           *   value options(*string)               const xmlChar *
      d  content                        *   value options(*string)               const xmlChar *
 
      d xmlTextWriterWriteDTDExternalEntity...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteDTDExternalEntity'
      d                                     )
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
-     d  pe                                 value like(xmlCint)
+     d  pe                           10i 0 value
      d  name                           *   value options(*string)               const xmlChar *
      d  pubid                          *   value options(*string)               const xmlChar *
      d  sysid                          *   value options(*string)               const xmlChar *
      d  ndataid                        *   value options(*string)               const xmlChar *
 
      d xmlTextWriterWriteDTDExternalEntityContents...
-     d                 pr                  extproc('xmlTextWriterWriteDTDExtern-
+     d                 pr            10i 0 extproc('xmlTextWriterWriteDTDExtern-
      d                                     alEntityContents')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  pubid                          *   value options(*string)               const xmlChar *
      d  sysid                          *   value options(*string)               const xmlChar *
      d  ndataid                        *   value options(*string)               const xmlChar *
 
      d xmlTextWriterWriteDTDEntity...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteDTDEntity')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
-     d  pe                                 value like(xmlCint)
+     d  pe                           10i 0 value
      d  name                           *   value options(*string)               const xmlChar *
      d  pubid                          *   value options(*string)               const xmlChar *
      d  sysid                          *   value options(*string)               const xmlChar *
@@ -761,9 +690,8 @@
       * DTD notation definition
 
      d xmlTextWriterWriteDTDNotation...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterWriteDTDNotation')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  pubid                          *   value options(*string)               const xmlChar *
@@ -772,29 +700,25 @@
       * Indentation
 
      d xmlTextWriterSetIndent...
-     d                 pr                  extproc('xmlTextWriterSetIndent')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterSetIndent')
      d  writer                             value like(xmlTextWriterPtr)
-     d  indent                             value like(xmlCint)
+     d  indent                       10i 0 value
 
      d xmlTextWriterSetIndentString...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextWriterSetIndentString')
-     d                                     like(xmlCint)
      d  writer                             value like(xmlTextWriterPtr)
      d  str                            *   value options(*string)               const xmlChar *
 
      d xmlTextWriterSetQuoteChar...
-     d                 pr                  extproc('xmlTextWriterSetQuoteChar')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterSetQuoteChar')
      d  writer                             value like(xmlTextWriterPtr)
      d  quotechar                          value like(xmlChar)
 
       * misc
 
      d xmlTextWriterFlush...
-     d                 pr                  extproc('xmlTextWriterFlush')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextWriterFlush')
      d  writer                             value like(xmlTextWriterPtr)
 
       /endif                                                                    LIBXML_WRITER_ENABLD

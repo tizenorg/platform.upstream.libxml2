@@ -13,14 +13,12 @@
 
       /if defined(LIBXML_SCHEMAS_ENABLED)
 
-      /include "libxmlrpg/xmlTypesC"
       /include "libxmlrpg/tree"
 
       * This error codes are obsolete; not used any more.
 
      d xmlSchemaValidError...
-     d                 s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d                 s             10i 0 based(######typedef######)           enum
      d  XML_SCHEMAS_ERR_OK...
      d                 c                   0
      d  XML_SCHEMAS_ERR_NOROOT...
@@ -83,8 +81,7 @@
       * This is the set of XML Schema validation options.
 
      d xmlSchemaValidOption...
-     d                 s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d                 s             10i 0 based(######typedef######)           enum
       *
       * Default/fixed: create an attribute node
       * or an element's text node on the instance.
@@ -161,7 +158,7 @@
      d                 pr                  extproc('xmlSchemaNewMemParserCtxt')
      d                                     like(xmlSchemaParserCtxtPtr)
      d buffer                          *   value options(*string)               const char *
-     d size                                value like(xmlCint)
+     d size                          10i 0 value
 
      d xmlSchemaNewDocParserCtxt...
      d                 pr                  extproc('xmlSchemaNewDocParserCtxt')
@@ -189,16 +186,14 @@
      d ctx                             *   value                                void *
 
      d xmlSchemaGetParserErrors...
-     d                 pr                  extproc('xmlSchemaGetParserErrors')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchemaGetParserErrors')
      d ctxt                                value like(xmlSchemaParserCtxtPtr)
      d err                                 like(xmlSchemaValidityErrorFunc)
      d warn                                like(xmlSchemaValidityWarningFunc)
      d ctx                             *                                        void *(*)
 
      d xmlSchemaIsValid...
-     d                 pr                  extproc('xmlSchemaIsValid')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchemaIsValid')
      d ctxt                                value like(xmlSchemaValidCtxtPtr)
 
      d xmlSchemaParse  pr                  extproc('xmlSchemaParse')
@@ -233,18 +228,16 @@
      d ctx                             *   value                                void *
 
      d xmlSchemaGetValidErrors...
-     d                 pr                  extproc('xmlSchemaGetValidErrors')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchemaGetValidErrors')
      d ctxt                                value like(xmlSchemaValidCtxtPtr)
      d err                                 like(xmlSchemaValidityErrorFunc)
      d warn                                like(xmlSchemaValidityWarningFunc)
      d ctx                             *                                        void *(*)
 
      d xmlSchemaSetValidOptions...
-     d                 pr                  extproc('xmlSchemaSetValidOptions')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchemaSetValidOptions')
      d ctxt                                value like(xmlSchemaValidCtxtPtr)
-     d options                             value like(xmlCint)
+     d options                       10i 0 value
 
      d xmlSchemaValidateSetFilename...
      d                 pr                  extproc(
@@ -253,9 +246,8 @@
      d filename                        *   value options(*string)               const char *
 
      d xmlSchemaValidCtxtGetOptions...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlSchemaValidCtxtGetOptions')
-     d                                     like(xmlCint)
      d ctxt                                value like(xmlSchemaValidCtxtPtr)
 
      d xmlSchemaNewValidCtxt...
@@ -268,21 +260,18 @@
      d ctxt                                value like(xmlSchemaValidCtxtPtr)
 
      d xmlSchemaValidateDoc...
-     d                 pr                  extproc('xmlSchemaValidateDoc')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchemaValidateDoc')
      d ctxt                                value like(xmlSchemaValidCtxtPtr)
      d instance                            value like(xmlDocPtr)
 
      d xmlSchemaValidateOneElement...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlSchemaValidateOneElement')
-     d                                     like(xmlCint)
      d ctxt                                value like(xmlSchemaValidCtxtPtr)
      d elem                                value like(xmlNodePtr)
 
      d xmlSchemaValidateStream...
-     d                 pr                  extproc('xmlSchemaValidateStream')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchemaValidateStream')
      d ctxt                                value like(xmlSchemaValidCtxtPtr)
      d input                               value like(xmlParserInputBufferPtr)
      d enc                                 value like(xmlCharEncoding)
@@ -290,11 +279,10 @@
      d user_data                       *   value                                void *
 
      d xmlSchemaValidateFile...
-     d                 pr                  extproc('xmlSchemaValidateFile')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchemaValidateFile')
      d ctxt                                value like(xmlSchemaValidCtxtPtr)
      d filename                        *   value options(*string)               const char *
-     d options                             value like(xmlCint)
+     d options                       10i 0 value
 
      d xmlSchemaValidCtxtGetParserCtxt...
      d                 pr                  extproc(
@@ -315,8 +303,7 @@
      d user_data                       *                                        void *(*)
 
      d xmlSchemaSAXUnplug...
-     d                 pr                  extproc('xmlSchemaSAXUnplug')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchemaSAXUnplug')
      d plug                                value like(xmlSchemaSAXPlugPtr)
 
      d xmlSchemaValidateSetLocator...

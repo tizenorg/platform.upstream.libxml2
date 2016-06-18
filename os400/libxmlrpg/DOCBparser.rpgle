@@ -13,7 +13,6 @@
 
       /if defined(LIBXML_DOCB_ENABLED)
 
-      /include "libxmlrpg/xmlTypesC"
       /include "libxmlrpg/parser"
       /include "libxmlrpg/parserInternals"
 
@@ -47,14 +46,13 @@
       * There is only few public functions.
 
      d docbEncodeEntities...
-     d                 pr                  extproc('docbEncodeEntities')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('docbEncodeEntities')
      d  out                            *   value options(*string)               unsigned char *
      d  outlen                         *   value                                int *
      d  in                             *   value options(*string)               const unsigned char
      d                                                                          *
      d  inlen                          *   value                                int *
-     d  quoteChar                          value like(xmlCint)
+     d  quoteChar                    10i 0 value
 
      d docbSAXParseDoc...
      d                 pr                  extproc('docbSAXParseDoc')
@@ -94,16 +92,15 @@
      d  sax                                value like(docbSAXHandlerPtr)
      d  user_data                      *   value                                void *
      d  chunk                          *   value options(*string)               const char *
-     d  size                               value like(xmlCint)
+     d  size                         10i 0 value
      d  filename                       *   value options(*string)               const char *
      d  enc                                value like(xmlCharEncoding)
 
-     d docbParseChunk  pr                  extproc('docbParseChunk')
-     d                                     like(xmlCint)
+     d docbParseChunk  pr            10i 0 extproc('docbParseChunk')
      d  ctxt                               value like(docbParserCtxtPtr)
      d  chunk                          *   value options(*string)               const char *
-     d  size                               value like(xmlCint)
-     d  terminate                          value like(xmlCint)
+     d  size                         10i 0 value
+     d  terminate                    10i 0 value
 
      d docbCreateFileParserCtxt...
      d                 pr                  extproc('docbCreateFileParserCtxt')
@@ -112,8 +109,7 @@
      d  encoding                       *   value options(*string)               const char *
 
      d docbParseDocument...
-     d                 pr                  extproc('docbParseDocument')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('docbParseDocument')
      d  ctxt                               value like(docbParserCtxtPtr)
 
       /endif                                                                    LIBXML_DOCB_ENABLED

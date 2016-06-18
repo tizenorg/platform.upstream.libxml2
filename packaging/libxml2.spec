@@ -1,12 +1,5 @@
-%define run_tests 0
-%if %{run_tests}
-    # check is defined off at .rpmmacros file.
-    %define check %%check
-%endif
-
-
 Name:           libxml2
-Version:        2.9.4
+Version:        2.9.2
 Release:        0
 Summary:        A Library to Manipulate XML Files
 License:        MIT
@@ -80,10 +73,10 @@ cp %{SOURCE1001} .
 make %{?_smp_mflags} BASE_DIR="%_docdir" DOC_MODULE="%name"
 
 %check
-%if %{run_tests}
-    %__make runtests || exit 0
+# qemu-arm can't keep up atm, disabling check for arm
+%ifnarch %arm
+make check
 %endif
-
 
 %install
 make install DESTDIR="%buildroot" BASE_DIR="%_docdir" DOC_MODULE="%name"

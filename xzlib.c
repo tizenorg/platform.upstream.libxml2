@@ -8,7 +8,7 @@
  */
 #define IN_LIBXML
 #include "libxml.h"
-#ifdef LIBXML_LZMA_ENABLED
+#ifdef HAVE_LZMA_H
 
 #include <string.h>
 #ifdef HAVE_ERRNO_H
@@ -34,9 +34,7 @@
 #ifdef HAVE_ZLIB_H
 #include <zlib.h>
 #endif
-#ifdef HAVE_LZMA_H
 #include <lzma.h>
-#endif
 
 #include "xzlib.h"
 #include <libxml/xmlmemory.h>
@@ -583,10 +581,6 @@ xz_decomp(xz_statep state)
             xz_error(state, LZMA_DATA_ERROR, "compressed data error");
             return -1;
         }
-        if (ret == LZMA_PROG_ERROR) {
-            xz_error(state, LZMA_PROG_ERROR, "compression error");
-            return -1;
-        }
     } while (strm->avail_out && ret != LZMA_STREAM_END);
 
     /* update available output and crc check value */
@@ -801,4 +795,4 @@ __libxml2_xzclose(xzFile file)
     xmlFree(state);
     return ret ? ret : LZMA_OK;
 }
-#endif /* LIBXML_LZMA_ENABLED */
+#endif /* HAVE_LZMA_H */

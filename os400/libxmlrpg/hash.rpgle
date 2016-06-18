@@ -9,8 +9,6 @@
       /if not defined(XML_HASH_H__)
       /define XML_HASH_H__
 
-      /include "libxmlrpg/xmlTypesC"
-
       * The hash table.
 
      d xmlHashTablePtr...
@@ -70,12 +68,12 @@
 
      d xmlHashCreate   pr                  extproc('xmlHashCreate')
      d                                     like(xmlHashTablePtr)
-     d  size                               value like(xmlCint)
+     d  size                         10i 0 value
 
      d xmlHashCreateDict...
      d                 pr                  extproc('xmlHashCreateDict')
      d                                     like(xmlHashTablePtr)
-     d  size                               value like(xmlCint)
+     d  size                         10i 0 value
      d  dict                               value like(xmlDictPtr)
 
      d xmlHashFree     pr                  extproc('xmlHashFree')
@@ -85,31 +83,27 @@
       * Add a new entry to the hash table.
 
      d xmlHashAddEntry...
-     d                 pr                  extproc('xmlHashAddEntry')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlHashAddEntry')
      d  table                              value like(xmlHashTablePtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  userdata                       *   value options(*string)               void *
 
      d xmlHashUpdateEntry...
-     d                 pr                  extproc('xmlHashUpdateEntry')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlHashUpdateEntry')
      d  table                              value like(xmlHashTablePtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  userdata                       *   value options(*string)               void *
      d  f                                  value like(xmlHashDeallocator)
 
      d xmlHashAddEntry2...
-     d                 pr                  extproc('xmlHashAddEntry2')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlHashAddEntry2')
      d  table                              value like(xmlHashTablePtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  name2                          *   value options(*string)               const xmlChar *
      d  userdata                       *   value options(*string)               void *
 
      d xmlHashUpdateEntry2...
-     d                 pr                  extproc('xmlHashUpdateEntry2')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlHashUpdateEntry2')
      d  table                              value like(xmlHashTablePtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  name2                          *   value options(*string)               const xmlChar *
@@ -117,8 +111,7 @@
      d  f                                  value like(xmlHashDeallocator)
 
      d xmlHashAddEntry3...
-     d                 pr                  extproc('xmlHashAddEntry3')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlHashAddEntry3')
      d  table                              value like(xmlHashTablePtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  name2                          *   value options(*string)               const xmlChar *
@@ -126,8 +119,7 @@
      d  userdata                       *   value options(*string)               void *
 
      d xmlHashUpdateEntry3...
-     d                 pr                  extproc('xmlHashUpdateEntry3')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlHashUpdateEntry3')
      d  table                              value like(xmlHashTablePtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  name2                          *   value options(*string)               const xmlChar *
@@ -138,23 +130,20 @@
       * Remove an entry from the hash table.
 
      d xmlHashRemoveEntry...
-     d                 pr                  extproc('xmlHashRemoveEntry')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlHashRemoveEntry')
      d  table                              value like(xmlHashTablePtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  f                                  value like(xmlHashDeallocator)
 
      d xmlHashRemoveEntry2...
-     d                 pr                  extproc('xmlHashRemoveEntry2')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlHashRemoveEntry2')
      d  table                              value like(xmlHashTablePtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  name2                          *   value options(*string)               const xmlChar *
      d  f                                  value like(xmlHashDeallocator)
 
      d xmlHashRemoveEntry3...
-     d                 pr                  extproc('xmlHashRemoveEntry3')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlHashRemoveEntry3')
      d  table                              value like(xmlHashTablePtr)
      d  name                           *   value options(*string)               const xmlChar *
      d  name2                          *   value options(*string)               const xmlChar *
@@ -208,8 +197,7 @@
      d  table                              value like(xmlHashTablePtr)
      d  f                                  value like(xmlHashCopier)
 
-     d xmlHashSize     pr                  extproc('xmlHashSize')
-     d                                     like(xmlCint)
+     d xmlHashSize     pr            10i 0 extproc('xmlHashSize')
      d  table                              value like(xmlHashTablePtr)
 
      d xmlHashScan     pr                  extproc('xmlHashScan')

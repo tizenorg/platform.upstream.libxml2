@@ -10,7 +10,6 @@
       /define XML_SAX2_H__
 
       /include "libxmlrpg/xmlversion"
-      /include "libxmlrpg/xmlTypesC"
       /include "libxmlrpg/parser"
       /include "libxmlrpg/xlink"
 
@@ -28,28 +27,23 @@
      d  loc                                value like(xmlSAXLocatorPtr)
 
      d xmlSAX2GetLineNumber...
-     d                 pr                  extproc('xmlSAX2GetLineNumber')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSAX2GetLineNumber')
      d  ctx                            *   value                                void *
 
      d xmlSAX2GetColumnNumber...
-     d                 pr                  extproc('xmlSAX2GetColumnNumber')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSAX2GetColumnNumber')
      d  ctx                            *   value                                void *
 
      d xmlSAX2IsStandalone...
-     d                 pr                  extproc('xmlSAX2IsStandalone')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSAX2IsStandalone')
      d  ctx                            *   value                                void *
 
      d xmlSAX2HasInternalSubset...
-     d                 pr                  extproc('xmlSAX2HasInternalSubset')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSAX2HasInternalSubset')
      d  ctx                            *   value                                void *
 
      d xmlSAX2HasExternalSubset...
-     d                 pr                  extproc('xmlSAX2HasExternalSubset')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSAX2HasExternalSubset')
      d  ctx                            *   value                                void *
 
      d xmlSAX2InternalSubset...
@@ -89,7 +83,7 @@
      d                 pr                  extproc('xmlSAX2EntityDecl')
      d  ctx                            *   value                                void *
      d  name                           *   value options(*string)               const xmlChar *
-     d  type                               value like(xmlCint)
+     d  type                         10i 0 value
      d  publicId                       *   value options(*string)               const xmlChar *
      d  systemId                       *   value options(*string)               const xmlChar *
      d  content                        *   value options(*string)               xmlChar *
@@ -99,8 +93,8 @@
      d  ctx                            *   value                                void *
      d  elem                           *   value options(*string)               const xmlChar *
      d  fullname                       *   value options(*string)               const xmlChar *
-     d  type                               value like(xmlCint)
-     d  def                                value like(xmlCint)
+     d  type                         10i 0 value
+     d  def                          10i 0 value
      d  defaultValue                   *   value options(*string)               const xmlChar *
      d  tree                               value like(xmlEnumerationPtr)
 
@@ -108,7 +102,7 @@
      d                 pr                  extproc('xmlSAX2ElementDecl')
      d  ctx                            *   value                                void *
      d  name                           *   value options(*string)               const xmlChar *
-     d  type                               value like(xmlCint)
+     d  type                         10i 0 value
      d  content                            value like(xmlElementContentPtr)
 
      d xmlSAX2NotationDecl...
@@ -164,10 +158,10 @@
      d  localname                      *   value options(*string)               const xmlChar *
      d  prefix                         *   value options(*string)               const xmlChar *
      d  URI                            *   value options(*string)               const xmlChar *
-     d  nb_namespaces                      value like(xmlCint)
+     d  nb_namespaces                10i 0 value
      d  namespaces                     *   value                                const xmlChar *(*)
-     d  nb_attributes                      value like(xmlCint)
-     d  nb_defaulted                       value like(xmlCint)
+     d  nb_attributes                10i 0 value
+     d  nb_defaulted                 10i 0 value
      d  attributes                     *                                        const xmlChar *(*)
 
      d xmlSAX2EndElementNs...
@@ -186,13 +180,13 @@
      d                 pr                  extproc('xmlSAX2Characters')
      d  ctx                            *   value                                void *
      d  ch                             *   value options(*string)               const xmlChar *
-     d  len                                value like(xmlCint)
+     d  len                          10i 0 value
 
      d xmlSAX2IgnorableWhitespace...
      d                 pr                  extproc('xmlSAX2IgnorableWhitespace')
      d  ctx                            *   value                                void *
      d  ch                             *   value options(*string)               const xmlChar *
-     d  len                                value like(xmlCint)
+     d  len                          10i 0 value
 
      d xmlSAX2ProcessingInstruction...
      d                 pr                  extproc(
@@ -210,31 +204,29 @@
      d                 pr                  extproc('xmlSAX2CDataBlock')
      d  ctx                            *   value                                void *
      d  value                          *   value options(*string)               const xmlChar *
-     d  len                                value like(xmlCint)
+     d  len                          10i 0 value
 
       /if defined(LIBXML_SAX1_ENABLED)
      d xmlSAXDefaultVersion...
-     d                 pr                  extproc('xmlSAXDefaultVersion')
-     d                                     like(xmlCint)
-     d  version                            value like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSAXDefaultVersion')
+     d  version                      10i 0 value
       /endif                                                                    LIBXML_SAX1_ENABLED
 
-     d xmlSAXVersion   pr                  extproc('xmlSAXVersion')
-     d                                     like(xmlCint)
-     d  hdlr                               likeds(xmlSAXHandler)
-     d  version                            value like(xmlCint)
+     d xmlSAXVersion   pr            10i 0 extproc('xmlSAXVersion')
+     d  hdlr                               like(xmlSAXHandler)
+     d  version                      10i 0 value
 
      d xmlSAX2InitDefaultSAXHandler...
      d                 pr                  extproc(
      d                                      'xmlSAX2InitDefaultSAXHandler')
-     d  hdlr                               likeds(xmlSAXHandler)
-     d  warning                            value like(xmlCint)
+     d  hdlr                               like(xmlSAXHandler)
+     d  warning                      10i 0 value
 
       /if defined(LIBXML_HTML_ENABLED)
      d xmlSAX2InitHtmlDefaultSAXHandler...
      d                 pr                  extproc(
      d                                      'xmlSAX2InitHtmlDefaultSAXHandler')
-     d  hdlr                               likeds(xmlSAXHandler)
+     d  hdlr                               like(xmlSAXHandler)
 
      d htmlDefaultSAXHandlerInit...
      d                 pr                  extproc('htmlDefaultSAXHandlerInit')
@@ -244,7 +236,7 @@
      d xmlSAX2InitDocbDefaultSAXHandler...
      d                 pr                  extproc(
      d                                      'xmlSAX2InitDocbDefaultSAXHandler')
-     d  hdlr                               likeds(xmlSAXHandler)
+     d  hdlr                               like(xmlSAXHandler)
 
      d docbDefaultSAXHandlerInit...
      d                 pr                  extproc('docbDefaultSAXHandlerInit')
