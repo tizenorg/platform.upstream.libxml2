@@ -9,11 +9,9 @@
       /if not defined(NANO_FTP_H__)
       /define NANO_FTP_H__
 
-      /include "libxmlrpg/xmlversion"
+      /include /libxmlrpg/xmlversion"
 
       /if defined(LIBXML_FTP_ENABLED)
-
-      /include "libxmlrpg/xmlTypesC"
 
      d INVALID_SOCKET  c                   -1
 
@@ -69,7 +67,7 @@
      d xmlNanoFTPConnectTo...
      d                 pr              *   extproc('xmlNanoFTPConnectTo')       void *
      d  server                         *   value options(*string)               const char *
-     d  port                               value like(xmlCint)
+     d  port                         10i 0 value
 
       * Opening/closing session connections.
 
@@ -77,17 +75,14 @@
      d  URL                            *   value options(*string)               const char *
 
      d xmlNanoFTPConnect...
-     d                 pr                  extproc('xmlNanoFTPConnect')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlNanoFTPConnect')
      d  ctx                            *   value                                void *
 
      d xmlNanoFTPClose...
-     d                 pr                  extproc('xmlNanoFTPClose')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlNanoFTPClose')
      d  ctx                            *   value                                void *
 
-     d xmlNanoFTPQuit  pr                  extproc('xmlNanoFTPQuit')
-     d                                     like(xmlCint)
+     d xmlNanoFTPQuit  pr            10i 0 extproc('xmlNanoFTPQuit')
      d  ctx                            *   value                                void *
 
      d xmlNanoFTPScanProxy...
@@ -97,76 +92,65 @@
      d xmlNanoFTPProxy...
      d                 pr                  extproc('xmlNanoFTPProxy')
      d  host                           *   value options(*string)               const char *
-     d  port                               value like(xmlCint)
+     d  port                         10i 0 value
      d  user                           *   value options(*string)               const char *
      d  passwd                         *   value options(*string)               const char *
-     d  type                               value like(xmlCint)
+     d  type                         10i 0 value
 
      d xmlNanoFTPUpdateURL...
-     d                 pr                  extproc('xmlNanoFTPUpdateURL')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlNanoFTPUpdateURL')
      d  ctx                            *   value                                void *
      d  URL                            *   value options(*string)               const char *
 
       * Rather internal commands.
 
      d xmlNanoFTPGetResponse...
-     d                 pr                  extproc('xmlNanoFTPGetResponse')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlNanoFTPGetResponse')
      d  ctx                            *   value                                void *
 
      d xmlNanoFTPCheckResponse...
-     d                 pr                  extproc('xmlNanoFTPCheckResponse')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlNanoFTPCheckResponse')
      d  ctx                            *   value                                void *
 
       * CD/DIR/GET handlers.
 
-     d xmlNanoFTPCwd   pr                  extproc('xmlNanoFTPCwd')
-     d                                     like(xmlCint)
+     d xmlNanoFTPCwd   pr            10i 0 extproc('xmlNanoFTPCwd')
      d  ctx                            *   value                                void *
      d  directory                      *   value options(*string)               const char *
 
-     d xmlNanoFTPDele  pr                  extproc('xmlNanoFTPDele')
-     d                                     like(xmlCint)
+     d xmlNanoFTPDele  pr            10i 0 extproc('xmlNanoFTPDele')
      d  ctx                            *   value                                void *
      d  file                           *   value options(*string)               const char *
 
      d xmlNanoFTPGetConnection...
-     d                 pr                  extproc('xmlNanoFTPGetConnection')   Socket descriptor
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlNanoFTPGetConnection')   Socket descriptor
      d  ctx                            *   value                                void *
 
      d xmlNanoFTPCloseConnection...
-     d                 pr                  extproc('xmlNanoFTPCloseConnection')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlNanoFTPCloseConnection')
      d  ctx                            *   value                                void *
 
-     d xmlNanoFTPList  pr                  extproc('xmlNanoFTPList')
-     d                                     like(xmlCint)
+     d xmlNanoFTPList  pr            10i 0 extproc('xmlNanoFTPList')
      d  ctx                            *   value                                void *
      d  callback                           value like(ftpListCallback)
      d  userData                       *   value                                void *
      d  filename                       *   value options(*string)               const char *
 
      d xmlNanoFTPGetSocket...
-     d                 pr                  extproc('xmlNanoFTPGetSocket')       Socket descriptor
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlNanoFTPGetSocket')       Socket descriptor
      d  ctx                            *   value                                void *
      d  filename                       *   value options(*string)               const char *
 
-     d xmlNanoFTPGet   pr                  extproc('xmlNanoFTPGet')
-     d                                     like(xmlCint)
+     d xmlNanoFTPGet   pr            10i 0 extproc('xmlNanoFTPGet')
      d  ctx                            *   value                                void *
      d  callback                           value like(ftpDataCallback)
      d  userData                       *   value                                void *
      d  filename                       *   value options(*string)               const char *
 
-     d xmlNanoFTPRead  pr                  extproc('xmlNanoFTPRead')
-     d                                     like(xmlCint)
+     d xmlNanoFTPRead  pr            10i 0 extproc('xmlNanoFTPRead')
      d  ctx                            *   value                                void *
      d  dest                           *   value                                void *
-     d  len                                value like(xmlCint)
+     d  len                          10i 0 value
 
       /endif                                                                    LIBXML_FTP_ENABLED
       /endif                                                                    NANO_FTP_H__

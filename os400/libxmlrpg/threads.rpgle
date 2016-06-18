@@ -10,7 +10,6 @@
       /define XML_THREADS_H__
 
       /include "libxmlrpg/xmlversion"
-      /include "libxmlrpg/xmlTypesC"
 
       * xmlMutex are a simple mutual exception locks.
 
@@ -56,12 +55,10 @@
      d xmlUnlockLibrary...
      d                 pr                  extproc('xmlUnlockLibrary')
 
-     d xmlGetThreadId  pr                  extproc('xmlGetThreadId')
-     d                                     like(xmlCint)
+     d xmlGetThreadId  pr            10i 0 extproc('xmlGetThreadId')
 
      d xmlIsMainThread...
-     d                 pr                  extproc('xmlIsMainThread')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlIsMainThread')
 
      d xmlCleanupThreads...
      d                 pr                  extproc('xmlCleanupThreads')

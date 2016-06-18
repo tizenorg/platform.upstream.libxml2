@@ -21,7 +21,6 @@
       /define XML_CHAR_ENCODING_H__
 
       /include "libxmlrpg/xmlversion"
-      /include "libxmlrpg/xmlTypesC"
 
       * xmlCharEncoding:
       *
@@ -44,8 +43,7 @@
       * the specific UTF-16LE and UTF-16BE are present.
 
      d xmlCharEncoding...
-     d                 s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d                 s             10i 0 based(######typedef######)           enum
      d  XML_CHAR_ENCODING_ERROR...                                              No encoding detected
      d                 c                   -1
      d  XML_CHAR_ENCODING_NONE...                                               No encoding detected
@@ -202,14 +200,12 @@
       * Interfaces for encoding names and aliases.
 
      d xmlAddEncodingAlias...
-     d                 pr                  extproc('xmlAddEncodingAlias')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlAddEncodingAlias')
      d  name                           *   value options(*string)               const char *
      d  alias                          *   value options(*string)               const char *
 
      d xmlDelEncodingAlias...
-     d                 pr                  extproc('xmlDelEncodingAlias')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlDelEncodingAlias')
      d  alias                          *   value options(*string)               const char *
 
      d xmlGetEncodingAlias...
@@ -234,51 +230,45 @@
      d                 pr                  extproc('xmlDetectCharEncoding')
      d                                     like(xmlCharEncoding)
      d  in                             *   value options(*string)               const unsigned char*
-     d  len                                value like(xmlCint)
+     d  len                          10i 0 value
 
      d xmlCharEncOutFunc...
-     d                 pr                  extproc('xmlCharEncOutFunc')
-     d                                     like(xmlCint)
-     d  handler                            likeds(xmlCharEncodingHandler)
+     d                 pr            10i 0 extproc('xmlCharEncOutFunc')
+     d  handler                            like(xmlCharEncodingHandler)
      d  out                                value like(xmlBufferPtr)
      d  in                                 value like(xmlBufferPtr)
 
      d xmlCharEncInFunc...
-     d                 pr                  extproc('xmlCharEncInFunc')
-     d                                     like(xmlCint)
-     d  handler                            likeds(xmlCharEncodingHandler)
+     d                 pr            10i 0 extproc('xmlCharEncInFunc')
+     d  handler                            like(xmlCharEncodingHandler)
      d  out                                value like(xmlBufferPtr)
      d  in                                 value like(xmlBufferPtr)
 
      d xmlCharEncFirstLine...
-     d                 pr                  extproc('xmlCharEncFirstLine')
-     d                                     like(xmlCint)
-     d  handler                            likeds(xmlCharEncodingHandler)
+     d                 pr            10i 0 extproc('xmlCharEncFirstLine')
+     d  handler                            like(xmlCharEncodingHandler)
      d  out                                value like(xmlBufferPtr)
      d  in                                 value like(xmlBufferPtr)
 
      d xmlCharEncCloseFunc...
-     d                 pr                  extproc('xmlCharEncCloseFunc')
-     d                                     like(xmlCint)
-     d  handler                            likeds(xmlCharEncodingHandler)
+     d                 pr            10i 0 extproc('xmlCharEncCloseFunc')
+     d  handler                            like(xmlCharEncodingHandler)
 
       * Export a few useful functions
 
       /if defined(LIBXML_OUTPUT_ENABLED)
-     d UTF8Toisolat1   pr                  extproc('UTF8Toisolat1')
-     d                                     like(xmlCint)
+     d UTF8Toisolat1   pr            10i 0 extproc('UTF8Toisolat1')
      d  out                       65535    options(*varsize)                    unsigned char (*)
-     d  outlen                             like(xmlCint)
+     d  outlen                       10i 0
      d  in                             *   value options(*string)               const unsigned char*
-     d  inlen                              like(xmlCint)
+     d  inlen                        10i 0
 
       /endif                                                                    LIBXML_OUTPUT_ENABLD
 
-     d isolat1ToUTF8   pr                  extproc('isolat1ToUTF8')
-     d                                     like(xmlCint)
+     d isolat1ToUTF8   pr            10i 0 extproc('isolat1ToUTF8')
      d  out                       65535    options(*varsize)                    unsigned char (*)
-     d  outlen                             like(xmlCint)
+     d  outlen                       10i 0
      d  in                             *   value options(*string)               const unsigned char*
-     d  inlen                              like(xmlCint)
+     d  inlen                        10i 0
 
       /endif                                                                    XML_CHAR_ENCODING_H

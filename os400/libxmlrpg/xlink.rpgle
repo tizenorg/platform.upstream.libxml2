@@ -9,11 +9,9 @@
       /define XML_XLINK_H__
 
       /include "libxmlrpg/xmlversion"
+      /include "libxmlrpg/tree"
 
       /if defined(LIBXML_XPTR_ENABLED)
-
-      /include "libxmlrpg/xmlTypesC"
-      /include "libxmlrpg/tree"
 
       * Various defines for the various Link properties.
       *
@@ -28,8 +26,7 @@
      d xlinkRole       s               *   based(######typedef######)           xmlChar *
      d xlinkTitle      s               *   based(######typedef######)           xmlChar *
 
-     d xlinkType       s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d xlinkType       s             10i 0 based(######typedef######)           enum
      d  XLINK_TYPE_NONE...
      d                 c                   0
      d  XLINK_TYPE_SIMPLE...
@@ -39,8 +36,7 @@
      d  XLINK_TYPE_EXTENDED_SET...
      d                 c                   3
 
-     d xlinkShow       s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d xlinkShow       s             10i 0 based(######typedef######)           enum
      d  XLINK_SHOW_NONE...
      d                 c                   0
      d  XLINK_SHOW_NEW...
@@ -50,8 +46,7 @@
      d  XLINK_SHOW_REPLACE...
      d                 c                   3
 
-     d xlinkActuate    s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d xlinkActuate    s             10i 0 based(######typedef######)           enum
      d  XLINK_ACTUATE_NONE...
      d                 c                   0
      d  XLINK_ACTUATE_AUTO...

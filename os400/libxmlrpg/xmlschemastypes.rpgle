@@ -13,13 +13,11 @@
 
       /if defined(LIBXML_SCHEMAS_ENABLED)
 
-      /include "libxmlrpg/xmlTypesC"
       /include "libxmlrpg/schemasInternals"
       /include "libxmlrpg/xmlschemas"
 
      d xmlSchemaWhitespaceValueType...
-     d                 s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d                 s             10i 0 based(######typedef######)           enum
      d  XML_SCHEMA_WHITESPACE_UNKNOWN...
      d                 c                   0
      d  XML_SCHEMA_WHITESPACE_PRESERVE...
@@ -42,33 +40,29 @@
      d  ns                             *   value options(*string)               const xmlChar *
 
      d xmlSchemaValidatePredefinedType...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlSchemaValidatePredefinedType')
-     d                                     like(xmlCint)
      d  type                               value like(xmlSchemaTypePtr)
      d  value                          *   value options(*string)               const xmlChar *
      d  val                            *   value                                xmlSchemaValPtr *
 
      d xmlSchemaValPredefTypeNode...
-     d                 pr                  extproc('xmlSchemaValPredefTypeNode')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchemaValPredefTypeNode')
      d  type                               value like(xmlSchemaTypePtr)
      d  value                          *   value options(*string)               const xmlChar *
      d  val                            *   value                                xmlSchemaValPtr *
      d  node                               value like(xmlNodePtr)
 
      d xmlSchemaValidateFacet...
-     d                 pr                  extproc('xmlSchemaValidateFacet')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchemaValidateFacet')
      d  base                               value like(xmlSchemaTypePtr)
      d  facet                              value like(xmlSchemaFacetPtr)
      d  value                          *   value options(*string)               const xmlChar *
      d  val                                value like(xmlSchemaValPtr)
 
      d xmlSchemaValidateFacetWhtsp...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlSchemaValidateFacetWhtsp')
-     d                                     like(xmlCint)
      d  facet                              value like(xmlSchemaFacetPtr)
      d  fws                                value
      d                                     like(xmlSchemaWhitespaceValueType)
@@ -87,8 +81,7 @@
      d                                     like(xmlSchemaFacetPtr)
 
      d xmlSchemaCheckFacet...
-     d                 pr                  extproc('xmlSchemaCheckFacet')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchemaCheckFacet')
      d  facet                              value like(xmlSchemaFacetPtr)
      d  typeDecl                           value like(xmlSchemaTypePtr)
      d  ctxt                               value like(xmlSchemaParserCtxtPtr)
@@ -99,8 +92,7 @@
      d  facet                              value like(xmlSchemaFacetPtr)
 
      d xmlSchemaCompareValues...
-     d                 pr                  extproc('xmlSchemaCompareValues')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchemaCompareValues')
      d  x                                  value like(xmlSchemaValPtr)
      d  y                                  value like(xmlSchemaValPtr)
 
@@ -111,12 +103,11 @@
      d  type                               value like(xmlSchemaTypePtr)
 
      d xmlSchemaValidateListSimpleTypeFacet...
-     d                 pr                  extproc('xmlSchemaValidateListSimple-
+     d                 pr            10i 0 extproc('xmlSchemaValidateListSimple-
      d                                     TypeFacet')
-     d                                     like(xmlCint)
      d  facet                              value like(xmlSchemaFacetPtr)
      d  value                          *   value options(*string)               const xmlChar *
-     d  actualLen                          value like(xmlCulong)
+     d  actualLen                    20u 0 value
      d  expectedLen                    *   value                                unsigned long *
 
      d xmlSchemaGetBuiltInType...
@@ -125,11 +116,10 @@
      d  type                               value like(xmlSchemaValType)
 
      d xmlSchemaIsBuiltInTypeFacet...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlSchemaIsBuiltInTypeFacet')
-     d                                     like(xmlCint)
      d  type                               value like(xmlSchemaTypePtr)
-     d  facetType                          value like(xmlCint)
+     d  facetType                    10i 0 value
 
      d xmlSchemaCollapseString...
      d                 pr              *   extproc('xmlSchemaCollapseString')   xmlChar *
@@ -140,60 +130,53 @@
      d  value                          *   value options(*string)               const xmlChar *
 
      d xmlSchemaGetFacetValueAsULong...
-     d                 pr                  extproc(
+     d                 pr            20u 0 extproc(
      d                                     'xmlSchemaGetFacetValueAsULong')
-     d                                     like(xmlCulong)
      d  facet                              value like(xmlSchemaFacetPtr)
 
      d xmlSchemaValidateLengthFacet...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlSchemaValidateLengthFacet')
-     d                                     like(xmlCint)
      d  type                               value like(xmlSchemaTypePtr)
      d  facet                              value like(xmlSchemaFacetPtr)
      d  value                          *   value options(*string)               const xmlChar *
      d  val                                value like(xmlSchemaValPtr)
-     d  length                             like(xmlCulong)
+     d  length                       20u 0
 
      d xmlSchemaValidateLengthFacetWhtsp...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlSchemaValidateLengthFacetWhtsp')
-     d                                     like(xmlCint)
      d  facet                              value like(xmlSchemaFacetPtr)
      d  valType                            value like(xmlSchemaValType)
      d  value                          *   value options(*string)               const xmlChar *
      d  val                                value like(xmlSchemaValPtr)
-     d  length                             like(xmlCulong)
+     d  length                       20u 0
      d  ws                                 value
      d                                     like(xmlSchemaWhitespaceValueType)
 
      d xmlSchemaValPredefTypeNodeNoNorm...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlSchemaValPredefTypeNodeNoNorm')
-     d                                     like(xmlCint)
      d  type                               value like(xmlSchemaTypePtr)
      d  value                          *   value options(*string)               const xmlChar *
      d  val                                like(xmlSchemaValPtr)
      d  node                               value like(xmlNodePtr)
 
      d xmlSchemaGetCanonValue...
-     d                 pr                  extproc('xmlSchemaGetCanonValue')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchemaGetCanonValue')
      d  val                                value like(xmlSchemaValPtr)
      d  retValue                       *   value                                const xmlChar * *
 
      d xmlSchemaGetCanonValueWhtsp...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlSchemaGetCanonValueWhtsp')
-     d                                     like(xmlCint)
      d  val                                value like(xmlSchemaValPtr)
      d  retValue                       *   value                                const xmlChar * *
      d  ws                                 value
      d                                     like(xmlSchemaWhitespaceValueType)
 
      d xmlSchemaValueAppend...
-     d                 pr                  extproc('xmlSchemaValueAppend')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchemaValueAppend')
      d  prev                               value like(xmlSchemaValPtr)
      d  cur                                value like(xmlSchemaValPtr)
 
@@ -207,8 +190,7 @@
      d  val                                value like(xmlSchemaValPtr)
 
      d xmlSchemaValueGetAsBoolean...
-     d                 pr                  extproc('xmlSchemaValueGetAsBoolean')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlSchemaValueGetAsBoolean')
      d  val                                value like(xmlSchemaValPtr)
 
      d xmlSchemaNewStringValue...
@@ -230,9 +212,8 @@
      d  localName                      *   value options(*string)               const xmlChar *
 
      d xmlSchemaCompareValuesWhtsp...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlSchemaCompareValuesWhtsp')
-     d                                     like(xmlCint)
      d  x                                  value like(xmlSchemaValPtr)
      d  xws                                value
      d                                     like(xmlSchemaWhitespaceValueType)

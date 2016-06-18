@@ -8,7 +8,6 @@
       /if not defined(XML_VERSION_H__)
       /define XML_VERSION_H__
 
-      /include "libxmlrpg/xmlTypesC"
       /include "libxmlrpg/xmlexports"
 
       * use those to be sure nothing nasty will happen if
@@ -17,7 +16,7 @@
 
      d xmlCheckVersion...
      d                 pr                  extproc('xmlCheckVersion')
-     d  version                            value like(xmlCint)
+     d  version                      10i 0 value
 
       * LIBXML_DOTTED_VERSION:
       *

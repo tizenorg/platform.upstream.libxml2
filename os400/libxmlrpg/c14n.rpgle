@@ -21,7 +21,6 @@
       /if defined(LIBXML_C14N_ENABLED)
       /if defined(LIBXML_OUTPUT_ENABLED)
 
-      /include "libxmlrpg/xmlTypesC"
       /include "libxmlrpg/tree"
       /include "libxmlrpg/xpath"
 
@@ -53,45 +52,41 @@
       * Predefined values for C14N modes
 
      d xmlBufferAllocationScheme...
-     d xmlC14NMode     s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d xmlC14NMode     s             10i 0 based(######typedef######)           enum
      d  XML_C14N_1_0   c                   0                                    Original C14N 1.0
      d  XML_C14N_EXCLUSIVE_1_0...                                               Exclusive C14N 1.0
      d                 c                   1
      d  XML_C14N_1_1   c                   2                                    C14N 1.1 spec
 
      d xmlC14NDocSaveTo...
-     d                 pr                  extproc('xmlC14NDocSaveTo')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlC14NDocSaveTo')
      d  doc                                value like(xmlDocPtr)
      d  nodes                              value like(xmlNodeSetPtr)
-     d  mode                               value like(xmlCint)
+     d  mode                         10i 0 value
      d  inclusive_ns_prefixes...
-     d                                 *   options(*omit)                       xmlChar *(*)
-     d  with_comments                      value like(xmlCint)
+     d                                 *                                        xmlChar *(*)
+     d  with_comments                10i 0 value
      d  buf                                value like(xmlOutputBufferPtr)
 
      d xmlC14NDocDumpMemory...
-     d                 pr                  extproc('xmlC14NDocDumpMemory')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlC14NDocDumpMemory')
      d  doc                                value like(xmlDocPtr)
      d  nodes                              value like(xmlNodeSetPtr)
-     d  mode                               value like(xmlCint)
+     d  mode                         10i 0 value
      d  inclusive_ns_prefixes...
-     d                                 *   options(*omit)                       xmlChar *(*)
-     d  with_comments                      value like(xmlCint)
+     d                                 *                                        xmlChar *(*)
+     d  with_comments                10i 0 value
      d  doc_txt_ptr                    *                                        xmlChar *(*)
 
-     d xmlC14NDocSave  pr                  extproc('xmlC14NDocSave')
-     d                                     like(xmlCint)
+     d xmlC14NDocSave  pr            10i 0 extproc('xmlC14NDocSave')
      d  doc                                value like(xmlDocPtr)
      d  nodes                              value like(xmlNodeSetPtr)
-     d  mode                               value like(xmlCint)
+     d  mode                         10i 0 value
      d  inclusive_ns_prefixes...
-     d                                 *   options(*omit)                       xmlChar *(*)
-     d  with_comments                      value like(xmlCint)
+     d                                 *                                        xmlChar *(*)
+     d  with_comments                10i 0 value
      d  filename                       *   value options(*string)               const char *
-     d  compression                        value like(xmlCint)
+     d  compression                  10i 0 value
 
       * This is the core C14N function
 
@@ -108,16 +103,15 @@
      d                 s               *   based(######typedef######)
      d                                     procptr
 
-     d xmlC14NExecute  pr                  extproc('xmlC14NExecute')
-     d                                     like(xmlCint)
+     d xmlC14NExecute  pr            10i 0 extproc('xmlC14NExecute')
      d  doc                                value like(xmlDocPtr)
      d  is_visible_callback...
      d                                     value like(xmlC14NIsVisibleCallback)
      d  user_data                      *   value                                void *
-     d  mode                               value like(xmlCint)
+     d  mode                         10i 0 value
      d  inclusive_ns_prefixes...
-     d                                 *   options(*omit)                       xmlChar *(*)
-     d  with_comments                      value like(xmlCint)
+     d                                 *                                        xmlChar *(*)
+     d  with_comments                10i 0 value
      d  buf                                value like(xmlOutputBufferPtr)
 
       /endif                                                                    LIBXML_OUTPUT_ENABLD

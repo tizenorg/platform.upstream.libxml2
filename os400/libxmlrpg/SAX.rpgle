@@ -26,27 +26,22 @@
      d  ctx                            *   value                                void *
      d  loc                                value like(xmlSAXLocatorPtr)
 
-     d getLineNumber   pr                  extproc('getLineNumber')
-     d                                     like(xmlCint)
+     d getLineNumber   pr            10i 0 extproc('getLineNumber')
      d  ctx                            *   value                                void *
 
      d getColumnNumber...
-     d                 pr                  extproc('getColumnNumber')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('getColumnNumber')
      d  ctx                            *   value                                void *
 
-     d isStandalone    pr                  extproc('isStandalone')
-     d                                     like(xmlCint)
+     d isStandalone    pr            10i 0 extproc('isStandalone')
      d  ctx                            *   value                                void *
 
      d hasInternalSubset...
-     d                 pr                  extproc('hasInternalSubset')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('hasInternalSubset')
      d  ctx                            *   value                                void *
 
      d hasExternalSubset...
-     d                 pr                  extproc('hasExternalSubset')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('hasExternalSubset')
      d  ctx                            *   value                                void *
 
      d internalSubset  pr                  extproc('internalSubset')
@@ -81,7 +76,7 @@
      d entityDecl      pr                  extproc('entityDecl')
      d  ctx                            *   value                                void *
      d  name                           *   value options(*string)               const xmlChar *
-     d  type                               value like(xmlCint)
+     d  type                         10i 0 value
      d  publicId                       *   value options(*string)               const xmlChar *
      d  systemId                       *   value options(*string)               const xmlChar *
      d  content                        *   value options(*string)               xmlChar *
@@ -90,15 +85,15 @@
      d  ctx                            *   value                                void *
      d  elem                           *   value options(*string)               const xmlChar *
      d  fullname                       *   value options(*string)               const xmlChar *
-     d  type                               value like(xmlCint)
-     d  def                                value like(xmlCint)
+     d  type                         10i 0 value
+     d  def                          10i 0 value
      d  defaultValue                   *   value options(*string)               const xmlChar *
      d  tree                               value like(xmlEnumerationPtr)
 
      d elementDecl     pr                  extproc('elementDecl')
      d  ctx                            *   value                                void *
      d  name                           *   value options(*string)               const xmlChar *
-     d  type                               value like(xmlCint)
+     d  type                         10i 0 value
      d  content                            value like(xmlElementContentPtr)
 
      d notationDecl    pr                  extproc('notationDecl')
@@ -142,13 +137,13 @@
      d characters      pr                  extproc('characters')
      d  ctx                            *   value                                void *
      d  ch                             *   value options(*string)               const xmlChar *
-     d  len                                value like(xmlCint)
+     d  len                          10i 0 value
 
      d ignorableWhitespace...
      d                 pr                  extproc('ignorableWhitespace')
      d  ctx                            *   value                                void *
      d  ch                             *   value options(*string)               const xmlChar *
-     d  len                                value like(xmlCint)
+     d  len                          10i 0 value
 
      d processingInstruction...
      d                 pr                  extproc('processingInstruction')
@@ -170,8 +165,7 @@
      d                                     like(xmlNsPtr)
      d  ctx                            *   value                                void *
 
-     d checkNamespace  pr                  extproc('checkNamespace')
-     d                                     like(xmlCint)
+     d checkNamespace  pr            10i 0 extproc('checkNamespace')
      d  ctx                            *   value                                void *
      d  nameSpace                      *   value options(*string)               xmlChar *
 
@@ -187,24 +181,24 @@
      d cdataBlock      pr                  extproc('cdataBlock')
      d  ctx                            *   value                                void *
      d  value                          *   value options(*string)               const xmlChar *
-     d  len                                value like(xmlCint)
+     d  len                          10i 0 value
 
       /if defined(LIBXML_SAX1_ENABLED)
      d initxmlDefaultSAXHandler...
      d                 pr                  extproc('initxmlDefaultSAXHandler')
-     d  hdlr                               likeds(xmlSAXHandlerV1)
-     d  warning                            value like(xmlCint)
+     d  hdlr                               like(xmlSAXHandlerV1)
+     d  warning                      10i 0 value
 
       /if defined(LIBXML_HTML_ENABLED)
      d inithtmlDefaultSAXHandler...
      d                 pr                  extproc('inithtmlDefaultSAXHandler')
-     d  hdlr                               likeds(xmlSAXHandlerV1)
+     d  hdlr                               like(xmlSAXHandlerV1)
       /endif
 
       /if defined(LIBXML_DOCB_ENABLED)
      d initdocbDefaultSAXHandler...
      d                 pr                  extproc('initdocbDefaultSAXHandler')
-     d  hdlr                               likeds(xmlSAXHandlerV1)
+     d  hdlr                               like(xmlSAXHandlerV1)
       /endif
       /endif                                                                    LIBXML_SAX1_ENABLED
 

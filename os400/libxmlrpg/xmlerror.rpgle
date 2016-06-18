@@ -5,18 +5,16 @@
       *
       * Author: Patrick Monnerat <pm@datasphere.ch>, DATASPHERE S.A.
 
+      /include "libxmlrpg/parser"
+
       /if not defined(XML_ERROR_H__)
       /define XML_ERROR_H__
-
-      /include "libxmlrpg/xmlTypesC"
-      /include "libxmlrpg/parser"
 
       * xmlErrorLevel:
       *
       * Indicates the level of an error
 
-     d xmlErrorLevel   s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d xmlErrorLevel   s             10i 0 based(######typedef######)           enum
      d  XML_ERR_NONE   c                   0
      d  XML_ERR_WARNING...                                                      A simple warning
      d                 c                   1
@@ -27,8 +25,7 @@
       *
       * Indicates where an error may have come from
 
-     d xmlErrorDomain  s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d xmlErrorDomain  s             10i 0 based(######typedef######)           enum
      d  XML_FROM_NONE  c                   0
      d  XML_FROM_PARSER...                                                      XML parser
      d                 c                   1
@@ -89,17 +86,17 @@
 
      d xmlError        ds                  based(xmlErrorPtr)
      d                                     align qualified
-     d  domain                             like(xmlCint)                        Libpart raising err
-     d  code                               like(xmlCint)                        Error code
+     d  domain                       10i 0                                      Libpart raising err
+     d  code                         10i 0                                      Error code
      d  message                        *                                        char *
      d  level                              like(xmlErrorLevel)                  Error severity
      d  file                           *                                        File name
-     d  line                               like(xmlCint)                        Line number
+     d  line                         10i 0                                      Line number
      d  str1                           *                                        char *
      d  str2                           *                                        char *
      d  str3                           *                                        char *
-     d  int1                               like(xmlCint)                        Extra number info
-     d  int2                               like(xmlCint)                        Error column
+     d  int1                         10i 0                                      Extra number info
+     d  int2                         10i 0                                      Error column
      d  ctxt                           *                                        void *
      d  node                           *                                        void *
 
@@ -108,8 +105,7 @@
       * This is an error that the XML (or HTML) parser can generate
 
      d xmlParserErrors...
-     d                 s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d                 s             10i 0 based(######typedef######)           enum
      d  XML_ERR_OK     c                   0
      d  XML_ERR_INTERNAL_ERROR...
      d                 c                   1
@@ -1678,8 +1674,7 @@
      d xmlResetError   pr                  extproc('xmlResetError')
      d  err                                value like(xmlErrorPtr)
 
-     d xmlCopyError    pr                  extproc('xmlCopyError')
-     d                                     like(xmlCint)
+     d xmlCopyError    pr            10i 0 extproc('xmlCopyError')
      d  from                               value like(xmlErrorPtr)
      d  to                                 value like(xmlErrorPtr)
 

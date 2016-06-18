@@ -1,5 +1,5 @@
 Name:           python-libxml2
-Version:        2.9.4
+Version:        2.9.2
 Release:        0
 Summary:        Python Bindings for libxml2
 License:        MIT
@@ -29,6 +29,7 @@ either at parse time or later once the document has been modified.
 
 %build
 export CFLAGS="%{optflags} -fno-strict-aliasing"
+touch configure.ac aclocal.m4 configure Makefile.am Makefile.in
 %configure \
     --with-fexceptions \
     --with-history \

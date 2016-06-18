@@ -9,7 +9,6 @@
       /define XML_XMLREADER_H__
 
       /include "libxmlrpg/xmlversion"
-      /include "libxmlrpg/xmlTypesC"
       /include "libxmlrpg/tree"
       /include "libxmlrpg/xmlIO"
 
@@ -24,8 +23,7 @@
       * is used.
 
      d xmlParserSeverities...
-     d                 s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d                 s             10i 0 based(######typedef######)           enum
      d  XML_PARSER_SEVERITY_VALIDITY_WARNING...
      d                 c                   1
      d  XML_PARSER_SEVERITY_VALIDITY_ERROR...
@@ -42,8 +40,7 @@
       * Internal state values for the reader.
 
      d xmlTextReaderMode...
-     d                 s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d                 s             10i 0 based(######typedef######)           enum
      d  XML_TEXTREADER_MODE_INITIAL...
      d                 c                   0
      d  XML_TEXTREADER_MODE_INTERACTIVE...
@@ -64,8 +61,7 @@
       * xmlReaderForxxx APIs now.
 
      d xmlParserProperties...
-     d                 s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d                 s             10i 0 based(######typedef######)           enum
      d  XML_PARSER_LOADDTD...
      d                 c                   1
      d  XML_PARSER_DEFAULTATTRS...
@@ -79,8 +75,7 @@
       *
       * Predefined constants for the different types of nodes.
 
-     d xmlReaderTypes  s                   based(######typedef######)
-     d                                     like(xmlCenum)
+     d xmlReaderTypes  s             10i 0 based(######typedef######)           enum
      d  XML_READER_TYPE_NONE...
      d                 c                   0
      d  XML_READER_TYPE_ELEMENT...
@@ -143,19 +138,17 @@
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderSetup...
-     d                 pr                  extproc('xmlTextReaderSetup')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderSetup')
      d  reader                             value like(xmlTextReaderPtr)
      d  input                              value like(xmlParserInputBufferPtr)
      d  URL                            *   value options(*string)               const char *
      d  encoding                       *   value options(*string)               const char *
-     d  options                            value like(xmlCint)
+     d  options                      10i 0 value
 
       * Iterators
 
      d xmlTextReaderRead...
-     d                 pr                  extproc('xmlTextReaderRead')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderRead')
      d  reader                             value like(xmlTextReaderPtr)
 
       /if defined(LIBXML_WRITER_ENABLED)
@@ -173,64 +166,53 @@
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderReadAttributeValue...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderReadAttributeValue')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
 
       * Attributes of the node
 
      d xmlTextReaderAttributeCount...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderAttributeCount')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderDepth...
-     d                 pr                  extproc('xmlTextReaderDepth')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderDepth')
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderHasAttributes...
-     d                 pr                  extproc('xmlTextReaderHasAttributes')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderHasAttributes')
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderHasValue...
-     d                 pr                  extproc('xmlTextReaderHasValue')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderHasValue')
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderIsDefault...
-     d                 pr                  extproc('xmlTextReaderIsDefault')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderIsDefault')
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderIsEmptyElement...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderIsEmptyElement')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderNodeType...
-     d                 pr                  extproc('xmlTextReaderNodeType')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderNodeType')
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderQuoteChar...
-     d                 pr                  extproc('xmlTextReaderQuoteChar')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderQuoteChar')
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderReadState...
-     d                 pr                  extproc('xmlTextReaderReadState')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderReadState')
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderIsNamespaceDecl...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderIsNamespaceDecl')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderConstBaseUri...
@@ -302,15 +284,14 @@
       * Methods of the XmlTextReader
 
      d xmlTextReaderClose...
-     d                 pr                  extproc('xmlTextReaderClose')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderClose')
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderGetAttributeNo...
      d                 pr              *   extproc(                             xmlChar *
      d                                     'xmlTextReaderGetAttributeNo')
      d  reader                             value like(xmlTextReaderPtr)
-     d  no                                 value like(xmlCint)
+     d  no                           10i 0 value
 
      d xmlTextReaderGetAttribute...
      d                 pr              *   extproc('xmlTextReaderGetAttribute') xmlChar *
@@ -336,47 +317,40 @@
      d  prefix                         *   value options(*string)               const xmlChar *
 
      d xmlTextReaderMoveToAttributeNo...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderMoveToAttributeNo')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
-     d  no                                 value like(xmlCint)
+     d  no                           10i 0 value
 
      d xmlTextReaderMoveToAttribute...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderMoveToAttribute')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
      d  name                           *   value options(*string)               const xmlChar *
 
      d xmlTextReaderMoveToAttributeNs...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderMoveToAttributeNs')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
      d  localName                      *   value options(*string)               const xmlChar *
      d  namespaceURI                   *   value options(*string)               const xmlChar *
 
      d xmlTextReaderMoveToFirstAttribute...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderMoveToFirstAttribute')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderMoveToNextAttribute...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderMoveToNextAttribute')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderMoveToElement...
-     d                 pr                  extproc('xmlTextReaderMoveToElement')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderMoveToElement')
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderNormalization...
-     d                 pr                  extproc('xmlTextReaderNormalization')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderNormalization')
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderConstEncoding...
@@ -386,17 +360,15 @@
       * Extensions
 
      d xmlTextReaderSetParserProp...
-     d                 pr                  extproc('xmlTextReaderSetParserProp')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderSetParserProp')
      d  reader                             value like(xmlTextReaderPtr)
-     d  prop                               value like(xmlCint)
-     d  value                              value like(xmlCint)
+     d  prop                         10i 0 value
+     d  value                        10i 0 value
 
      d xmlTextReaderGetParserProp...
-     d                 pr                  extproc('xmlTextReaderGetParserProp')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderGetParserProp')
      d  reader                             value like(xmlTextReaderPtr)
-     d  prop                               value like(xmlCint)
+     d  prop                         10i 0 value
 
      d xmlTextReaderCurrentNode...
      d                 pr                  extproc('xmlTextReaderCurrentNode')
@@ -404,15 +376,13 @@
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderGetParserLineNumber...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderGetParserLineNumber')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderGetParserColumnNumber...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderGetParserColumnNumber')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderPreserve...
@@ -422,9 +392,8 @@
 
       /if defined(LIBXML_PATTERN_ENABLED)
      d xmlTextReaderPreservePattern...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderPreservePattern')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
      d  pattern                        *   value options(*string)               const xmlChar *
      d  namespaces                     *                                        const xmlChar *(*)
@@ -441,61 +410,52 @@
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderNext...
-     d                 pr                  extproc('xmlTextReaderNext')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderNext')
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderNextSibling...
-     d                 pr                  extproc('xmlTextReaderNextSibling')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderNextSibling')
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderIsValid...
-     d                 pr                  extproc('xmlTextReaderIsValid')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderIsValid')
      d  reader                             value like(xmlTextReaderPtr)
 
       /if defined(LIBXML_SCHEMAS_ENABLED)
      d xmlTextReaderRelaxNGValidate...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderRelaxNGValidate')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
      d  rng                            *   value options(*string)               const char *
 
      d xmlTextReaderRelaxNGValidateCtxt...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderRelaxNGValidateCtxt')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
      d  ctxt                               value like(xmlRelaxNGValidCtxtPtr)
-     d  options                            value like(xmlCint)
+     d  options                      10i 0 value
 
      d xmlTextReaderRelaxNGSetSchema...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderRelaxNGSetSchema')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
      d  schema                             value like(xmlRelaxNGPtr)
 
      d xmlTextReaderSchemaValidate...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderSchemaValidate')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
      d  xsd                            *   value options(*string)               const char *
 
      d xmlTextReaderSchemaValidateCtxt...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderSchemaValidateCtxt')
-     d                                     like(xmlCint)
      d  reader                             value like(xmlTextReaderPtr)
      d  ctxt                               value like(xmlSchemaValidCtxtPtr)
-     d  options                            value like(xmlCint)
+     d  options                      10i 0 value
 
      d xmlTextReaderSetSchema...
-     d                 pr                  extproc('xmlTextReaderSetSchema')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderSetSchema')
      d  reader                             value like(xmlTextReaderPtr)
      d  schema                             value like(xmlSchemaPtr)
       /endif
@@ -506,15 +466,13 @@
      d  reader                             value like(xmlTextReaderPtr)
 
      d xmlTextReaderStandalone...
-     d                 pr                  extproc('xmlTextReaderStandalone')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlTextReaderStandalone')
      d  reader                             value like(xmlTextReaderPtr)
 
       * Index lookup
 
      d xmlTextReaderByteConsumed...
-     d                 pr                  extproc('xmlTextReaderByteConsumed')
-     d                                     like(xmlClong)
+     d                 pr            20i 0 extproc('xmlTextReaderByteConsumed')
      d  reader                             value like(xmlTextReaderPtr)
 
       * New more complete APIs for simpler creation and reuse of readers
@@ -530,30 +488,30 @@
      d  cur                            *   value options(*string)               const xmlChar *
      d  URL                            *   value options(*string)               const char *
      d  encoding                       *   value options(*string)               const char *
-     d  options                            value like(xmlCint)
+     d  options                      10i 0 value
 
      d xmlReaderForFile...
      d                 pr                  extproc('xmlReaderForFile')
      d                                     like(xmlTextReaderPtr)
      d  filename                       *   value options(*string)               const char *
      d  encoding                       *   value options(*string)               const char *
-     d  options                            value like(xmlCint)
+     d  options                      10i 0 value
 
      d xmlReaderForMemory...
      d                 pr                  extproc('xmlReaderForMemory')
      d                                     like(xmlTextReaderPtr)
      d  buffer                         *   value options(*string)               const char *
-     d  size                               value like(xmlCint)
+     d  size                         10i 0 value
      d  URL                            *   value options(*string)               const char *
      d  encoding                       *   value options(*string)               const char *
-     d  options                            value like(xmlCint)
+     d  options                      10i 0 value
 
      d xmlReaderForFd  pr                  extproc('xmlReaderForFd')
      d                                     like(xmlTextReaderPtr)
-     d  fd                                 value like(xmlCint)
+     d  fd                           10i 0 value
      d  URL                            *   value options(*string)               const char *
      d  encoding                       *   value options(*string)               const char *
-     d  options                            value like(xmlCint)
+     d  options                      10i 0 value
 
      d xmlReaderForIO  pr                  extproc('xmlReaderForIO')
      d                                     like(xmlTextReaderPtr)
@@ -562,58 +520,52 @@
      d  ioctx                          *   value                                void *
      d  URL                            *   value options(*string)               const char *
      d  encoding                       *   value options(*string)               const char *
-     d  options                            value like(xmlCint)
+     d  options                      10i 0 value
 
      d xmlReaderNewWalker...
-     d                 pr                  extproc('xmlReaderNewWalker')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlReaderNewWalker')
      d  reader                             value like(xmlTextReaderPtr)
      d  doc                                value like(xmlDocPtr)
 
      d xmlReaderNewDoc...
-     d                 pr                  extproc('xmlReaderNewDoc')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlReaderNewDoc')
      d  reader                             value like(xmlTextReaderPtr)
      d  cur                            *   value options(*string)               const xmlChar *
      d  URL                            *   value options(*string)               const char *
      d  encoding                       *   value options(*string)               const char *
-     d  options                            value like(xmlCint)
+     d  options                      10i 0 value
 
      d xmlReaderNewFile...
-     d                 pr                  extproc('xmlReaderNewFile')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlReaderNewFile')
      d  reader                             value like(xmlTextReaderPtr)
      d  filename                       *   value options(*string)               const char *
      d  encoding                       *   value options(*string)               const char *
-     d  options                            value like(xmlCint)
+     d  options                      10i 0 value
 
      d xmlReaderNewMemory...
-     d                 pr                  extproc('xmlReaderNewMemory')
-     d                                     like(xmlCint)
+     d                 pr            10i 0 extproc('xmlReaderNewMemory')
      d  reader                             value like(xmlTextReaderPtr)
      d  buffer                         *   value options(*string)               const char *
-     d  size                               value like(xmlCint)
+     d  size                         10i 0 value
      d  URL                            *   value options(*string)               const char *
      d  encoding                       *   value options(*string)               const char *
-     d  options                            value like(xmlCint)
+     d  options                      10i 0 value
 
-     d xmlReaderNewFd  pr                  extproc('xmlReaderNewFd')
-     d                                     like(xmlCint)
+     d xmlReaderNewFd  pr            10i 0 extproc('xmlReaderNewFd')
      d  reader                             value like(xmlTextReaderPtr)
-     d  fd                                 value like(xmlCint)
+     d  fd                           10i 0 value
      d  URL                            *   value options(*string)               const char *
      d  encoding                       *   value options(*string)               const char *
-     d  options                            value like(xmlCint)
+     d  options                      10i 0 value
 
-     d xmlReaderNewIO  pr                  extproc('xmlReaderNewIO')
-     d                                     like(xmlCint)
+     d xmlReaderNewIO  pr            10i 0 extproc('xmlReaderNewIO')
      d  reader                             value like(xmlTextReaderPtr)
      d  ioread                             value like(xmlInputReadCallback)
      d  ioclose                            value like(xmlInputCloseCallback)
      d  ioctx                          *   value                                void *
      d  URL                            *   value options(*string)               const char *
      d  encoding                       *   value options(*string)               const char *
-     d  options                            value like(xmlCint)
+     d  options                      10i 0 value
 
       * Error handling extensions
 
@@ -633,9 +585,8 @@
      d                                     procptr
 
      d xmlTextReaderLocatorLineNumber...
-     d                 pr                  extproc(
+     d                 pr            10i 0 extproc(
      d                                     'xmlTextReaderLocatorLineNumber')
-     d                                     like(xmlCint)
      d  locator                            value like(xmlTextReaderLocatorPtr)
 
      d xmlTextReaderLocatorBaseURI...
