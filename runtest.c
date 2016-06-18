@@ -1679,8 +1679,7 @@ saxParseTest(const char *filename, const char *result,
     }
     if (ret != 0) {
         fprintf(stderr, "Failed to parse %s\n", filename);
-	ret = 1;
-	goto done;
+	return(1);
     }
 #ifdef LIBXML_HTML_ENABLED
     if (options & XML_PARSE_HTML) {
@@ -1702,8 +1701,6 @@ saxParseTest(const char *filename, const char *result,
         fprintf(stderr, "Got a difference for %s\n", filename);
         ret = 1;
     }
-
-done:
     if (temp != NULL) {
         unlink(temp);
         free(temp);

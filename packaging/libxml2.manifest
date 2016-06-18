@@ -1,8 +1,5 @@
 <manifest>
-	<assign>
-		<filesystem path="/usr/bin/*" exec_label="none"/>
-	</assign>
-	<request>
-		<domain name="_"/>
-	</request>
+ <request>
+    <domain name="_"/>
+ </request>
 </manifest>

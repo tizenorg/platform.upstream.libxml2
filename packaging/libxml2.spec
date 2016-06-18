@@ -1,5 +1,5 @@
 Name:           libxml2
-Version:        2.9.2
+Version:        2.9.1
 Release:        0
 Summary:        A Library to Manipulate XML Files
 License:        MIT
@@ -57,7 +57,6 @@ to develop applications that require these.
 cp %{SOURCE1001} .
 
 %build
-touch configure.ac aclocal.m4 configure Makefile.am Makefile.in
 %configure --disable-static \
     --docdir=%_docdir/%name \
     --with-html-dir=%_docdir/%name/html \
@@ -114,6 +113,5 @@ ln -s libxml2/libxml %{buildroot}%{_includedir}/libxml
 %{_libdir}/libxml2.la
 %{_libdir}/*.sh
 %{_libdir}/pkgconfig/*.pc
-%{_libdir}/cmake/libxml2/libxml2-config.cmake
 
 %changelog
