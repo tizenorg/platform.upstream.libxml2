@@ -1,9 +1,9 @@
 Name:           python-libxml2
-Version:        2.9.1
+Version:        2.9.4
 Release:        0
 Summary:        Python Bindings for libxml2
 License:        MIT
-Group:          Platform Development/Python
+Group:          Development/Python
 Url:            http://xmlsoft.org
 Source:         ftp://xmlsoft.org/libxml2/libxml2-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-build
